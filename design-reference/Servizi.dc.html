@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Servizi — Cedi Soft</title>
+<link rel="icon" href="./assets/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script src="./cs-icons.js"></script>
+<script src="./cs-core.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#FFFFFF;color:#192C58;font-family:Geist,Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#274798;text-decoration:none}
+a:hover{color:#1F3A7E}
+::selection{background:#B6D5F0}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:1ms!important;transition-duration:1ms!important;scroll-behavior:auto!important}}
+</style>
+</helmet>
+<dc-import name="Header" active="servizi" hint-size="100%,0px"></dc-import>
+<main id="main">
+<section data-screen-label="01 Hero servizi" style="position:relative;overflow:hidden;padding:clamp(124px,14vw,168px) 20px clamp(48px,6vw,72px);background:radial-gradient(800px 440px at 90% 0%,rgba(52,166,59,0.1),transparent 60%),radial-gradient(800px 440px at 0% 10%,rgba(69,154,213,0.16),transparent 60%),linear-gradient(180deg,#FFFFFF 0%,#F7F9FD 100%)">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:20px">
+    <nav aria-label="Percorso" style="display:flex;align-items:center;gap:8px;font:500 13px/1 Geist;color:#66738C"><a href="Home.dc.html" style="color:#4B5770">Home</a><cs-icon name="chevron-right" size="14"></cs-icon><span aria-current="page" style="color:#192C58">Servizi</span></nav>
+    <h1 style="margin:0;max-width:940px;font:600 clamp(40px,6vw,76px)/1 Geist;letter-spacing:-0.045em;color:#192C58;text-wrap:balance">Servizi che accompagnano il tuo software.</h1>
+    <p style="margin:0;max-width:640px;font:400 clamp(17px,1.5vw,19px)/1.6 Geist;color:#4B5770;text-wrap:pretty">Fatturazione elettronica, protezione dei dati, assistenza e sviluppo su misura: quello che serve per lavorare ogni giorno con tranquillità.</p>
+  </div>
+  <div style="max-width:1200px;margin:40px auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:10px">
+    <sc-for list="{{ cards }}" as="c" hint-placeholder-count="5">
+      <a href="#{{ c.id }}" onMouseEnter="{{ c.hover }}" style="display:flex;flex-direction:column;gap:14px;padding:20px;border-radius:20px;background:{{ c.bg }};border:1px solid {{ c.bd }};color:{{ c.fg }};transition:all 320ms cubic-bezier(0.22,1,0.36,1);transform:{{ c.tf }}" style-focus="outline:3px solid #9CC8EC;outline-offset:2px">
+        <span style="width:42px;height:42px;border-radius:12px;background:{{ c.ibg }};color:{{ c.ifg }};display:flex;align-items:center;justify-content:center;transition:all 320ms"><cs-icon name="{{ c.icon }}" size="20"></cs-icon></span>
+        <span style="font:600 16px/1.25 Geist;letter-spacing:-0.01em">{{ c.name }}</span>
+        <span style="margin-top:auto;display:inline-flex;align-items:center;gap:6px;font:500 13px/1 Geist;opacity:0.8">Dettagli<cs-icon name="arrow-down" size="14"></cs-icon></span>
+      </a>
+    </sc-for>
+  </div>
+</section>
+
+<sc-for list="{{ services }}" as="s" hint-placeholder-count="5">
+  <section id="{{ s.id }}" data-screen-label="{{ s.label }}" style="padding:clamp(64px,8vw,104px) 20px;background:{{ s.sbg }};scroll-margin-top:80px">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:40px 64px;align-items:center">
+      <div data-reveal="" style="order:{{ s.o1 }};display:flex;flex-direction:column;gap:18px">
+        <span style="display:inline-flex;align-items:center;gap:10px;font:500 12px/1 'Geist Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;color:#2F7FBC"><cs-icon name="{{ s.icon }}" size="16"></cs-icon>{{ s.n }} · Servizio</span>
+        <h2 style="margin:0;font:600 clamp(30px,3.6vw,46px)/1.06 Geist;letter-spacing:-0.035em;color:#192C58;text-wrap:balance">{{ s.name }}</h2>
+        <p style="margin:0;font:400 17px/1.6 Geist;color:#4B5770;text-wrap:pretty">{{ s.desc }}</p>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px">
+          <sc-for list="{{ s.benefits }}" as="b" hint-placeholder-count="3"><li style="display:flex;gap:10px;align-items:flex-start;font:400 15px/1.5 Geist;color:#192C58"><span style="width:22px;height:22px;flex:none;border-radius:50%;background:#EEF8EE;color:#236F28;display:flex;align-items:center;justify-content:center"><cs-icon name="check" size="13"></cs-icon></span>{{ b }}</li></sc-for>
+        </ul>
+        <sc-if value="{{ s.unverified }}" hint-placeholder-val="{{ false }}"><span style="align-self:flex-start;font:500 10px/1 'Geist Mono',monospace;letter-spacing:0.05em;text-transform:uppercase;color:#8A5200;background:#FFF6E5;padding:6px 9px;border-radius:6px">Contenuti da verificare con Cedi Soft</span></sc-if>
+        <a href="{{ s.ctaHref }}" style="align-self:flex-start;display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 22px;border-radius:999px;background:#274798;color:#FFFFFF;font:500 15px/1 Geist;transition:background 220ms,gap 220ms;margin-top:4px" style-hover="background:#1F3A7E;color:#FFFFFF;gap:12px">{{ s.cta }}<cs-icon name="arrow-right" size="16"></cs-icon></a>
+      </div>
+      <div data-reveal-img="" style="order:{{ s.o2 }};position:relative;min-height:clamp(380px,40vw,480px);border-radius:30px">
+        <div style="position:absolute;inset:0 22% 26% 0;border-radius:28px;overflow:hidden;background:{{ s.visBg }}"><image-slot id="{{ s.img }}" shape="rect" placeholder="{{ s.imgPh }}"></image-slot></div>
+        <div aria-hidden="true" style="position:absolute;right:4%;top:6%;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,{{ s.orb }},transparent 68%);filter:blur(16px);pointer-events:none"></div>
+        <div style="position:absolute;right:0;bottom:0;width:min(78%,440px)">
+        <div style="border-radius:20px;background:#FFFFFF;border:1px solid rgba(25,44,88,0.08);box-shadow:0 30px 60px -36px rgba(25,44,88,0.45);overflow:hidden">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 18px;border-bottom:1px solid rgba(25,44,88,0.07)"><span style="display:flex;align-items:center;gap:8px;font:600 14px/1 Geist;color:#192C58"><cs-icon name="{{ s.icon }}" size="15"></cs-icon>{{ s.visTitle }}</span><span style="font:500 10px/1 'Geist Mono',monospace;letter-spacing:0.05em;text-transform:uppercase;color:#66738C">Illustrativo</span></div>
+          <div style="display:flex;flex-direction:column;gap:8px;padding:16px 18px 18px">
+            <sc-for list="{{ s.vis }}" as="v" hint-placeholder-count="4">
+              <div style="display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;background:{{ v.bg }}">
+                <span style="width:32px;height:32px;flex:none;border-radius:10px;background:#FFFFFF;color:{{ v.fg }};display:flex;align-items:center;justify-content:center;border:1px solid rgba(25,44,88,0.06)"><cs-icon name="{{ v.icon }}" size="16"></cs-icon></span>
+                <span style="flex:1;min-width:0;font:500 14px/1.3 Geist;color:#192C58">{{ v.t }}</span>
+                <span style="font:500 12px/1 Geist;color:{{ v.fg }};white-space:nowrap">{{ v.s }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</sc-for>
+
+<section data-screen-label="07 Perché Cedi Soft" style="position:relative;overflow:hidden;padding:clamp(80px,10vw,128px) 20px;background:#192C58;color:#FFFFFF">
+  <div aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(700px 420px at 100% 0%,rgba(69,154,213,0.35),transparent 60%),radial-gradient(520px 320px at 0% 100%,rgba(52,166,59,0.16),transparent 60%)"></div>
+  <div style="position:relative;max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:44px">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:14px;max-width:720px"><span style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;color:#9CC8EC">Perché Cedi Soft</span><h2 style="margin:0;font:600 clamp(32px,4vw,52px)/1.05 Geist;letter-spacing:-0.035em;text-wrap:balance">Un solo interlocutore, dal software ai servizi.</h2></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:1px;border-radius:24px;overflow:hidden;background:rgba(255,255,255,0.12)">
+      <sc-for list="{{ why }}" as="w" hint-placeholder-count="4">
+        <div data-reveal="{{ w.d }}" style="display:flex;flex-direction:column;gap:14px;padding:28px;background:#192C58;transition:background 300ms" style-hover="background:#1E3466">
+          <span style="color:#9CC8EC;display:flex"><cs-icon name="{{ w.icon }}" size="24"></cs-icon></span>
+          <span style="font:600 19px/1.25 Geist;letter-spacing:-0.015em">{{ w.t }}</span>
+          <span style="font:400 14px/1.6 Geist;color:#C9D6EC">{{ w.b }}</span>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:12px">
+      <a href="Azienda.dc.html#contatti" style="display:inline-flex;align-items:center;gap:8px;height:52px;padding:0 26px;border-radius:999px;background:#FFFFFF;color:#192C58;font:500 16px/1 Geist;transition:gap 220ms" style-hover="gap:12px;color:#192C58">Richiedi informazioni<cs-icon name="arrow-right" size="17"></cs-icon></a>
+      <a href="Software.dc.html" style="display:inline-flex;align-items:center;gap:8px;height:52px;padding:0 24px;border-radius:999px;border:1px solid rgba(255,255,255,0.3);color:#FFFFFF;font:500 16px/1 Geist" style-hover="border-color:#FFFFFF;color:#FFFFFF">Scopri i software</a>
+    </div>
+  </div>
+</section>
+</main>
+<dc-import name="Footer" hint-size="100%,420px"></dc-import>
+<dc-import name="CediAssist" hint-size="0px,0px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const VIS = {
+  fatturazione: { ph: 'Foto: ufficio amministrativo al lavoro', title: 'Ciclo fattura elettronica', rows: [['file-pen-line', 'Compilazione della fattura', 'Fatto', 'g'], ['signature', 'Firma digitale', 'Fatto', 'g'], ['send', 'Trasmissione al Sistema di Interscambio', 'Fatto', 'g'], ['inbox', 'Notifiche e ricevute', 'In attesa', 'a'], ['archive', 'Conservazione sostitutiva', 'Pianificata', 'b']], cta: 'Richiedi informazioni' },
+  backup: { ph: 'Foto: postazione o server aziendale', title: 'Copie di sicurezza', rows: [['database', '[Archivio gestionale]', '[Frequenza]', 'b'], ['hard-drive', '[Destinazione backup]', '[Da definire]', 'b'], ['history', 'Ripristino assistito', 'Su richiesta', 'g']], cta: 'Richiedi informazioni' },
+  sicurezza: { ph: 'Foto: postazioni di lavoro in ufficio', title: 'Stato postazioni', rows: [['monitor', '[Postazione 1]', 'Protetta', 'g'], ['monitor', '[Postazione 2]', 'Protetta', 'g'], ['laptop', '[Postazione 3]', 'Da aggiornare', 'a'], ['shield-check', '[Soluzione antivirus]', 'Da confermare', 'b']], cta: 'Richiedi informazioni' },
+  assistenza: { ph: 'Foto: team di assistenza Cedi Soft', title: 'Richiesta di assistenza', rows: [['message-circle', 'Chat con il supporto', 'Disponibile', 'g'], ['phone', 'Assistenza telefonica', 'Contatti', 'b'], ['monitor-down', 'Intervento da remoto', 'Se verificato', 'a'], ['bell', 'Bacheca aggiornamenti nel software', 'Attiva', 'g']], cta: 'Vai all’assistenza', href: 'Assistenza.dc.html' },
+  sviluppo: { ph: 'Foto: team di sviluppo al lavoro', title: 'Progetto su misura', rows: [['messages-square', 'Analisi delle esigenze', 'Fase 1', 'b'], ['pencil-ruler', 'Progettazione', 'Fase 2', 'b'], ['code-xml', 'Sviluppo e integrazione', 'Fase 3', 'b'], ['life-buoy', 'Assistenza ed evoluzione', 'Continuativa', 'g']], cta: 'Parlaci del tuo progetto' }
+};
+class Component extends DCLogic {
+  state = { hover: null };
+  componentDidMount() { if (!window.CS) window.addEventListener('cs:ready', () => this.forceUpdate(), { once: true }); }
+  renderVals() {
+    const CS = window.CS; const S = CS ? CS.services : [];
+    const tone = { g: ['#F1F8EF', '#236F28'], a: ['#FFF9EE', '#8A5200'], b: ['#F7F9FD', '#274798'] };
+    return {
+      cards: S.map(s => { const on = this.state.hover === s.id; return { id: s.id, name: s.name, icon: s.icon, hover: () => this.setState({ hover: s.id }), bg: on ? '#192C58' : '#FFFFFF', fg: on ? '#FFFFFF' : '#192C58', bd: on ? '#192C58' : 'rgba(25,44,88,0.08)', ibg: on ? 'rgba(255,255,255,0.14)' : '#EEF4FC', ifg: on ? '#FFFFFF' : '#274798', tf: on ? 'translateY(-4px)' : 'none' }; }),
+      services: S.map((s, i) => { const v = VIS[s.id] || { rows: [], title: '' }; return {
+        id: s.id, n: String(i + 1).padStart(2, '0'), label: String(i + 2).padStart(2, '0') + ' ' + s.name, name: s.name, icon: s.icon, desc: s.desc, benefits: s.benefits, unverified: !s.verified,
+        sbg: i % 2 ? '#F7F9FD' : '#FFFFFF', o1: i % 2 ? 2 : 1, o2: i % 2 ? 1 : 2,
+        visBg: ['linear-gradient(150deg,#EEF4FC,#F7F9FD)', 'linear-gradient(150deg,#F1F8EF,#F7F9FD)'][i % 2],
+        img: 'servizi-' + s.id, imgPh: v.ph, orb: ['rgba(69,154,213,0.35)', 'rgba(52,166,59,0.25)'][i % 2],
+        visTitle: v.title, vis: v.rows.map(([icon, t, st, k]) => ({ icon, t, s: st, bg: tone[k][0], fg: tone[k][1] })),
+        cta: v.cta, ctaHref: v.href || ('Azienda.dc.html?oggetto=commerciale#contatti')
+      }; }),
+      why: [
+        { icon: 'code-xml', t: 'Sviluppiamo noi i software', b: 'Servizi e assistenza vengono da chi conosce il prodotto dall’interno.', d: 0 },
+        { icon: 'layers', t: 'Esperienza multi-settore', b: 'Dal 1989 lavoriamo con imprese e professionisti di ambiti diversi.', d: 60 },
+        { icon: 'workflow', t: 'Integrazione', b: 'I servizi si collegano ai software Cedi Soft e ai sistemi che usi già.', d: 120 },
+        { icon: 'handshake', t: 'Rapporto diretto', b: 'Un interlocutore unico per software, servizi e supporto.', d: 180 }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

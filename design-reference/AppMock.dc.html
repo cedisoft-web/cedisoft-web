@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="position:relative;width:100%;height:100%;display:flex;flex-direction:column;border-radius:{{ radius }};background:#FFFFFF;border:1px solid rgba(25,44,88,0.1);box-shadow:{{ shadow }};overflow:hidden;font-family:Geist,system-ui,sans-serif;color:#192C58">
+  <div style="flex:none;display:flex;align-items:center;gap:10px;height:{{ barH }};padding:0 14px;background:#F7F9FD;border-bottom:1px solid rgba(25,44,88,0.07)">
+    <span style="display:flex;gap:5px"><span style="width:9px;height:9px;border-radius:50%;background:#E3E8F0"></span><span style="width:9px;height:9px;border-radius:50%;background:#E3E8F0"></span><span style="width:9px;height:9px;border-radius:50%;background:#E3E8F0"></span></span>
+    <span style="display:inline-flex;align-items:center;gap:7px;margin-left:6px;font:600 12px/1 Geist;color:#192C58;white-space:nowrap;overflow:hidden;text-overflow:ellipsis"><cs-icon name="{{ icon }}" size="13"></cs-icon>{{ title }}</span>
+    <sc-if value="{{ showBadge }}" hint-placeholder-val="{{ true }}"><span style="margin-left:auto;flex:none;font:500 9px/1 'Geist Mono',monospace;letter-spacing:0.05em;text-transform:uppercase;color:#8A5200;background:#FFF6E5;padding:5px 7px;border-radius:6px">{{ badge }}</span></sc-if>
+  </div>
+  <div style="flex:1;min-height:0;display:flex">
+    <sc-if value="{{ side }}" hint-placeholder-val="{{ false }}">
+      <div style="flex:none;width:150px;display:flex;flex-direction:column;gap:2px;padding:12px 8px;border-right:1px solid rgba(25,44,88,0.06);background:#FCFDFF">
+        <sc-for list="{{ nav }}" as="n" hint-placeholder-count="5"><span style="display:flex;align-items:center;gap:8px;height:30px;padding:0 9px;border-radius:8px;background:{{ n.bg }};color:{{ n.fg }};font:500 12px/1 Geist;white-space:nowrap"><cs-icon name="{{ n.icon }}" size="14"></cs-icon>{{ n.label }}</span></sc-for>
+      </div>
+    </sc-if>
+    <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:12px;padding:{{ pad }}">
+
+      <sc-if value="{{ isPark }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span style="font:600 16px/1.2 Geist;letter-spacing:-0.015em">Parco veicoli</span><span style="display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 11px;border-radius:999px;background:#274798;color:#FFFFFF;font:500 11px/1 Geist;white-space:nowrap"><cs-icon name="plus" size="12"></cs-icon>Nuovo veicolo</span></div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap"><span style="height:24px;padding:0 10px;border-radius:999px;background:#EEF4FC;color:#274798;font:500 11px/24px Geist">Nuovi</span><span style="height:24px;padding:0 10px;border-radius:999px;background:#F1F4FA;color:#4B5770;font:500 11px/24px Geist">Usati</span><span style="height:24px;padding:0 10px;border-radius:999px;background:#F1F4FA;color:#4B5770;font:500 11px/24px Geist">Noleggio</span></div>
+        <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px;padding:0 4px;font:500 9px/1 'Geist Mono',monospace;letter-spacing:0.05em;text-transform:uppercase;color:#66738C"><span>Veicolo</span><span>Stato</span><span>Prezzo</span></div>
+        <sc-for list="{{ rows }}" as="r" hint-placeholder-count="5">
+          <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px;align-items:center;padding:9px 4px;border-top:1px solid rgba(25,44,88,0.06)">
+            <span style="display:flex;align-items:center;gap:10px;min-width:0"><span style="width:32px;height:22px;flex:none;border-radius:6px;background:linear-gradient(135deg,#E8EEF8,#DCE6F4)"></span><span style="height:7px;width:{{ r.w }};border-radius:4px;background:#DCE3EE"></span></span>
+            <span style="justify-self:start;height:19px;padding:0 8px;border-radius:999px;background:{{ r.sbg }};color:{{ r.sfg }};font:500 10px/19px Geist;white-space:nowrap">{{ r.s }}</span>
+            <span style="height:7px;width:52px;border-radius:4px;background:#E7ECF3"></span>
+          </div>
+        </sc-for>
+      </sc-if>
+
+      <sc-if value="{{ isSheet }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid;grid-template-columns:1.15fr 1fr;gap:14px;flex:1;min-height:0">
+          <div style="display:flex;flex-direction:column;gap:8px"><div style="flex:1;min-height:110px;border-radius:12px;background:repeating-linear-gradient(135deg,#F1F4FA 0 10px,#EBEFF5 10px 20px);display:flex;align-items:center;justify-content:center;font:500 10px/1.4 'Geist Mono',monospace;color:#66738C">[foto veicolo]</div><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px"><span style="aspect-ratio:4/3;border-radius:7px;background:#EEF1F6"></span><span style="aspect-ratio:4/3;border-radius:7px;background:#EEF1F6"></span><span style="aspect-ratio:4/3;border-radius:7px;background:#EEF1F6"></span><span style="aspect-ratio:4/3;border-radius:7px;background:#EEF1F6"></span></div></div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <sc-for list="{{ sheet }}" as="r" hint-placeholder-count="5"><div style="display:flex;flex-direction:column;gap:5px"><span style="font:500 9px/1 'Geist Mono',monospace;letter-spacing:0.05em;text-transform:uppercase;color:#66738C">{{ r }}</span><span style="height:7px;width:78%;border-radius:4px;background:#E3E8F0"></span></div></sc-for>
+            <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:auto"><span style="height:22px;padding:0 8px;border-radius:999px;background:#EEF4FC;color:#274798;font:500 10px/22px Geist">Interrogazione targhe</span><span style="height:22px;padding:0 8px;border-radius:999px;background:#F1F8EF;color:#236F28;font:500 10px/22px Geist">Valutazione usato</span></div>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isCrash }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span style="font:600 15px/1.2 Geist">Preventivo riparazione</span><span style="height:22px;padding:0 9px;border-radius:999px;background:#FFF6E5;color:#8A5200;font:500 10px/22px Geist">In lavorazione</span></div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px"><span style="aspect-ratio:4/3;border-radius:9px;background:repeating-linear-gradient(135deg,#F1F4FA 0 8px,#EBEFF5 8px 16px)"></span><span style="aspect-ratio:4/3;border-radius:9px;background:repeating-linear-gradient(135deg,#F1F4FA 0 8px,#EBEFF5 8px 16px)"></span><span style="aspect-ratio:4/3;border-radius:9px;background:repeating-linear-gradient(135deg,#F1F4FA 0 8px,#EBEFF5 8px 16px)"></span></div>
+        <sc-for list="{{ crash }}" as="c" hint-placeholder-count="4"><div style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:6px 0;border-top:1px solid rgba(25,44,88,0.05)"><span style="font:400 12px/1 Geist;color:#4B5770">{{ c }}</span><span style="height:7px;width:60px;border-radius:4px;background:#E3E8F0"></span></div></sc-for>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding-top:8px;border-top:1px solid rgba(25,44,88,0.1)"><span style="font:600 12px/1 Geist">Totale</span><span style="height:9px;width:76px;border-radius:4px;background:linear-gradient(90deg,#274798,#459AD5)"></span></div>
+      </sc-if>
+
+      <sc-if value="{{ isGest }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:12px;flex:1;min-height:0">
+          <div style="display:flex;flex-direction:column;gap:8px"><span style="font:600 14px/1.2 Geist">Vendita al banco</span><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px"><sc-for list="{{ tiles }}" as="t" hint-placeholder-count="6"><span style="aspect-ratio:1/0.8;border-radius:10px;background:{{ t }}"></span></sc-for></div></div>
+          <div style="display:flex;flex-direction:column;gap:8px;padding:10px;border-radius:12px;background:#F7F9FD"><span style="font:500 9px/1 'Geist Mono',monospace;letter-spacing:0.05em;text-transform:uppercase;color:#66738C">Scontrino</span><span style="height:6px;width:90%;border-radius:3px;background:#E3E8F0"></span><span style="height:6px;width:70%;border-radius:3px;background:#E3E8F0"></span><span style="height:6px;width:80%;border-radius:3px;background:#E3E8F0"></span><span style="margin-top:auto;display:flex;align-items:center;gap:6px;padding:7px;border-radius:8px;background:#F1F8EF;color:#236F28;font:500 10px/1.2 Geist"><cs-icon name="receipt-text" size="12"></cs-icon>Fattura elettronica</span></div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isVideo }}" hint-placeholder-val="{{ false }}">
+        <div style="position:relative;flex:1;min-height:140px;border-radius:12px;background:linear-gradient(160deg,#1E3466,#192C58);display:flex;align-items:center;justify-content:center;color:#8FA6CC;font:500 10px/1.4 'Geist Mono',monospace">[videochiamata con il cliente]<span style="position:absolute;right:10px;bottom:10px;width:30%;aspect-ratio:4/3;border-radius:8px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2)"></span><span style="position:absolute;left:10px;top:10px;display:inline-flex;align-items:center;gap:5px;height:20px;padding:0 8px;border-radius:999px;background:rgba(168,42,51,0.9);color:#FFFFFF;font:600 9px/1 Geist"><span style="width:5px;height:5px;border-radius:50%;background:#FFFFFF"></span>REC</span></div>
+        <div style="display:flex;justify-content:center;gap:8px"><span style="width:30px;height:30px;border-radius:50%;background:#F1F4FA"></span><span style="width:30px;height:30px;border-radius:50%;background:#F1F4FA"></span><span style="width:30px;height:30px;border-radius:50%;background:#A82A33"></span></div>
+      </sc-if>
+
+      <sc-if value="{{ isDash }}" hint-placeholder-val="{{ false }}">
+        <span style="font:600 15px/1.2 Geist">Panoramica</span>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px"><sc-for list="{{ kpis }}" as="k" hint-placeholder-count="3"><div style="display:flex;flex-direction:column;gap:8px;padding:10px;border-radius:12px;background:{{ k.bg }}"><span style="font:500 9px/1 'Geist Mono',monospace;letter-spacing:0.05em;text-transform:uppercase;color:#66738C">{{ k.l }}</span><span style="height:10px;width:60%;border-radius:4px;background:{{ k.bar }}"></span></div></sc-for></div>
+        <div style="flex:1;min-height:80px;display:flex;align-items:flex-end;gap:6px;padding:12px;border-radius:12px;border:1px solid rgba(25,44,88,0.06)"><sc-for list="{{ bars }}" as="b" hint-placeholder-count="10"><span style="flex:1;height:{{ b.h }};border-radius:5px 5px 2px 2px;background:{{ b.c }}"></span></sc-for></div>
+      </sc-if>
+
+      <sc-if value="{{ isFlow }}" hint-placeholder-val="{{ false }}">
+        <sc-for list="{{ flow }}" as="f" hint-placeholder-count="4"><div style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:11px;background:{{ f.bg }}"><span style="width:26px;height:26px;flex:none;border-radius:8px;background:#FFFFFF;color:{{ f.fg }};display:flex;align-items:center;justify-content:center"><cs-icon name="{{ f.icon }}" size="13"></cs-icon></span><span style="flex:1;min-width:0;font:500 12px/1.3 Geist;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ f.t }}</span><span style="font:500 10px/1 Geist;color:{{ f.fg }}">{{ f.s }}</span></div></sc-for>
+      </sc-if>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:640,&quot;height&quot;:380},&quot;kind&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;park&quot;,&quot;sheet&quot;,&quot;crash&quot;,&quot;gest&quot;,&quot;video&quot;,&quot;dash&quot;,&quot;invoice&quot;],&quot;default&quot;:&quot;park&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;compact&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;},&quot;badge&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Anteprima illustrativa&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;title&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+const K = {
+  park: { title: 'Gest Park', icon: 'car-front', side: true },
+  sheet: { title: 'Gest Park · Scheda veicolo', icon: 'car-front', side: false },
+  crash: { title: 'Gest Crash CARW', icon: 'wrench', side: false },
+  gest: { title: 'GEST', icon: 'calculator', side: false },
+  video: { title: 'Videoperizia Online', icon: 'video', side: false },
+  dash: { title: 'Gest Park · Panoramica', icon: 'layout-dashboard', side: true },
+  invoice: { title: 'Fatturazione elettronica', icon: 'receipt-text', side: false }
+};
+class Component extends DCLogic {
+  renderVals() {
+    const kind = this.props.kind || 'park';
+    const k = K[kind] || K.park;
+    const compact = !!this.props.compact;
+    const side = k.side && !compact && this.props.side !== false;
+    const st = [['#EEF8EE', '#236F28'], ['#FFF6E5', '#8A5200'], ['#F1F4FA', '#4B5770']];
+    const active = kind === 'dash' ? 'Panoramica' : 'Veicoli';
+    return {
+      title: this.props.title || k.title, icon: k.icon,
+      badge: this.props.badge || 'Anteprima illustrativa', showBadge: this.props.badge !== '',
+      radius: this.props.radius || '18px',
+      shadow: this.props.flat ? 'none' : '0 40px 80px -40px rgba(25,44,88,0.45)',
+      barH: compact ? '32px' : '40px', pad: compact ? '12px 14px' : '16px 18px',
+      side,
+      nav: [['layout-dashboard', 'Panoramica'], ['car-front', 'Veicoli'], ['users', 'Clienti'], ['handshake', 'Vendite'], ['key-round', 'Noleggio'], ['file-text', 'Pratiche auto']].map(([icon, label]) => ({ icon, label, bg: label === active ? '#EEF4FC' : 'transparent', fg: label === active ? '#274798' : '#4B5770' })),
+      isPark: kind === 'park', isSheet: kind === 'sheet', isCrash: kind === 'crash', isGest: kind === 'gest', isVideo: kind === 'video', isDash: kind === 'dash', isFlow: kind === 'invoice',
+      rows: [['64%', 'Disponibile', 0], ['52%', 'Prenotato', 1], ['70%', 'Disponibile', 0], ['46%', 'Venduto', 2], ['58%', 'Disponibile', 0]].slice(0, compact ? 3 : 5).map(([w, s, i]) => ({ w, s, sbg: st[i][0], sfg: st[i][1] })),
+      sheet: ['Marca e modello', 'Targa', 'Immatricolazione', 'Chilometri', 'Prezzo'].slice(0, compact ? 3 : 5),
+      crash: ['Ricambi', 'Manodopera', 'Verniciatura', 'Materiali di consumo'].slice(0, compact ? 2 : 4),
+      tiles: ['#EEF4FC', '#F1F4FA', '#F1F4FA', '#F1F8EF', '#F1F4FA', '#EEF4FC'],
+      kpis: [['Veicoli', '#EEF4FC', '#B6CDEA'], ['Vendite', '#F1F8EF', '#B5DDB7'], ['Noleggi', '#F7F9FD', '#DCE3EE']].map(([l, bg, bar]) => ({ l, bg, bar })),
+      bars: [38, 52, 44, 66, 58, 72, 61, 80, 70, 88].map((h, i) => ({ h: h + '%', c: i === 9 ? 'linear-gradient(180deg,#459AD5,#274798)' : '#DCE6F4' })),
+      flow: [['file-pen-line', 'Compilazione', 'Fatto', 0], ['signature', 'Firma digitale', 'Fatto', 0], ['send', 'Trasmissione SdI', 'Fatto', 0], ['inbox', 'Ricevute', 'In attesa', 1], ['archive', 'Conservazione', 'Pianificata', 2]].slice(0, compact ? 4 : 5).map(([icon, t, s, i]) => ({ icon, t, s, bg: ['#F1F8EF', '#FFF9EE', '#F7F9FD'][i], fg: ['#236F28', '#8A5200', '#274798'][i] }))
+    };
+  }
+}
+</script>
+</body>
+</html>

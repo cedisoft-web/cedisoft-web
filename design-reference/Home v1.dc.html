@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Cedi Soft — Software che semplifica</title>
+<link rel="icon" href="./assets/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script src="./cs-icons.js"></script>
+<script src="./cs-core.js"></script>
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#FFFFFF;color:#192C58;font-family:Geist,Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#274798;text-decoration:none}
+a:hover{color:#1F3A7E}
+::selection{background:#B6D5F0}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:1ms!important;transition-duration:1ms!important;scroll-behavior:auto!important}}
+</style>
+</helmet>
+<dc-import name="Header" active="home" hint-size="100%,0px"></dc-import>
+<main id="main">
+
+<section data-screen-label="01 Hero" style="position:relative;overflow:hidden;padding:clamp(128px,16vw,176px) 20px 0;background:radial-gradient(900px 520px at 18% 8%,rgba(69,154,213,0.16),transparent 60%),radial-gradient(760px 480px at 88% 22%,rgba(39,71,152,0.12),transparent 62%),radial-gradient(600px 360px at 60% 90%,rgba(52,166,59,0.08),transparent 60%),linear-gradient(180deg,#FFFFFF 0%,#F4F8FD 100%)">
+  <div style="position:relative;max-width:980px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px">
+    <span style="display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,0.75);border:1px solid rgba(25,44,88,0.08);font:500 12px/1 'Geist Mono',monospace;letter-spacing:0.04em;color:#274798"><span style="width:6px;height:6px;border-radius:50%;background:#34A63B"></span>Software house italiana · dal 1989</span>
+    <h1 style="margin:0;font:600 clamp(44px,7.4vw,92px)/0.98 Geist;letter-spacing:-0.045em;color:#192C58;text-wrap:balance">Software che semplifica.<br><span style="background:linear-gradient(100deg,#274798 0%,#459AD5 60%,#34A63B 110%);-webkit-background-clip:text;background-clip:text;color:transparent">Tecnologia che evolve.</span></h1>
+    <p style="margin:0;max-width:680px;font:400 clamp(17px,1.6vw,20px)/1.6 Geist;color:#4B5770;text-wrap:pretty">Progettiamo e sviluppiamo soluzioni software per aziende e professionisti, trasformando esigenze complesse in strumenti di lavoro semplici, affidabili e su misura.</p>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:4px">
+      <a href="Software.dc.html" style="display:inline-flex;align-items:center;gap:8px;height:52px;padding:0 26px;border-radius:999px;background:#274798;color:#FFFFFF;font:500 16px/1 Geist;box-shadow:0 14px 30px -14px rgba(39,71,152,0.7);transition:background 220ms,gap 220ms" style-hover="background:#1F3A7E;color:#FFFFFF;gap:12px" style-focus="outline:3px solid #9CC8EC;outline-offset:2px">Scopri i software<cs-icon name="arrow-right" size="17"></cs-icon></a>
+      <a href="Azienda.dc.html#contatti" style="display:inline-flex;align-items:center;gap:8px;height:52px;padding:0 24px;border-radius:999px;background:rgba(255,255,255,0.85);border:1px solid rgba(25,44,88,0.12);color:#192C58;font:500 16px/1 Geist;transition:border-color 220ms" style-hover="border-color:#459AD5;color:#192C58" style-focus="outline:3px solid #9CC8EC;outline-offset:2px">Contattaci</a>
+    </div>
+  </div>
+
+  <div onMouseMove="{{ heroMove }}" onMouseLeave="{{ heroLeave }}" style="position:relative;max-width:1180px;height:{{ stageH }};margin:clamp(48px,6vw,72px) auto 0;perspective:1800px">
+    <div style="position:absolute;left:50%;top:0;width:min(760px,100%);transform:translateX(-50%) {{ tfMain }};transition:transform 700ms cubic-bezier(0.22,1,0.36,1);z-index:3">
+      <div style="border-radius:20px 20px 0 0;background:#FFFFFF;border:1px solid rgba(25,44,88,0.1);border-bottom:0;box-shadow:0 50px 100px -40px rgba(25,44,88,0.45);overflow:hidden">
+        <div style="display:flex;align-items:center;gap:10px;height:42px;padding:0 16px;background:#F7F9FD;border-bottom:1px solid rgba(25,44,88,0.07)">
+          <span style="display:flex;gap:6px"><span style="width:10px;height:10px;border-radius:50%;background:#E3E8F0"></span><span style="width:10px;height:10px;border-radius:50%;background:#E3E8F0"></span><span style="width:10px;height:10px;border-radius:50%;background:#E3E8F0"></span></span>
+          <span style="display:inline-flex;align-items:center;gap:7px;margin-left:8px;font:600 13px/1 Geist;color:#192C58"><cs-icon name="car-front" size="14"></cs-icon>Gest Park</span>
+          <span style="margin-left:auto;font:500 10px/1 'Geist Mono',monospace;letter-spacing:0.05em;text-transform:uppercase;color:#8A5200;background:#FFF6E5;padding:5px 8px;border-radius:6px">Anteprima illustrativa</span>
+        </div>
+        <div style="display:grid;grid-template-columns:{{ mainCols }};min-height:320px">
+          <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;flex-direction:column;gap:2px;padding:14px 10px;border-right:1px solid rgba(25,44,88,0.06);background:#FCFDFF">
+              <sc-for list="{{ parkNav }}" as="n" hint-placeholder-count="5">
+                <span style="display:flex;align-items:center;gap:9px;height:34px;padding:0 10px;border-radius:9px;background:{{ n.bg }};color:{{ n.fg }};font:500 13px/1 Geist"><cs-icon name="{{ n.icon }}" size="15"></cs-icon>{{ n.label }}</span>
+              </sc-for>
+            </div>
+          </sc-if>
+          <div style="display:flex;flex-direction:column;gap:14px;padding:18px 20px">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span style="font:600 17px/1.2 Geist;letter-spacing:-0.015em;color:#192C58">Parco veicoli</span><span style="display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-radius:999px;background:#274798;color:#FFFFFF;font:500 12px/1 Geist"><cs-icon name="plus" size="13"></cs-icon>Nuovo veicolo</span></div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap"><span style="height:26px;padding:0 10px;border-radius:999px;background:#EEF4FC;color:#274798;font:500 12px/26px Geist">Nuovi</span><span style="height:26px;padding:0 10px;border-radius:999px;background:#F1F4FA;color:#4B5770;font:500 12px/26px Geist">Usati</span><span style="height:26px;padding:0 10px;border-radius:999px;background:#F1F4FA;color:#4B5770;font:500 12px/26px Geist">Noleggio</span></div>
+            <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px;padding:0 4px;font:500 10px/1 'Geist Mono',monospace;letter-spacing:0.05em;text-transform:uppercase;color:#66738C"><span>Veicolo</span><span>Stato</span><span>Prezzo</span></div>
+            <sc-for list="{{ rows }}" as="r" hint-placeholder-count="5">
+              <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px;align-items:center;padding:10px 4px;border-top:1px solid rgba(25,44,88,0.06)">
+                <span style="display:flex;align-items:center;gap:10px"><span style="width:34px;height:24px;border-radius:6px;background:#EEF1F6"></span><span style="height:8px;width:{{ r.w }};border-radius:4px;background:#DCE3EE"></span></span>
+                <span style="justify-self:start;height:20px;padding:0 8px;border-radius:999px;background:{{ r.sbg }};color:{{ r.sfg }};font:500 11px/20px Geist">{{ r.s }}</span>
+                <span style="height:8px;width:56px;border-radius:4px;background:#E7ECF3"></span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+    <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+      <div style="position:absolute;left:0;top:70px;width:330px;transform:{{ tfLeft }};transition:transform 700ms cubic-bezier(0.22,1,0.36,1);z-index:2">
+        <div style="border-radius:18px;background:rgba(255,255,255,0.9);backdrop-filter:blur(14px);border:1px solid rgba(25,44,88,0.1);box-shadow:0 40px 80px -36px rgba(25,44,88,0.45);overflow:hidden">
+          <div style="display:flex;align-items:center;gap:8px;height:38px;padding:0 14px;border-bottom:1px solid rgba(25,44,88,0.07);font:600 12px/1 Geist;color:#192C58"><cs-icon name="wrench" size="13"></cs-icon>Gest Crash · Preventivo</div>
+          <div style="display:flex;flex-direction:column;gap:10px;padding:14px">
+            <sc-for list="{{ crashRows }}" as="c" hint-placeholder-count="4">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span style="font:400 12px/1 Geist;color:#4B5770">{{ c }}</span><span style="height:7px;width:64px;border-radius:4px;background:#E3E8F0"></span></div>
+            </sc-for>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding-top:10px;border-top:1px solid rgba(25,44,88,0.07)"><span style="font:600 12px/1 Geist;color:#192C58">Totale preventivo</span><span style="height:9px;width:76px;border-radius:4px;background:linear-gradient(90deg,#274798,#459AD5)"></span></div>
+          </div>
+        </div>
+      </div>
+      <div style="position:absolute;right:0;top:130px;width:300px;transform:{{ tfRight }};transition:transform 700ms cubic-bezier(0.22,1,0.36,1);z-index:4">
+        <div style="border-radius:18px;background:rgba(255,255,255,0.92);backdrop-filter:blur(14px);border:1px solid rgba(25,44,88,0.1);box-shadow:0 40px 80px -36px rgba(25,44,88,0.45);overflow:hidden">
+          <div style="display:flex;align-items:center;gap:8px;height:38px;padding:0 14px;border-bottom:1px solid rgba(25,44,88,0.07);font:600 12px/1 Geist;color:#192C58"><cs-icon name="calculator" size="13"></cs-icon>GEST · Vendita al banco</div>
+          <div style="display:flex;flex-direction:column;gap:10px;padding:14px">
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px"><span style="height:44px;border-radius:10px;background:#EEF4FC"></span><span style="height:44px;border-radius:10px;background:#F1F4FA"></span><span style="height:44px;border-radius:10px;background:#F1F4FA"></span></div>
+            <div style="display:flex;align-items:center;gap:8px;padding:10px;border-radius:12px;background:#F1F8EF;color:#236F28;font:500 12px/1.3 Geist"><cs-icon name="receipt-text" size="14"></cs-icon>Fattura elettronica pronta per l’invio</div>
+            <div style="display:flex;align-items:center;justify-content:space-between"><span style="font:400 12px/1 Geist;color:#4B5770">Magazzino</span><span style="height:7px;width:90px;border-radius:4px;background:#E3E8F0"></span></div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+  </div>
+</section>
+
+<section data-screen-label="02 Azienda" style="padding:clamp(80px,10vw,128px) 20px;background:#FFFFFF;border-top:1px solid rgba(25,44,88,0.06)">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:48px;align-items:end">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:18px">
+      <span style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;color:#2F7FBC">Chi siamo</span>
+      <h2 style="margin:0;font:600 clamp(34px,4.4vw,56px)/1.04 Geist;letter-spacing:-0.035em;color:#192C58;text-wrap:balance">Dal 1989 sviluppiamo software per chi lavora ogni giorno.</h2>
+    </div>
+    <div data-reveal="80" style="display:flex;flex-direction:column;gap:20px">
+      <p style="margin:0;font:400 18px/1.65 Geist;color:#4B5770;text-wrap:pretty">Cedi Soft è una software house italiana multi-settore. Conosciamo i processi di autosaloni, carrozzerie, periti, autonoleggi e attività commerciali, e trasformiamo queste conoscenze in software chiari, affidabili e in continua evoluzione.</p>
+      <a href="Azienda.dc.html" style="align-self:flex-start;display:inline-flex;align-items:center;gap:6px;font:600 15px/1 Geist;color:#274798;transition:gap 220ms" style-hover="gap:10px">La nostra storia<cs-icon name="arrow-right" size="16"></cs-icon></a>
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:56px auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px">
+    <sc-for list="{{ facts }}" as="f" hint-placeholder-count="4">
+      <div data-reveal="{{ f.d }}" style="display:flex;flex-direction:column;gap:10px;padding:26px;border-radius:20px;background:#F7F9FD;border:1px solid rgba(25,44,88,0.06)">
+        <span style="font:600 40px/1 Geist;letter-spacing:-0.04em;color:#192C58">{{ f.v }}</span>
+        <span style="font:400 14px/1.5 Geist;color:#4B5770">{{ f.l }}</span>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section data-screen-label="03 Ecosistema" style="padding:clamp(80px,10vw,120px) 20px;background:#F7F9FD">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:44px">
+    <div data-reveal="" style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px">
+      <div style="display:flex;flex-direction:column;gap:14px;max-width:640px">
+        <span style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;color:#2F7FBC">Ecosistema software</span>
+        <h2 style="margin:0;font:600 clamp(32px,4vw,52px)/1.05 Geist;letter-spacing:-0.035em;color:#192C58;text-wrap:balance">Un software per ogni attività. Una sola filosofia.</h2>
+      </div>
+      <a href="Software.dc.html" style="display:inline-flex;align-items:center;gap:8px;height:46px;padding:0 20px;border-radius:999px;border:1px solid rgba(25,44,88,0.12);background:#FFFFFF;color:#192C58;font:500 15px/1 Geist;transition:border-color 220ms,gap 220ms" style-hover="border-color:#459AD5;gap:12px;color:#192C58">Catalogo completo<cs-icon name="arrow-right" size="16"></cs-icon></a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:16px">
+      <sc-for list="{{ featured }}" as="p" hint-placeholder-count="4">
+        <div data-reveal="{{ p.d }}"><dc-import name="ProductCard" product="{{ p.p }}" hint-size="100%,280px"></dc-import></div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="04 Settori" style="padding:clamp(80px,10vw,120px) 20px;background:#FFFFFF">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:36px">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:14px;max-width:720px">
+      <span style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;color:#2F7FBC">Settori</span>
+      <h2 style="margin:0;font:600 clamp(32px,4vw,52px)/1.05 Geist;letter-spacing:-0.035em;color:#192C58;text-wrap:balance">Scegli il tuo settore.</h2>
+      <p style="margin:0;font:400 17px/1.6 Geist;color:#4B5770">Seleziona un ambito per vedere i software pensati per il tuo lavoro.</p>
+    </div>
+    <div role="tablist" aria-label="Settori" style="display:flex;flex-wrap:wrap;gap:8px">
+      <sc-for list="{{ sectorTabs }}" as="s" hint-placeholder-count="6">
+        <button role="tab" aria-selected="{{ s.on }}" onClick="{{ s.pick }}" style="display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:999px;border:1px solid {{ s.bd }};background:{{ s.bg }};color:{{ s.fg }};font:500 14px/1 Geist;cursor:pointer;transition:all 240ms cubic-bezier(0.22,1,0.36,1)" style-hover="border-color:#459AD5" style-focus="outline:3px solid #9CC8EC;outline-offset:2px"><cs-icon name="{{ s.icon }}" size="16"></cs-icon>{{ s.label }}</button>
+      </sc-for>
+    </div>
+    <div role="tabpanel" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px;padding:16px;border-radius:28px;background:linear-gradient(150deg,#EEF4FC 0%,#F7F9FD 60%,#F1F8EF 100%)">
+      <div style="display:flex;flex-direction:column;justify-content:space-between;gap:24px;padding:20px">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <span style="width:52px;height:52px;border-radius:16px;background:#FFFFFF;color:#274798;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px -16px rgba(25,44,88,0.4)"><cs-icon name="{{ sector.icon }}" size="24"></cs-icon></span>
+          <span style="font:600 28px/1.15 Geist;letter-spacing:-0.025em;color:#192C58">{{ sector.label }}</span>
+          <span style="font:400 15px/1.6 Geist;color:#4B5770">{{ sectorCount }}</span>
+        </div>
+        <a href="{{ sectorHref }}" style="align-self:flex-start;display:inline-flex;align-items:center;gap:6px;font:600 14px/1 Geist;color:#274798;transition:gap 220ms" style-hover="gap:10px">Vedi nel catalogo<cs-icon name="arrow-right" size="15"></cs-icon></a>
+      </div>
+      <div style="grid-column:span 2;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:10px;min-width:0">
+        <sc-for list="{{ sectorProducts }}" as="p" hint-placeholder-count="3">
+          <a href="{{ p.href }}" style="display:flex;gap:14px;align-items:flex-start;padding:18px;border-radius:18px;background:#FFFFFF;border:1px solid rgba(25,44,88,0.06);color:#192C58;transition:transform 320ms cubic-bezier(0.22,1,0.36,1),box-shadow 320ms" style-hover="transform:translateY(-3px);box-shadow:0 18px 36px -24px rgba(25,44,88,0.45);color:#192C58">
+            <span style="width:40px;height:40px;flex:none;border-radius:12px;background:#EEF4FC;color:#274798;display:flex;align-items:center;justify-content:center"><cs-icon name="{{ p.icon }}" size="19"></cs-icon></span>
+            <span style="display:flex;flex-direction:column;gap:5px;min-width:0"><span style="display:flex;align-items:center;gap:8px;font:600 16px/1.2 Geist">{{ p.name }}<sc-if value="{{ p.status }}" hint-placeholder-val="{{ false }}"><span style="height:18px;padding:0 6px;border-radius:999px;background:#FFF6E5;color:#8A5200;font:600 10px/18px Geist">{{ p.status }}</span></sc-if></span><span style="font:400 13px/1.5 Geist;color:#4B5770">{{ p.desc }}</span></span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="05 In evidenza" style="position:relative;overflow:hidden;padding:clamp(80px,10vw,128px) 20px;background:#192C58;color:#FFFFFF">
+  <div aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(700px 420px at 85% 20%,rgba(69,154,213,0.35),transparent 60%),radial-gradient(500px 320px at 10% 100%,rgba(52,166,59,0.18),transparent 60%)"></div>
+  <div style="position:relative;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:56px;align-items:center">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:20px">
+      <span style="display:inline-flex;align-self:flex-start;align-items:center;gap:8px;font:500 12px/1 'Geist Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;color:#9CC8EC"><cs-icon name="car-front" size="14"></cs-icon>In evidenza · Gest Park</span>
+      <h2 style="margin:0;font:600 clamp(34px,4.4vw,56px)/1.04 Geist;letter-spacing:-0.035em;text-wrap:balance">L’autosalone, gestito in un unico software.</h2>
+      <p style="margin:0;font:400 17px/1.65 Geist;color:#C9D6EC;text-wrap:pretty">Gest Park accompagna la vendita di veicoli nuovi e usati e include gestioni separate per noleggio e pratiche auto. Può essere utilizzato anche su piattaforma cloud, con tutte le sue funzionalità.</p>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <sc-for list="{{ parkPoints }}" as="t" hint-placeholder-count="3">
+          <span style="display:flex;gap:10px;align-items:flex-start;font:400 15px/1.5 Geist;color:#E4ECF7"><span style="color:#7FCB84;display:flex;margin-top:2px"><cs-icon name="check" size="17"></cs-icon></span>{{ t }}</span>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:8px">
+        <a href="Prodotto.dc.html?p=gest-park" style="display:inline-flex;align-items:center;gap:8px;height:50px;padding:0 24px;border-radius:999px;background:#FFFFFF;color:#192C58;font:500 15px/1 Geist;transition:gap 220ms" style-hover="gap:12px;color:#192C58" style-focus="outline:3px solid #9CC8EC;outline-offset:2px">Scopri Gest Park<cs-icon name="arrow-right" size="16"></cs-icon></a>
+        <a href="Prodotto.dc.html?p=gest-park-web" style="display:inline-flex;align-items:center;gap:8px;height:50px;padding:0 20px;border-radius:999px;border:1px solid rgba(255,255,255,0.25);color:#FFFFFF;font:500 15px/1 Geist" style-hover="border-color:#9CC8EC;color:#FFFFFF">Gest Park Web<span style="height:20px;padding:0 7px;border-radius:999px;background:#FFF6E5;color:#8A5200;font:600 11px/20px Geist">Beta</span></a>
+      </div>
+    </div>
+    <div data-reveal="120" style="position:relative;border-radius:24px;padding:14px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.16);backdrop-filter:blur(10px)">
+      <div style="border-radius:16px;background:#FFFFFF;overflow:hidden;color:#192C58">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 18px;border-bottom:1px solid rgba(25,44,88,0.07)"><span style="display:flex;align-items:center;gap:8px;font:600 14px/1 Geist"><cs-icon name="car-front" size="15"></cs-icon>Scheda veicolo</span><span style="font:500 10px/1 'Geist Mono',monospace;letter-spacing:0.05em;text-transform:uppercase;color:#8A5200;background:#FFF6E5;padding:5px 8px;border-radius:6px">Screenshot da fornire</span></div>
+        <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:16px;padding:18px">
+          <div style="aspect-ratio:4/3;border-radius:12px;background:repeating-linear-gradient(135deg,#F1F4FA 0 10px,#EEF1F6 10px 20px);display:flex;align-items:center;justify-content:center;font:500 11px/1.4 'Geist Mono',monospace;color:#66738C;text-align:center;padding:10px">[foto veicolo]</div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <sc-for list="{{ sheetRows }}" as="r" hint-placeholder-count="5"><div style="display:flex;flex-direction:column;gap:5px"><span style="font:500 10px/1 'Geist Mono',monospace;letter-spacing:0.05em;text-transform:uppercase;color:#66738C">{{ r }}</span><span style="height:8px;width:80%;border-radius:4px;background:#E3E8F0"></span></div></sc-for>
+          </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;padding:0 18px 18px"><span style="height:26px;padding:0 10px;border-radius:999px;background:#EEF4FC;color:#274798;font:500 12px/26px Geist">Interrogazione targhe</span><span style="height:26px;padding:0 10px;border-radius:999px;background:#F1F8EF;color:#236F28;font:500 12px/26px Geist">Disponibile in cloud</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="06 Su misura" style="padding:clamp(80px,10vw,128px) 20px;background:#FFFFFF">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:44px">
+    <div data-reveal="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px 48px;align-items:end">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;color:#2F7FBC">Sviluppo su misura</span>
+        <h2 style="margin:0;font:600 clamp(32px,4vw,52px)/1.05 Geist;letter-spacing:-0.035em;color:#192C58;text-wrap:balance">Quando serve qualcosa di specifico, lo costruiamo con te.</h2>
+      </div>
+      <p style="margin:0;font:400 17px/1.65 Geist;color:#4B5770;text-wrap:pretty">Oltre ai prodotti a catalogo, progettiamo software e integrazioni attorno ai processi reali della tua azienda, partendo dall’ascolto delle esigenze operative.</p>
+    </div>
+    <ol style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:12px">
+      <sc-for list="{{ steps }}" as="s" hint-placeholder-count="4">
+        <li data-reveal="{{ s.d }}" style="position:relative;display:flex;flex-direction:column;gap:14px;padding:26px;border-radius:22px;background:#F7F9FD;border:1px solid rgba(25,44,88,0.06)">
+          <span style="display:flex;align-items:center;justify-content:space-between"><span style="width:44px;height:44px;border-radius:13px;background:#FFFFFF;color:#274798;display:flex;align-items:center;justify-content:center;border:1px solid rgba(25,44,88,0.08)"><cs-icon name="{{ s.icon }}" size="20"></cs-icon></span><span style="font:500 12px/1 'Geist Mono',monospace;color:#8D99AF">{{ s.n }}</span></span>
+          <span style="font:600 18px/1.25 Geist;letter-spacing:-0.015em;color:#192C58">{{ s.t }}</span>
+          <span style="font:400 14px/1.55 Geist;color:#4B5770">{{ s.b }}</span>
+        </li>
+      </sc-for>
+    </ol>
+    <a href="Servizi.dc.html#sviluppo" style="align-self:flex-start;display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 22px;border-radius:999px;background:#274798;color:#FFFFFF;font:500 15px/1 Geist;transition:background 220ms,gap 220ms" style-hover="background:#1F3A7E;color:#FFFFFF;gap:12px">Parlaci del tuo progetto<cs-icon name="arrow-right" size="16"></cs-icon></a>
+  </div>
+</section>
+
+<section data-screen-label="07 Fiducia" style="padding:clamp(80px,10vw,120px) 20px;background:#F7F9FD">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:14px;max-width:720px">
+      <span style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;color:#2F7FBC">Fiducia</span>
+      <h2 style="margin:0;font:600 clamp(32px,4vw,52px)/1.05 Geist;letter-spacing:-0.035em;color:#192C58;text-wrap:balance">Collegati agli strumenti del tuo settore.</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px">
+      <sc-for list="{{ trust }}" as="t" hint-placeholder-count="4">
+        <div data-reveal="{{ t.d }}" style="display:flex;flex-direction:column;gap:10px;padding:24px;border-radius:20px;background:#FFFFFF;border:1px solid rgba(25,44,88,0.07)">
+          <span style="font:600 17px/1.25 Geist;color:#192C58">{{ t.t }}</span>
+          <span style="font:400 14px/1.55 Geist;color:#4B5770">{{ t.b }}</span>
+          <span style="margin-top:auto;font:500 10px/1 'Geist Mono',monospace;letter-spacing:0.05em;text-transform:uppercase;color:#66738C">{{ t.src }}</span>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:12px">
+      <sc-for list="{{ quotes }}" as="q" hint-placeholder-count="2">
+        <figure data-reveal="{{ q.d }}" style="margin:0;display:flex;flex-direction:column;gap:18px;padding:28px;border-radius:22px;background:#FFFFFF;border:1px dashed rgba(25,44,88,0.2)">
+          <span style="color:#9CC8EC;display:flex"><cs-icon name="quote" size="26"></cs-icon></span>
+          <blockquote style="margin:0;font:500 18px/1.5 Geist;letter-spacing:-0.01em;color:#66738C">[Testimonianza del cliente da fornire — verrà pubblicata solo con autorizzazione]</blockquote>
+          <figcaption style="display:flex;align-items:center;gap:12px"><span style="width:40px;height:40px;border-radius:50%;background:#EEF1F6"></span><span style="display:flex;flex-direction:column;gap:4px;font:400 13px/1.2 Geist;color:#66738C"><strong style="font-weight:600;color:#4B5770">[Nome e ruolo]</strong>{{ q.who }}</span></figcaption>
+        </figure>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="08 News" style="padding:clamp(80px,10vw,120px) 20px;background:#FFFFFF">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:40px">
+    <div style="display:flex;flex-direction:column;gap:24px">
+      <div data-reveal="" style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px"><div style="display:flex;flex-direction:column;gap:12px"><span style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;color:#2F7FBC">News</span><h2 style="margin:0;font:600 clamp(28px,3vw,40px)/1.1 Geist;letter-spacing:-0.03em;color:#192C58">Dall’azienda</h2></div><a href="#" onClick="{{ soonNews }}" style="font:600 14px/1 Geist;color:#274798;white-space:nowrap">Tutte le news · presto</a></div>
+      <sc-for list="{{ news }}" as="n" hint-placeholder-count="3">
+        <article data-reveal="{{ n.d }}" style="display:flex;flex-direction:column;gap:8px;padding:20px 0;border-top:1px solid rgba(25,44,88,0.08)">
+          <span style="display:flex;gap:10px;font:500 11px/1 'Geist Mono',monospace;letter-spacing:0.05em;text-transform:uppercase;color:#66738C"><span>{{ n.date }}</span><span style="color:#2F7FBC">{{ n.tag }}</span></span>
+          <span style="font:600 19px/1.3 Geist;letter-spacing:-0.015em;color:#192C58">{{ n.t }}</span>
+          <span style="font:400 14px/1.55 Geist;color:#4B5770">{{ n.b }}</span>
+        </article>
+      </sc-for>
+    </div>
+    <div data-reveal="100" style="display:flex;flex-direction:column;gap:20px;padding:28px;border-radius:24px;background:#F7F9FD;border:1px solid rgba(25,44,88,0.06)">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px"><span style="display:flex;align-items:center;gap:10px;font:600 20px/1.2 Geist;letter-spacing:-0.02em;color:#192C58"><cs-icon name="git-commit-horizontal" size="20"></cs-icon>Changelog prodotti</span><span style="font:500 10px/1 'Geist Mono',monospace;letter-spacing:0.05em;text-transform:uppercase;color:#8A5200;background:#FFF6E5;padding:5px 8px;border-radius:6px">Contenuto dimostrativo</span></div>
+      <ol style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column">
+        <sc-for list="{{ changelog }}" as="c" hint-placeholder-count="3">
+          <li style="display:grid;grid-template-columns:16px 1fr;gap:14px;padding-bottom:18px">
+            <span style="display:flex;flex-direction:column;align-items:center"><span style="width:10px;height:10px;margin-top:5px;border-radius:50%;background:{{ c.dot }};box-shadow:0 0 0 4px #FFFFFF"></span><span style="flex:1;width:1px;background:rgba(25,44,88,0.12);margin-top:4px"></span></span>
+            <span style="display:flex;flex-direction:column;gap:6px;padding:14px 16px;border-radius:14px;background:#FFFFFF;border:1px solid rgba(25,44,88,0.06)"><span style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;font:600 14px/1.2 Geist;color:#192C58">{{ c.p }}<span style="height:20px;padding:0 7px;border-radius:6px;background:{{ c.tbg }};color:{{ c.tfg }};font:500 11px/20px Geist">{{ c.type }}</span></span><span style="font:400 13px/1.5 Geist;color:#66738C">{{ c.t }}</span></span>
+          </li>
+        </sc-for>
+      </ol>
+      <span style="font:400 12px/1.5 Geist;color:#66738C">Le note di rilascio verranno pubblicate da Cedi Platform.</span>
+      <a href="#" onClick="{{ soonLog }}" style="align-self:flex-start;display:inline-flex;align-items:center;gap:6px;font:600 14px/1 Geist;color:#274798">Changelog completo · presto<cs-icon name="arrow-right" size="15"></cs-icon></a>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="09 Assistenza" style="padding:0 20px clamp(80px,10vw,120px);background:#FFFFFF">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px">
+    <div data-reveal="" style="grid-column:1 / -1;display:flex;flex-direction:column;gap:14px;max-width:720px;margin-bottom:24px">
+      <span style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;color:#2F7FBC">Assistenza</span>
+      <h2 style="margin:0;font:600 clamp(32px,4vw,52px)/1.05 Geist;letter-spacing:-0.035em;color:#192C58;text-wrap:balance">Supporto da chi sviluppa il tuo software.</h2>
+    </div>
+    <sc-for list="{{ supportCards }}" as="s" hint-placeholder-count="3">
+      <a href="{{ s.href }}" onClick="{{ s.onClick }}" data-reveal="{{ s.d }}" style="display:flex;flex-direction:column;gap:14px;padding:26px;border-radius:22px;background:{{ s.bg }};border:1px solid rgba(25,44,88,0.07);color:#192C58;transition:transform 320ms cubic-bezier(0.22,1,0.36,1),box-shadow 320ms" style-hover="transform:translateY(-4px);box-shadow:0 24px 44px -28px rgba(25,44,88,0.45);color:#192C58">
+        <span style="width:46px;height:46px;border-radius:14px;background:#FFFFFF;color:{{ s.fg }};display:flex;align-items:center;justify-content:center;border:1px solid rgba(25,44,88,0.07)"><cs-icon name="{{ s.icon }}" size="21"></cs-icon></span>
+        <span style="font:600 19px/1.25 Geist;letter-spacing:-0.015em">{{ s.t }}</span>
+        <span style="font:400 14px/1.55 Geist;color:#4B5770">{{ s.b }}</span>
+        <span style="margin-top:auto;display:inline-flex;align-items:center;gap:6px;font:600 14px/1 Geist;color:#274798">{{ s.cta }}<cs-icon name="arrow-right" size="15"></cs-icon></span>
+      </a>
+    </sc-for>
+  </div>
+</section>
+
+<section data-screen-label="10 CTA" style="padding:0 20px clamp(80px,10vw,120px);background:#FFFFFF">
+  <div data-reveal="" style="position:relative;overflow:hidden;max-width:1200px;margin:0 auto;padding:clamp(48px,7vw,88px) clamp(24px,5vw,72px);border-radius:32px;background:linear-gradient(135deg,#274798 0%,#2F5FB0 55%,#459AD5 100%);color:#FFFFFF;display:flex;flex-direction:column;align-items:flex-start;gap:22px">
+    <div aria-hidden="true" style="position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,0.18),transparent 65%)"></div>
+    <img src="./assets/cedisoft-symbol.png" alt="" style="position:relative;width:52px;height:auto;filter:brightness(0) invert(1);opacity:0.9">
+    <h2 style="position:relative;margin:0;max-width:760px;font:600 clamp(32px,4.6vw,60px)/1.02 Geist;letter-spacing:-0.04em;text-wrap:balance">Raccontaci come lavori. Troveremo lo strumento giusto.</h2>
+    <p style="position:relative;margin:0;max-width:560px;font:400 18px/1.6 Geist;color:#DCE8F7">Richiedi una demo di un nostro software o parlaci di un progetto su misura.</p>
+    <div style="position:relative;display:flex;flex-wrap:wrap;gap:12px;margin-top:6px">
+      <a href="Azienda.dc.html#contatti" style="display:inline-flex;align-items:center;gap:8px;height:52px;padding:0 26px;border-radius:999px;background:#FFFFFF;color:#192C58;font:500 16px/1 Geist;transition:gap 220ms" style-hover="gap:12px;color:#192C58" style-focus="outline:3px solid #FFFFFF;outline-offset:3px">Richiedi una demo<cs-icon name="arrow-right" size="17"></cs-icon></a>
+      <a href="Software.dc.html" style="display:inline-flex;align-items:center;gap:8px;height:52px;padding:0 24px;border-radius:999px;border:1px solid rgba(255,255,255,0.4);color:#FFFFFF;font:500 16px/1 Geist" style-hover="border-color:#FFFFFF;color:#FFFFFF">Scopri i software</a>
+    </div>
+  </div>
+</section>
+</main>
+<dc-import name="Footer" hint-size="100%,420px"></dc-import>
+<dc-import name="CediAssist" hint-size="0px,0px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { w: window.innerWidth, mx: 0, my: 0, sector: 'automotive', ready: !!window.CS };
+  componentDidMount() {
+    if (!window.CS) window.addEventListener('cs:ready', () => this.setState({ ready: true }), { once: true });
+    this.onR = () => this.setState({ w: window.innerWidth });
+    window.addEventListener('resize', this.onR);
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this.onR); }
+  renderVals() {
+    const CS = window.CS; const s = this.state;
+    const P = CS ? CS.products : [];
+    const wide = s.w >= 900;
+    const motion = wide && !(CS && CS.reduceMotion);
+    const mx = motion ? s.mx : 0, my = motion ? s.my : 0;
+    const sectors = CS ? CS.sectors.filter(x => x.id !== 'all') : [];
+    const sec = sectors.find(x => x.id === s.sector) || {};
+    const sp = P.filter(p => p.sectors.includes(s.sector));
+    const pick = (ids) => ids.map(id => P.find(p => p.id === id)).filter(Boolean);
+    const soon = (l) => CS ? CS.soon(l) : null;
+    return {
+      wide,
+      stageH: wide ? '420px' : '330px',
+      mainCols: wide ? '170px 1fr' : '1fr',
+      tfMain: motion ? 'rotateX(' + (8 - my * 3) + 'deg) rotateY(' + (mx * 4) + 'deg)' : 'none',
+      tfLeft: 'translate3d(' + (mx * -14) + 'px,' + (my * -10) + 'px,0) rotateY(14deg) rotateZ(-2deg)',
+      tfRight: 'translate3d(' + (mx * 18) + 'px,' + (my * 12) + 'px,0) rotateY(-14deg) rotateZ(2deg)',
+      heroMove: (e) => { if (!motion) return; const r = e.currentTarget.getBoundingClientRect(); this.setState({ mx: ((e.clientX - r.left) / r.width - 0.5) * 2, my: ((e.clientY - r.top) / r.height - 0.5) * 2 }); },
+      heroLeave: () => this.setState({ mx: 0, my: 0 }),
+      parkNav: [['layout-dashboard', 'Panoramica'], ['car-front', 'Veicoli', true], ['users', 'Clienti'], ['handshake', 'Vendite'], ['key-round', 'Noleggio'], ['file-text', 'Pratiche auto']].map(([icon, label, on]) => ({ icon, label, bg: on ? '#EEF4FC' : 'transparent', fg: on ? '#274798' : '#4B5770' })),
+      rows: [['64%', 'Disponibile', 0], ['52%', 'Prenotato', 1], ['70%', 'Disponibile', 0], ['46%', 'Venduto', 2], ['58%', 'Disponibile', 0]].map(([w, st, k]) => ({ w, s: st, sbg: ['#EEF8EE', '#FFF6E5', '#F1F4FA'][k], sfg: ['#236F28', '#8A5200', '#4B5770'][k] })),
+      crashRows: ['Ricambi', 'Manodopera', 'Verniciatura', 'Materiali di consumo'],
+      facts: [
+        { v: '1989', l: 'Anno di fondazione', d: 0 },
+        { v: String(P.length || 10), l: 'Software a catalogo', d: 60 },
+        { v: '6', l: 'Ambiti di attività serviti', d: 120 },
+        { v: 'Cloud', l: 'e desktop: i software si adattano al tuo modo di lavorare', d: 180 }
+      ],
+      featured: pick(['gest-park', 'gest-crash-carw', 'gest', 'videoperizia']).map((p, i) => ({ p, d: i * 70 })),
+      sectorTabs: sectors.map(x => ({ label: x.label, icon: x.icon, on: x.id === s.sector, pick: () => this.setState({ sector: x.id }), bg: x.id === s.sector ? '#192C58' : '#FFFFFF', fg: x.id === s.sector ? '#FFFFFF' : '#35415A', bd: x.id === s.sector ? '#192C58' : 'rgba(25,44,88,0.12)' })),
+      sector: { label: sec.label || '', icon: sec.icon || 'shapes' },
+      sectorCount: sp.length === 1 ? '1 software dedicato' : sp.length + ' software dedicati',
+      sectorHref: 'Software.dc.html?settore=' + s.sector,
+      sectorProducts: sp,
+      parkPoints: ['Vendita di veicoli nuovi e usati', 'Gestioni separate per noleggio e pratiche auto', 'Interrogazione targhe collegata all’anagrafica Eurotax'],
+      sheetRows: ['Marca e modello', 'Targa', 'Immatricolazione', 'Chilometri', 'Prezzo'],
+      steps: [
+        { n: '01', icon: 'messages-square', t: 'Ascolto', b: 'Partiamo dalle esigenze operative e dai processi che vuoi semplificare.', d: 0 },
+        { n: '02', icon: 'pencil-ruler', t: 'Progettazione', b: 'Definiamo con te funzioni e priorità prima di scrivere codice.', d: 60 },
+        { n: '03', icon: 'code-xml', t: 'Sviluppo e integrazione', b: 'Realizziamo il software e lo colleghiamo ai sistemi già in uso.', d: 120 },
+        { n: '04', icon: 'life-buoy', t: 'Assistenza ed evoluzione', b: 'Ti accompagniamo dopo il rilascio, con supporto e aggiornamenti.', d: 180 }
+      ],
+      trust: [
+        { t: 'Infocar · Quattroruote', b: 'Cedi Soft è tra i distributori ufficiali della Banca Dati Infocar-Quattroruote.', src: 'Fonte: cedisoft.it', d: 0 },
+        { t: 'DAT Italia', b: 'Partnership siglata nel 2020 per la valutazione dell’usato integrata in Gest Park.', src: 'Fonte: datgroup.com', d: 60 },
+        { t: 'Eurotax', b: 'Interrogazione targhe collegata direttamente all’anagrafica Eurotax in Gest Park.', src: 'Fonte: cedisoft.it', d: 120 },
+        { t: 'Seasoft e Zucchetti', b: 'Integrazioni per trasferire operazioni contabili e gestire fatture e importazione dati.', src: 'Fonte: cedisoft.it', d: 180 }
+      ],
+      quotes: [{ who: '[Azienda · settore]', d: 0 }, { who: '[Azienda · settore]', d: 80 }],
+      news: [
+        { date: '2020', tag: 'Partnership', t: 'Cedi Soft e DAT Italia', b: 'Un accordo per unire banca dati, valutazione dell’usato e gestionale in un unico sistema.', d: 0 },
+        { date: '2017', tag: 'Evento', t: 'Stiltocco presentato al VisCom 2017', b: 'Il software touch per personalizzare abbigliamento, gadget e accessori presentato in anteprima a Milano.', d: 60 },
+        { date: '[Data]', tag: 'Cloud', t: 'Software Cedi Soft disponibili in cloud', b: 'I software possono essere utilizzati sia in cloud sia in modalità desktop.', d: 120 }
+      ],
+      changelog: [
+        { p: 'Gest Park', type: 'Novità', t: '[Descrizione aggiornamento — da Cedi Platform]', dot: '#274798', tbg: '#EEF4FC', tfg: '#274798' },
+        { p: 'Gest Park Web', type: 'Beta', t: '[Descrizione aggiornamento — da Cedi Platform]', dot: '#E0A030', tbg: '#FFF6E5', tfg: '#8A5200' },
+        { p: 'Gest Crash CARW', type: 'Miglioramento', t: '[Descrizione aggiornamento — da Cedi Platform]', dot: '#34A63B', tbg: '#EEF8EE', tfg: '#236F28' }
+      ],
+      soonNews: soon('News'), soonLog: soon('Changelog'),
+      supportCards: [
+        { icon: 'life-buoy', t: 'Centro assistenza', b: 'Guide, domande frequenti e risorse per i software Cedi Soft.', cta: 'Vai all’assistenza', href: 'Assistenza.dc.html', onClick: undefined, bg: '#F7F9FD', fg: '#274798', d: 0 },
+        { icon: 'message-circle', t: 'Assistente e live chat', b: 'Inizia con l’assistente virtuale o scrivi al team di assistenza.', cta: 'Apri la chat', href: '#', onClick: (e) => { e.preventDefault(); CS && CS.assist.open('home'); }, bg: '#F1F8EF', fg: '#236F28', d: 60 },
+        { icon: 'phone', t: 'Contatti diretti', b: 'Telefono, email e indirizzo della sede di Scauri (LT).', cta: 'Vedi i contatti', href: 'Azienda.dc.html#contatti', onClick: undefined, bg: '#F7F9FD', fg: '#274798', d: 120 }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

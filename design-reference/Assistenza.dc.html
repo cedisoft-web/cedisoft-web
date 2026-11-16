@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Assistenza — Cedi Soft</title>
+<link rel="icon" href="./assets/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script src="./cs-icons.js"></script>
+<script src="./cs-core.js"></script>
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#FFFFFF;color:#192C58;font-family:Geist,Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#274798;text-decoration:none}
+a:hover{color:#1F3A7E}
+::selection{background:#B6D5F0}
+input[type=search]::-webkit-search-cancel-button{display:none}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:1ms!important;transition-duration:1ms!important;scroll-behavior:auto!important}}
+</style>
+</helmet>
+<dc-import name="Header" active="assistenza" hint-size="100%,0px"></dc-import>
+<main id="main">
+<section ref="{{ heroRef }}" data-screen-label="01 Hero assistenza" style="position:relative;overflow:hidden;padding:clamp(130px,15vw,180px) 20px clamp(56px,7vw,88px);background:radial-gradient(900px 480px at 50% 0%,rgba(69,154,213,0.2),transparent 62%),radial-gradient(500px 300px at 90% 80%,rgba(52,166,59,0.08),transparent 60%),linear-gradient(180deg,#FFFFFF 0%,#F4F8FD 100%)">
+  <div ref="{{ glowRef }}" aria-hidden="true" style="position:absolute;left:0;top:0;width:560px;height:560px;border-radius:50%;pointer-events:none;opacity:0;background:radial-gradient(circle,rgba(69,154,213,0.26),rgba(39,71,152,0.1) 40%,transparent 70%);filter:blur(28px)"></div>
+  <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(39,71,152,0.12) 1px,transparent 1px);background-size:22px 22px;-webkit-mask-image:radial-gradient(ellipse 60% 50% at 50% 40%,#000 10%,transparent 70%);mask-image:radial-gradient(ellipse 60% 50% at 50% 40%,#000 10%,transparent 70%)"></div>
+  <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+    <div aria-hidden="true" style="position:absolute;left:max(20px,calc(50% - 640px));top:200px;width:250px;display:flex;flex-direction:column;gap:8px;padding:14px;border-radius:20px;background:rgba(255,255,255,0.78);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.9);box-shadow:0 0 0 1px rgba(25,44,88,0.07),0 30px 60px -34px rgba(25,44,88,0.45);transform:rotate(-4deg);pointer-events:none">
+      <span style="display:flex;align-items:center;gap:8px;font:600 12px/1 Geist;color:#192C58"><span style="width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,#274798,#459AD5);color:#FFFFFF;display:flex;align-items:center;justify-content:center"><cs-icon name="sparkles" size="13"></cs-icon></span>Assistente Cedi Soft</span>
+      <span style="align-self:flex-end;padding:7px 10px;border-radius:12px 12px 4px 12px;background:#274798;color:#FFFFFF;font:400 12px/1.4 Geist;text-align:left">Come funziona Gest Park?</span>
+      <span style="display:flex;gap:4px;padding:10px 12px;align-self:flex-start;border-radius:12px 12px 12px 4px;background:#F1F4FA"><span style="width:5px;height:5px;border-radius:50%;background:#8D99AF"></span><span style="width:5px;height:5px;border-radius:50%;background:#8D99AF"></span><span style="width:5px;height:5px;border-radius:50%;background:#8D99AF"></span></span>
+    </div>
+    <div aria-hidden="true" style="position:absolute;right:max(20px,calc(50% - 640px));top:260px;width:240px;display:flex;align-items:center;gap:12px;padding:14px;border-radius:20px;background:rgba(255,255,255,0.78);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.9);box-shadow:0 0 0 1px rgba(25,44,88,0.07),0 30px 60px -34px rgba(25,44,88,0.45);transform:rotate(3deg);pointer-events:none"><span style="position:relative;width:40px;height:40px;flex:none;border-radius:12px;background:#F1F8EF;color:#236F28;display:flex;align-items:center;justify-content:center"><cs-icon name="headset" size="19"></cs-icon><span style="position:absolute;right:-3px;bottom:-3px;width:11px;height:11px;border-radius:50%;background:#34A63B;border:2px solid #FFFFFF"></span></span><span style="display:flex;flex-direction:column;gap:3px;text-align:left"><span style="font:600 13px/1.2 Geist;color:#192C58">Un operatore è disponibile.</span><span style="font:400 11px/1.3 Geist;color:#66738C">Live chat · anteprima</span></span></div>
+    <div aria-hidden="true" style="position:absolute;right:max(60px,calc(50% - 560px));top:430px;width:210px;display:flex;align-items:center;gap:10px;padding:12px;border-radius:16px;background:rgba(255,255,255,0.78);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.9);box-shadow:0 0 0 1px rgba(25,44,88,0.07),0 24px 48px -30px rgba(25,44,88,0.45);transform:rotate(-2deg);pointer-events:none"><span style="width:32px;height:32px;flex:none;border-radius:10px;background:#EEF4FC;color:#274798;display:flex;align-items:center;justify-content:center"><cs-icon name="book-open" size="15"></cs-icon></span><span style="font:500 12px/1.3 Geist;color:#192C58;text-align:left">Guida · Installare un aggiornamento</span></div>
+  </sc-if>
+  <div style="position:relative;max-width:820px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px">
+    <span style="display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,0.75);border:1px solid rgba(25,44,88,0.08);font:500 12px/1 'Geist Mono',monospace;letter-spacing:0.04em;color:#274798"><cs-icon name="life-buoy" size="14"></cs-icon>Centro assistenza</span>
+    <h1 style="margin:0;font:600 clamp(42px,6.6vw,84px)/0.98 Geist;letter-spacing:-0.045em;color:#192C58">Come possiamo aiutarti?</h1>
+    <div style="position:relative;width:100%;margin-top:6px">
+      <label style="display:flex;align-items:center;gap:12px;height:64px;padding:0 10px 0 22px;border-radius:20px;background:rgba(255,255,255,0.92);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,0.9);box-shadow:0 0 0 1px rgba(25,44,88,0.08),0 24px 50px -28px rgba(25,44,88,0.45);color:#66738C">
+        <cs-icon name="search" size="21"></cs-icon>
+        <input type="search" value="{{ q }}" onChange="{{ onQ }}" placeholder="Cerca guide, procedure, domande frequenti…" aria-label="Cerca nella knowledge base" style="flex:1;min-width:0;height:100%;border:0;background:transparent;color:#192C58;font:400 17px/1 Geist;outline:none">
+        <sc-if value="{{ hasQ }}" hint-placeholder-val="{{ false }}"><button onClick="{{ clearQ }}" aria-label="Cancella" style="width:40px;height:40px;border:0;border-radius:12px;background:#EEF1F6;color:#4B5770;cursor:pointer;display:flex;align-items:center;justify-content:center"><cs-icon name="x" size="16"></cs-icon></button></sc-if>
+      </label>
+      <sc-if value="{{ hasQ }}" hint-placeholder-val="{{ false }}">
+        <div role="listbox" style="position:absolute;z-index:10;left:0;right:0;top:calc(100% + 8px);padding:8px;border-radius:18px;background:#FFFFFF;border:1px solid rgba(25,44,88,0.08);box-shadow:0 30px 60px -28px rgba(25,44,88,0.45);text-align:left;display:flex;flex-direction:column;gap:2px">
+          <sc-for list="{{ results }}" as="r" hint-placeholder-count="3">
+            <a href="#" onClick="{{ r.open }}" style="display:flex;gap:12px;align-items:center;padding:12px;border-radius:12px;color:#192C58" style-hover="background:#F1F4FA;color:#192C58"><span style="color:#459AD5;display:flex"><cs-icon name="file-text" size="17"></cs-icon></span><span style="display:flex;flex-direction:column;gap:4px;min-width:0"><span style="font:500 15px/1.3 Geist">{{ r.t }}</span><span style="font:400 12px/1.2 Geist;color:#66738C">{{ r.cat }} · {{ r.sw }}</span></span></a>
+          </sc-for>
+          <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:10px;padding:16px 12px"><span style="font:500 15px/1.3 Geist;color:#192C58">Nessun risultato per «{{ q }}»</span><span style="font:400 13px/1.5 Geist;color:#4B5770">Prova con altre parole oppure chiedi direttamente al supporto.</span><button onClick="{{ openLive }}" style="align-self:flex-start;display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 14px;border-radius:999px;border:0;background:#274798;color:#FFFFFF;font:500 13px/1 Geist;cursor:pointer"><cs-icon name="headset" size="14"></cs-icon>Contatta il supporto</button></div>
+          </sc-if>
+        </div>
+      </sc-if>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;font:400 13px/1 Geist;color:#66738C"><span style="padding-top:9px">Ricerche frequenti:</span><sc-for list="{{ popularQ }}" as="p" hint-placeholder-count="3"><button onClick="{{ p.pick }}" style="height:32px;padding:0 12px;border-radius:999px;border:1px solid rgba(25,44,88,0.1);background:#FFFFFF;color:#35415A;font:500 13px/1 Geist;cursor:pointer" style-hover="border-color:#459AD5">{{ p.t }}</button></sc-for></div>
+  </div>
+</section>
+
+<section data-screen-label="02 Azioni rapide" style="padding:clamp(56px,7vw,88px) 20px">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:12px">
+    <sc-for list="{{ actions }}" as="a" hint-placeholder-count="7">
+      <a href="{{ a.href }}" onClick="{{ a.onClick }}" data-reveal="{{ a.d }}" style="display:flex;flex-direction:column;gap:14px;padding:22px;border-radius:20px;background:{{ a.bg }};border:1px solid {{ a.bd }};color:#192C58;transition:transform 320ms cubic-bezier(0.22,1,0.36,1),box-shadow 320ms,border-color 300ms" style-hover="transform:translateY(-4px);box-shadow:0 22px 44px -28px rgba(25,44,88,0.45);border-color:rgba(69,154,213,0.45);color:#192C58" style-focus="outline:3px solid #9CC8EC;outline-offset:2px">
+        <span style="display:flex;align-items:center;justify-content:space-between"><span style="width:44px;height:44px;border-radius:13px;background:{{ a.ibg }};color:{{ a.ifg }};display:flex;align-items:center;justify-content:center"><cs-icon name="{{ a.icon }}" size="20"></cs-icon></span><sc-if value="{{ a.tag }}" hint-placeholder-val="{{ false }}"><span style="height:20px;padding:0 7px;border-radius:999px;background:#EEF1F6;color:#4B5770;font:500 10px/20px 'Geist Mono',monospace;letter-spacing:0.04em">{{ a.tag }}</span></sc-if></span>
+        <span style="display:flex;flex-direction:column;gap:6px"><span style="font:600 17px/1.25 Geist;letter-spacing:-0.01em">{{ a.t }}</span><span style="font:400 13px/1.5 Geist;color:#4B5770">{{ a.b }}</span></span>
+      </a>
+    </sc-for>
+  </div>
+</section>
+
+<section data-screen-label="02b Chat" style="padding:0 20px clamp(56px,7vw,88px)">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:14px">
+    <div data-reveal-img="" style="position:relative;overflow:hidden;display:grid;grid-template-rows:auto 1fr;gap:20px;padding:clamp(22px,3vw,32px);border-radius:30px;background:linear-gradient(150deg,#EEF4FC,#F7F9FD);border:1px solid rgba(25,44,88,0.06)">
+      <div aria-hidden="true" style="position:absolute;right:-80px;top:-80px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(69,154,213,0.3),transparent 68%);filter:blur(12px)"></div>
+      <div style="position:relative;display:flex;flex-direction:column;gap:10px"><span style="display:inline-flex;align-items:center;gap:8px;font:500 12px/1 'Geist Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;color:#2F7FBC"><cs-icon name="sparkles" size="14"></cs-icon>Assistente virtuale</span><span style="font:600 clamp(24px,2.6vw,32px)/1.12 Geist;letter-spacing:-0.03em;color:#192C58">Risposte immediate, a qualsiasi ora.</span><span style="font:400 15px/1.6 Geist;color:#4B5770">Ti orienta tra software, aggiornamenti e richieste di demo. Nel prototipo le risposte sono simulate.</span></div>
+      <div style="position:relative;display:flex;flex-direction:column;gap:10px;padding:16px;border-radius:20px;background:#FFFFFF;border:1px solid rgba(25,44,88,0.08);box-shadow:0 24px 48px -32px rgba(25,44,88,0.45)">
+        <span style="align-self:flex-end;max-width:80%;padding:9px 12px;border-radius:14px 14px 5px 14px;background:#274798;color:#FFFFFF;font:400 13px/1.45 Geist">Quali software offre Cedi Soft?</span>
+        <span style="align-self:flex-start;max-width:86%;padding:9px 12px;border-radius:14px 14px 14px 5px;background:#F1F4FA;color:#192C58;font:400 13px/1.5 Geist">Software per autosaloni, carrozzerie, periti, noleggio, contabilità e personalizzazione.</span>
+        <div style="display:flex;flex-wrap:wrap;gap:6px"><sc-for list="{{ chatPrompts }}" as="c" hint-placeholder-count="3"><button onClick="{{ c.ask }}" style="height:32px;padding:0 12px;border-radius:999px;border:1px solid rgba(39,71,152,0.2);background:#FFFFFF;color:#274798;font:500 12px/1 Geist;cursor:pointer" style-hover="background:#EEF4FC" style-focus="outline:3px solid #9CC8EC">{{ c.t }}</button></sc-for></div>
+      </div>
+      <button onClick="{{ openAI }}" style="position:relative;justify-self:start;display:inline-flex;align-items:center;gap:8px;height:46px;padding:0 20px;border-radius:999px;border:0;background:#274798;color:#FFFFFF;font:500 15px/1 Geist;cursor:pointer;transition:box-shadow 300ms" style-hover="box-shadow:0 0 0 6px rgba(69,154,213,0.18)" style-focus="outline:3px solid #9CC8EC;outline-offset:2px"><cs-icon name="sparkles" size="15"></cs-icon>Chiedi all’assistente</button>
+    </div>
+    <div data-reveal-img="120" style="position:relative;overflow:hidden;display:grid;grid-template-rows:auto 1fr;gap:20px;padding:clamp(22px,3vw,32px);border-radius:30px;background:linear-gradient(150deg,#F1F8EF,#F7F9FD);border:1px solid rgba(25,44,88,0.06)">
+      <div aria-hidden="true" style="position:absolute;right:-80px;top:-80px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(52,166,59,0.22),transparent 68%);filter:blur(12px)"></div>
+      <div style="position:relative;display:flex;flex-direction:column;gap:10px"><span style="display:inline-flex;align-items:center;gap:8px;font:500 12px/1 'Geist Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;color:#236F28"><cs-icon name="headset" size="14"></cs-icon>Live chat</span><span style="font:600 clamp(24px,2.6vw,32px)/1.12 Geist;letter-spacing:-0.03em;color:#192C58">Parla con una persona del team.</span><span style="font:400 15px/1.6 Geist;color:#4B5770">Quando gli operatori non sono disponibili puoi lasciare una richiesta con nome, email, software e descrizione.</span></div>
+      <div style="position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;align-content:start">
+        <sc-for list="{{ states }}" as="x" hint-placeholder-count="3"><div style="display:flex;flex-direction:column;gap:10px;padding:14px;border-radius:16px;background:#FFFFFF;border:1px solid rgba(25,44,88,0.07)"><span style="display:flex;align-items:center;gap:7px;font:600 12px/1 Geist;color:#192C58"><span style="width:8px;height:8px;border-radius:50%;background:{{ x.dot }}"></span>{{ x.l }}</span><span style="font:400 12px/1.45 Geist;color:#4B5770">{{ x.t }}</span></div></sc-for>
+      </div>
+      <button onClick="{{ openLive }}" style="position:relative;justify-self:start;display:inline-flex;align-items:center;gap:8px;height:46px;padding:0 20px;border-radius:999px;border:0;background:#236F28;color:#FFFFFF;font:500 15px/1 Geist;cursor:pointer;transition:box-shadow 300ms" style-hover="box-shadow:0 0 0 6px rgba(52,166,59,0.18)" style-focus="outline:3px solid #9CC8EC;outline-offset:2px"><cs-icon name="headset" size="15"></cs-icon>Avvia la live chat</button>
+    </div>
+  </div>
+</section>
+
+<section id="guide" data-screen-label="03 Knowledge base" style="padding:clamp(56px,7vw,96px) 20px;background:#F7F9FD">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:32px">
+    <div data-reveal="" style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px">
+      <div style="display:flex;flex-direction:column;gap:12px;max-width:640px"><span style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;color:#2F7FBC">Guide e documentazione</span><h2 style="margin:0;font:600 clamp(30px,3.6vw,46px)/1.08 Geist;letter-spacing:-0.035em;color:#192C58">Seleziona il tuo software</h2></div>
+      <span style="font:500 10px/1 'Geist Mono',monospace;letter-spacing:0.05em;text-transform:uppercase;color:#8A5200;background:#FFF6E5;padding:6px 9px;border-radius:6px">Articoli dimostrativi · contenuti da Cedi Platform</span>
+    </div>
+    <div role="group" aria-label="Software" style="display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px">
+      <sc-for list="{{ swChips }}" as="c" hint-placeholder-count="6">
+        <button aria-pressed="{{ c.on }}" onClick="{{ c.pick }}" style="flex:none;display:inline-flex;align-items:center;gap:7px;height:40px;padding:0 14px;border-radius:999px;border:1px solid {{ c.bd }};background:{{ c.bg }};color:{{ c.fg }};font:500 13px/1 Geist;cursor:pointer;white-space:nowrap;transition:all 220ms" style-hover="border-color:#459AD5" style-focus="outline:3px solid #9CC8EC"><cs-icon name="{{ c.icon }}" size="15"></cs-icon>{{ c.l }}</button>
+      </sc-for>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:16px">
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-content:start">
+        <sc-for list="{{ cats }}" as="c" hint-placeholder-count="6">
+          <button onClick="{{ c.pick }}" aria-pressed="{{ c.on }}" style="display:flex;flex-direction:column;gap:12px;padding:18px;border-radius:18px;border:1px solid {{ c.bd }};background:{{ c.bg }};text-align:left;cursor:pointer;transition:all 240ms cubic-bezier(0.22,1,0.36,1)" style-hover="border-color:#9CC8EC" style-focus="outline:3px solid #9CC8EC">
+            <span style="color:{{ c.ic }};display:flex"><cs-icon name="{{ c.icon }}" size="20"></cs-icon></span>
+            <span style="display:flex;flex-direction:column;gap:4px"><span style="font:600 15px/1.25 Geist;color:#192C58">{{ c.l }}</span><span style="font:400 12px/1.2 Geist;color:#66738C">{{ c.n }}</span></span>
+          </button>
+        </sc-for>
+      </div>
+      <div style="grid-column:span 2;display:flex;flex-direction:column;gap:6px;padding:10px;border-radius:22px;background:#FFFFFF;border:1px solid rgba(25,44,88,0.07);min-width:0">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px 8px"><span style="font:600 16px/1.2 Geist;color:#192C58">{{ listTitle }}</span><span style="font:400 13px/1 Geist;color:#66738C">{{ listCount }}</span></div>
+        <sc-for list="{{ articles }}" as="a" hint-placeholder-count="5">
+          <a href="#" onClick="{{ a.open }}" style="display:flex;align-items:center;gap:14px;padding:14px 12px;border-radius:14px;color:#192C58;border-top:1px solid rgba(25,44,88,0.05);transition:background 180ms" style-hover="background:#F7F9FD;color:#192C58">
+            <span style="width:36px;height:36px;flex:none;border-radius:10px;background:#EEF4FC;color:#274798;display:flex;align-items:center;justify-content:center"><cs-icon name="{{ a.icon }}" size="16"></cs-icon></span>
+            <span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:5px"><span style="font:500 15px/1.35 Geist">{{ a.t }}</span><span style="font:400 12px/1.2 Geist;color:#66738C">{{ a.cat }} · {{ a.sw }}</span></span>
+            <span style="color:#8D99AF;display:flex"><cs-icon name="chevron-right" size="17"></cs-icon></span>
+          </a>
+        </sc-for>
+        <sc-if value="{{ noArticles }}" hint-placeholder-val="{{ false }}"><div style="padding:28px 12px;text-align:center;font:400 14px/1.5 Geist;color:#4B5770">Nessuna guida in questa categoria per il software selezionato.</div></sc-if>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="download" data-screen-label="04 Download" style="padding:clamp(56px,7vw,96px) 20px">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:28px">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:12px;max-width:680px"><span style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;color:#2F7FBC">Download</span><h2 style="margin:0;font:600 clamp(30px,3.6vw,46px)/1.08 Geist;letter-spacing:-0.035em;color:#192C58">Strumenti e risorse di supporto</h2><p style="margin:0;font:400 15px/1.6 Geist;color:#4B5770">I collegamenti verranno attivati quando Cedi Soft fornirà i file ufficiali.</p></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px">
+      <sc-for list="{{ downloads }}" as="d" hint-placeholder-count="3">
+        <div data-reveal="{{ d.d }}" style="display:flex;flex-direction:column;gap:16px;padding:22px;border-radius:20px;background:#FFFFFF;border:1px solid rgba(25,44,88,0.08)">
+          <span style="display:flex;align-items:center;gap:14px"><span style="width:44px;height:44px;flex:none;border-radius:13px;background:#F1F4FA;color:#274798;display:flex;align-items:center;justify-content:center"><cs-icon name="{{ d.icon }}" size="20"></cs-icon></span><span style="display:flex;flex-direction:column;gap:5px"><span style="font:600 16px/1.25 Geist;color:#192C58">{{ d.t }}</span><span style="font:400 12px/1.2 Geist;color:#66738C">{{ d.meta }}</span></span></span>
+          <span style="font:400 14px/1.55 Geist;color:#4B5770">{{ d.b }}</span>
+          <button onClick="{{ d.click }}" aria-disabled="true" style="margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border-radius:999px;border:1px dashed rgba(25,44,88,0.25);background:#F7F9FD;color:#4B5770;font:500 13px/1 Geist;cursor:not-allowed"><cs-icon name="download" size="15"></cs-icon>Link non ancora disponibile</button>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display:flex;gap:14px;align-items:flex-start;padding:18px 20px;border-radius:18px;background:#F7F9FD;border:1px solid rgba(25,44,88,0.06)"><span style="color:#274798;display:flex;margin-top:2px"><cs-icon name="monitor-down" size="20"></cs-icon></span><span style="display:flex;flex-direction:column;gap:4px"><span style="font:600 15px/1.3 Geist;color:#192C58">Assistenza da remoto</span><span style="font:400 14px/1.55 Geist;color:#4B5770">Gli strumenti di assistenza remota verranno pubblicati qui solo dopo la verifica di Cedi Soft. Avviali esclusivamente su indicazione di un tecnico.</span></span></div>
+  </div>
+</section>
+
+<section id="faq" data-screen-label="05 FAQ" style="padding:clamp(56px,7vw,96px) 20px;background:#F7F9FD">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:40px">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:14px"><span style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;color:#2F7FBC">FAQ</span><h2 style="margin:0;font:600 clamp(28px,3vw,40px)/1.1 Geist;letter-spacing:-0.03em;color:#192C58">Domande frequenti</h2><p style="margin:0;font:400 15px/1.6 Geist;color:#4B5770">Non trovi la risposta? Scrivi all’assistente o al team di supporto.</p><button onClick="{{ openHome }}" style="align-self:flex-start;display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:999px;border:0;background:#274798;color:#FFFFFF;font:500 14px/1 Geist;cursor:pointer" style-hover="background:#1F3A7E" style-focus="outline:3px solid #9CC8EC;outline-offset:2px"><cs-icon name="message-circle" size="15"></cs-icon>Apri la chat</button></div>
+    <div style="grid-column:span 2;display:flex;flex-direction:column;border-top:1px solid rgba(25,44,88,0.1)">
+      <sc-for list="{{ faq }}" as="f" hint-placeholder-count="5">
+        <div style="border-bottom:1px solid rgba(25,44,88,0.1)">
+          <h3 style="margin:0"><button onClick="{{ f.toggle }}" aria-expanded="{{ f.open }}" aria-controls="{{ f.id }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;padding:14px 4px;border:0;background:transparent;color:#192C58;font:500 17px/1.35 Geist;text-align:left;cursor:pointer" style-focus="outline:3px solid #9CC8EC">{{ f.q }}<span style="width:32px;height:32px;flex:none;border-radius:50%;background:{{ f.ibg }};color:{{ f.ifg }};display:flex;align-items:center;justify-content:center;transform:{{ f.rot }};transition:all 260ms cubic-bezier(0.22,1,0.36,1)"><cs-icon name="plus" size="16"></cs-icon></span></button></h3>
+          <div id="{{ f.id }}" role="region" style="display:grid;grid-template-rows:{{ f.rows }};transition:grid-template-rows 320ms cubic-bezier(0.22,1,0.36,1)"><div style="overflow:hidden"><p style="margin:0;padding:0 48px 20px 4px;font:400 15px/1.65 Geist;color:#4B5770">{{ f.a }}</p></div></div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="06 Contatta" style="padding:clamp(64px,8vw,104px) 20px">
+  <div data-reveal="" style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:12px">
+    <div style="display:flex;flex-direction:column;justify-content:space-between;gap:20px;padding:32px;border-radius:24px;background:linear-gradient(135deg,#274798,#459AD5);color:#FFFFFF">
+      <span style="display:flex;flex-direction:column;gap:10px"><span style="font:600 26px/1.15 Geist;letter-spacing:-0.025em">Parla con il supporto</span><span style="font:400 15px/1.6 Geist;color:#DCE8F7">Live chat con il team di assistenza, oppure lascia una richiesta se non ci sono operatori disponibili.</span></span>
+      <button onClick="{{ openLive }}" style="align-self:flex-start;display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 22px;border-radius:999px;border:0;background:#FFFFFF;color:#192C58;font:500 15px/1 Geist;cursor:pointer" style-focus="outline:3px solid #FFFFFF;outline-offset:3px"><cs-icon name="headset" size="16"></cs-icon>Avvia la live chat</button>
+    </div>
+    <a href="{{ tel1 }}" style="display:flex;flex-direction:column;gap:14px;padding:28px;border-radius:24px;background:#F7F9FD;border:1px solid rgba(25,44,88,0.06);color:#192C58" style-hover="border-color:#9CC8EC;color:#192C58"><span style="color:#274798;display:flex"><cs-icon name="phone" size="22"></cs-icon></span><span style="font:600 18px/1.25 Geist">Telefono</span><span style="font:500 16px/1.4 Geist;color:#35415A">{{ phones }}</span></a>
+    <a href="{{ mailto }}" style="display:flex;flex-direction:column;gap:14px;padding:28px;border-radius:24px;background:#F7F9FD;border:1px solid rgba(25,44,88,0.06);color:#192C58" style-hover="border-color:#9CC8EC;color:#192C58"><span style="color:#274798;display:flex"><cs-icon name="mail" size="22"></cs-icon></span><span style="font:600 18px/1.25 Geist">Email</span><span style="font:500 16px/1.4 Geist;color:#35415A">{{ email }}</span><span style="font:400 12px/1.4 Geist;color:#66738C">Orari dell’assistenza: [da confermare]</span></a>
+  </div>
+</section>
+</main>
+<dc-import name="Footer" hint-size="100%,420px"></dc-import>
+<dc-import name="CediAssist" hint-size="0px,0px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const CATS = [['all', 'Tutte le guide', 'library'], ['install', 'Installazione e aggiornamenti', 'download'], ['primi', 'Primi passi', 'flag'], ['cloud', 'Cloud e accesso', 'cloud'], ['fatt', 'Fatturazione elettronica', 'receipt-text'], ['dati', 'Dati e backup', 'database']];
+const ART = [
+  ['Come installare un aggiornamento', 'install', 'all'], ['Dove trovo le note della bacheca aggiornamenti', 'install', 'all'],
+  ['Primo accesso a Gest Park', 'primi', 'gest-park'], ['Inserire un nuovo veicolo nel parco', 'primi', 'gest-park'], ['Usare Gest Park in cloud', 'cloud', 'gest-park'],
+  ['Gest Park Web: come partecipare al test', 'cloud', 'gest-park-web'], ['Creare un preventivo in Gest Crash CARW', 'primi', 'gest-crash-carw'],
+  ['Emettere una fattura elettronica da GEST', 'fatt', 'gest'], ['Gestire notifiche e ricevute SdI', 'fatt', 'all'], ['Trasmettere i dati ESEBOLL', 'primi', 'eseboll'],
+  ['Avviare una videoperizia', 'primi', 'videoperizia'], ['Preparare una copia di sicurezza dei dati', 'dati', 'all'], ['Requisiti di sistema dei software desktop', 'install', 'all']
+];
+class Component extends DCLogic {
+  heroRef = React.createRef(); glowRef = React.createRef();
+  state = { q: '', sw: 'all', cat: 'all', faq: 0, w: window.innerWidth };
+  componentDidMount() {
+    const init = () => { this.unGlow = window.CS.glow(this.heroRef.current, this.glowRef.current); this.forceUpdate(); };
+    if (window.CS) init(); else window.addEventListener('cs:ready', init, { once: true });
+    this.onR = () => this.setState({ w: window.innerWidth }); window.addEventListener('resize', this.onR);
+  }
+  componentWillUnmount() { this.unGlow && this.unGlow(); window.removeEventListener('resize', this.onR); }
+  renderVals() {
+    const CS = window.CS; const s = this.state;
+    const P = CS ? CS.products : [];
+    const swName = (id) => id === 'all' ? 'Tutti i software' : ((P.find(p => p.id === id) || {}).name || '');
+    const catName = (id) => (CATS.find(c => c[0] === id) || [])[1];
+    const catIcon = (id) => (CATS.find(c => c[0] === id) || [])[2];
+    const open = (t) => (e) => { e.preventDefault(); CS && CS.toast('«' + t + '» · articolo dimostrativo, contenuto non ancora disponibile.'); };
+    const all = ART.map(([t, cat, sw]) => ({ t, cat: catName(cat), catId: cat, sw: swName(sw), swId: sw, icon: catIcon(cat), open: open(t) }));
+    const norm = (x) => x.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const q = norm(s.q.trim());
+    const results = q ? all.filter(a => norm(a.t + ' ' + a.cat + ' ' + a.sw).includes(q)).slice(0, 6) : [];
+    const bySw = all.filter(a => s.sw === 'all' || a.swId === s.sw || a.swId === 'all');
+    const list = bySw.filter(a => s.cat === 'all' || a.catId === s.cat);
+    const c = CS ? CS.config.contacts : { phones: [], phoneHrefs: [] };
+    const openA = (v) => (e) => { e && e.preventDefault(); CS && CS.assist.open(v); };
+    const go = (id) => (e) => { e.preventDefault(); const el = document.getElementById(id); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 90, behavior: 'smooth' }); };
+    const swList = [{ id: 'all', name: 'Tutti', icon: 'layout-grid' }].concat(P.filter(p => ['gest-park', 'gest-park-web', 'gest-crash-carw', 'gest', 'eseboll', 'videoperizia'].includes(p.id)));
+    return {
+      heroRef: this.heroRef, glowRef: this.glowRef, wide: s.w >= 1180,
+      chatPrompts: ['Come funziona Gest Park?', 'Come posso richiedere una demo?', 'Ho bisogno di assistenza.'].map(t => ({ t, ask: () => { if (!CS) return; CS.assist.open('ai'); CS.assist.sendAI(t); } })),
+      states: CS ? ['available', 'busy', 'offline'].map(k => ({ l: CS.assist.STATUS[k].label, t: CS.assist.STATUS[k].text, dot: CS.assist.STATUS[k].dot })) : [],
+      openAI: openA('ai'),
+      q: s.q, hasQ: !!s.q, onQ: (e) => this.setState({ q: e.target.value }), clearQ: () => this.setState({ q: '' }),
+      results, noResults: !!q && results.length === 0,
+      popularQ: ['aggiornamento', 'fattura elettronica', 'cloud'].map(t => ({ t, pick: () => this.setState({ q: t }) })),
+      actions: [
+        { icon: 'headset', t: 'Richiedi assistenza', b: 'Apri una richiesta al team di supporto dalla chat.', href: '#', onClick: openA('live'), bg: '#F1F8EF', bd: 'rgba(35,111,40,0.14)', ibg: '#FFFFFF', ifg: '#236F28', d: 0 },
+        { icon: 'book-open', t: 'Guide e documentazione', b: 'Procedure e articoli per ogni software.', href: '#guide', onClick: go('guide'), bg: '#FFFFFF', bd: 'rgba(25,44,88,0.08)', ibg: '#EEF4FC', ifg: '#274798', d: 40 },
+        { icon: 'download', t: 'Download strumenti di supporto', b: 'Risorse e strumenti da scaricare.', href: '#download', onClick: go('download'), bg: '#FFFFFF', bd: 'rgba(25,44,88,0.08)', ibg: '#EEF4FC', ifg: '#274798', d: 80 },
+        { icon: 'circle-help', t: 'FAQ', b: 'Le risposte alle domande più comuni.', href: '#faq', onClick: go('faq'), bg: '#FFFFFF', bd: 'rgba(25,44,88,0.08)', ibg: '#EEF4FC', ifg: '#274798', d: 120 },
+        { icon: 'message-circle', t: 'Contatta il supporto', b: 'Assistente virtuale, live chat, telefono o email.', href: '#', onClick: openA('home'), bg: '#FFFFFF', bd: 'rgba(25,44,88,0.08)', ibg: '#EEF4FC', ifg: '#274798', d: 0 },
+        { icon: 'circle-user-round', t: 'Area Clienti', b: 'Licenze, richieste e documenti in un unico posto.', href: '#', onClick: CS ? CS.soon('Area Clienti') : undefined, tag: 'PRESTO', bg: '#FFFFFF', bd: 'rgba(25,44,88,0.08)', ibg: '#F1F4FA', ifg: '#4B5770', d: 40 },
+        { icon: 'git-commit-horizontal', t: 'Changelog prodotti', b: 'Le novità di ogni aggiornamento.', href: '#', onClick: CS ? CS.soon('Changelog prodotti') : undefined, tag: 'PRESTO', bg: '#FFFFFF', bd: 'rgba(25,44,88,0.08)', ibg: '#F1F4FA', ifg: '#4B5770', d: 80 }
+      ],
+      swChips: swList.map(p => { const on = s.sw === p.id; return { l: p.name, icon: p.icon, on, pick: () => this.setState({ sw: p.id }), bg: on ? '#192C58' : '#FFFFFF', fg: on ? '#FFFFFF' : '#35415A', bd: on ? '#192C58' : 'rgba(25,44,88,0.12)' }; }),
+      cats: CATS.map(([id, l, icon]) => { const on = s.cat === id; const n = bySw.filter(a => id === 'all' || a.catId === id).length; return { l, icon, on, n: n === 1 ? '1 guida' : n + ' guide', pick: () => this.setState({ cat: id }), bg: on ? '#FFFFFF' : 'rgba(255,255,255,0.5)', bd: on ? 'rgba(69,154,213,0.5)' : 'rgba(25,44,88,0.06)', ic: on ? '#274798' : '#66738C' }; }),
+      listTitle: catName(s.cat) + ' · ' + swName(s.sw), listCount: list.length === 1 ? '1 guida' : list.length + ' guide',
+      articles: list, noArticles: list.length === 0,
+      downloads: [
+        { icon: 'package', t: 'Aggiornamenti software', meta: '[Versione · data — da Cedi Platform]', b: 'Pacchetti di aggiornamento dei software desktop Cedi Soft.', d: 0 },
+        { icon: 'file-text', t: 'Manuali d’uso', meta: '[Formato · dimensione — da fornire]', b: 'Documentazione ufficiale dei prodotti, in formato scaricabile.', d: 60 },
+        { icon: 'clipboard-list', t: 'Requisiti di sistema', meta: '[Aggiornamento — da fornire]', b: 'Requisiti hardware e software aggiornati per l’installazione.', d: 120 }
+      ].map(d => Object.assign(d, { click: () => CS && CS.toast('Download non ancora disponibile: il file ufficiale verrà fornito da Cedi Soft.') })),
+      faq: [
+        { q: 'Come ricevo assistenza su un software Cedi Soft?', a: 'Puoi aprire la chat e parlare con il team di assistenza, oppure contattarci per telefono o email. Se gli operatori non sono disponibili, puoi lasciare una richiesta dalla chat.' },
+        { q: 'Dove trovo le novità degli aggiornamenti?', a: 'I software desktop includono una bacheca informativa in cui vengono pubblicate le modifiche e le migliorie, così puoi conoscere il contenuto dell’aggiornamento prima di scaricarlo.' },
+        { q: 'I software si possono usare in cloud?', a: 'Sì, i software Cedi Soft possono essere utilizzati sia in modalità cloud sia in modalità desktop.' },
+        { q: 'Cos’è Gest Park Web?', a: 'È la versione web di Gest Park, attualmente in fase di test.' },
+        { q: 'Come richiedo una demo?', a: 'Dalla sezione Contatti della pagina Azienda, selezionando «Richiesta demo» come oggetto.' }
+      ].map((f, i) => { const o = s.faq === i; return { id: 'afaq-' + i, q: f.q, a: f.a, open: o, rows: o ? '1fr' : '0fr', rot: o ? 'rotate(45deg)' : 'none', ibg: o ? '#274798' : '#FFFFFF', ifg: o ? '#FFFFFF' : '#192C58', toggle: () => this.setState({ faq: o ? -1 : i }) }; }),
+      openLive: openA('live'), openHome: openA('home'),
+      phones: (c.phones || []).join(' · '), tel1: (c.phoneHrefs || [])[0] || '#', mailto: 'mailto:' + (c.email || ''), email: c.email
+    };
+  }
+}
+</script>
+</body>
+</html>

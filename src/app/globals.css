@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+/* Token originali Claude Design (design-reference/tokens/tokens.css). Font caricati via next/font. */
+:root{
+  /* Brand */
+  --cs-blue:#274798; --cs-sky:#459AD5; --cs-green:#34A63B; --cs-green-light:#62B44E;
+  /* Blue */
+  --blue-50:#EEF2FB;--blue-100:#DCE4F6;--blue-200:#B8C8EC;--blue-300:#8AA3DC;--blue-400:#5677C4;--blue-500:#3459B0;--blue-600:#274798;--blue-700:#1F3A7E;--blue-800:#1C3168;--blue-900:#192C58;--blue-950:#0F1C3B;
+  /* Sky */
+  --sky-50:#EEF4FC;--sky-100:#DBEAF8;--sky-200:#B6D5F0;--sky-300:#86BAE5;--sky-400:#5FA8DC;--sky-500:#459AD5;--sky-600:#2F7FBC;--sky-700:#26669A;--sky-800:#22527B;--sky-900:#1E4565;
+  /* Green */
+  --green-50:#EEF8EE;--green-100:#D8EFD7;--green-200:#B2DEAF;--green-300:#85CA7E;--green-400:#62B44E;--green-500:#34A63B;--green-600:#2A8A30;--green-700:#236F28;--green-800:#1F5823;--green-900:#1A481E;
+  /* Neutral (cool) */
+  --n-0:#FFFFFF;--n-25:#F7F9FD;--n-50:#F1F4FA;--n-100:#E6EBF3;--n-200:#D5DCE8;--n-300:#B8C2D3;--n-400:#8D99AF;--n-500:#66738C;--n-600:#4B5770;--n-700:#35415A;--n-800:#243149;
+  /* Semantic aliases */
+  --surface:#FFFFFF; --surface-subtle:#F7F9FD; --surface-tint:#EEF4FC;
+  --text-primary:#192C58; --text-secondary:#4B5770; --text-muted:#66738C; --text-link:#274798; --text-green:#236F28;
+  --action-primary:#274798; --action-primary-hover:#1F3A7E; --action-primary-active:#1C3168;
+  --border-subtle:rgba(25,44,88,0.08); --border-default:rgba(25,44,88,0.16); --focus-ring:rgba(69,154,213,0.5);
+  --success-fg:#236F28;--success-bg:#EEF8EE;--info-fg:#26669A;--info-bg:#EEF4FC;--warning-fg:#8A5200;--warning-bg:#FFF6E5;--error-fg:#A82A33;--error-bg:#FDEEEF;
+  /* Gradients */
+  --grad-brand:linear-gradient(110deg,#274798 0%,#459AD5 55%,#62B44E 100%);
+  --grad-ambient:radial-gradient(70% 90% at 15% 0%,#E3EEFA 0%,transparent 60%),radial-gradient(60% 80% at 100% 100%,#EAF5E8 0%,transparent 60%),linear-gradient(180deg,#FFFFFF,#F4F8FD);
+  --grad-digital:linear-gradient(135deg,#274798 0%,#2F6BBA 50%,#459AD5 100%);
+  /* Type */
+  --font-sans:var(--font-geist),Inter,system-ui,sans-serif; --font-mono:var(--font-geist-mono),ui-monospace,monospace;
+  /* Spacing (4px base) */
+  --space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-6:24px;--space-8:32px;--space-12:48px;--space-16:64px;--space-24:96px;--space-32:128px;
+  /* Radius */
+  --radius-xs:6px;--radius-sm:10px;--radius-md:14px;--radius-lg:20px;--radius-xl:28px;--radius-pill:999px;
+  /* Shadows */
+  --shadow-xs:0 1px 2px rgba(25,44,88,0.08);
+  --shadow-sm:0 2px 8px -2px rgba(25,44,88,0.10),0 1px 2px rgba(25,44,88,0.06);
+  --shadow-md:0 12px 32px -14px rgba(25,44,88,0.28);
+  --shadow-lg:0 40px 80px -30px rgba(25,44,88,0.40);
+  --shadow-glow:0 10px 30px -10px rgba(69,154,213,0.55);
+  /* Glass */
+  --glass-light:rgba(255,255,255,0.78); --glass-medium:rgba(255,255,255,0.58); --glass-ambient:rgba(255,255,255,0.36);
+  --glass-border:rgba(255,255,255,0.7); --glass-highlight:inset 0 1px 0 rgba(255,255,255,0.8);
+  /* Motion */
+  --dur-micro:160ms;--dur-hover:240ms;--dur-reveal:560ms;--dur-hero:820ms;--stagger:80ms;
+  --ease-out:cubic-bezier(0.22,1,0.36,1); --ease-in-out:cubic-bezier(0.65,0,0.35,1); --ease-emphasis:cubic-bezier(0.16,1,0.3,1);
+  /* Breakpoints (reference) mobile 390 · tablet 768 · laptop 1280 · desktop 1440 */
+}
+
+@theme inline {
+  --color-brand-blue: var(--cs-blue);
+  --color-brand-sky: var(--cs-sky);
+  --color-brand-green: var(--cs-green);
+  --color-blue-50: var(--blue-50); --color-blue-100: var(--blue-100); --color-blue-200: var(--blue-200);
+  --color-blue-300: var(--blue-300); --color-blue-400: var(--blue-400); --color-blue-500: var(--blue-500);
+  --color-blue-600: var(--blue-600); --color-blue-700: var(--blue-700); --color-blue-800: var(--blue-800);
+  --color-blue-900: var(--blue-900); --color-blue-950: var(--blue-950);
+  --color-sky-50: var(--sky-50); --color-sky-100: var(--sky-100); --color-sky-200: var(--sky-200);
+  --color-sky-300: var(--sky-300); --color-sky-400: var(--sky-400); --color-sky-500: var(--sky-500);
+  --color-sky-600: var(--sky-600); --color-sky-700: var(--sky-700);
+  --color-green-50: var(--green-50); --color-green-100: var(--green-100); --color-green-500: var(--green-500);
+  --color-green-700: var(--green-700);
+  --color-n-0: var(--n-0); --color-n-25: var(--n-25); --color-n-50: var(--n-50); --color-n-100: var(--n-100);
+  --color-n-200: var(--n-200); --color-n-300: var(--n-300); --color-n-400: var(--n-400); --color-n-500: var(--n-500);
+  --color-n-600: var(--n-600); --color-n-700: var(--n-700); --color-n-800: var(--n-800);
+  --color-ink: var(--text-primary);
+  --color-ink-2: var(--text-secondary);
+  --color-ink-muted: var(--text-muted);
+  --color-surface: var(--surface);
+  --color-surface-subtle: var(--surface-subtle);
+  --color-surface-tint: var(--surface-tint);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-default: var(--border-default);
+}
+
+@theme {
+  --font-sans: var(--font-geist), Inter, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --radius-xs: 6px; --radius-sm: 10px; --radius-md: 14px; --radius-lg: 20px; --radius-xl: 28px;
+  --shadow-xs: 0 1px 2px rgba(25,44,88,0.08);
+  --shadow-sm: 0 2px 8px -2px rgba(25,44,88,0.10),0 1px 2px rgba(25,44,88,0.06);
+  --shadow-md: 0 12px 32px -14px rgba(25,44,88,0.28);
+  --shadow-lg: 0 40px 80px -30px rgba(25,44,88,0.40);
+  --shadow-glow: 0 10px 30px -10px rgba(69,154,213,0.55);
+  --ease-out: cubic-bezier(0.22,1,0.36,1);
+}
+
+@layer base {
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    background: var(--surface);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  :focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 2px; border-radius: 6px; }
+  ::selection { background: var(--sky-200); color: var(--blue-950); }
+}
+
+/* Utility del design system */
+@utility glass-light { background: var(--glass-light); backdrop-filter: blur(10px) saturate(160%); border: 1px solid var(--glass-border); box-shadow: var(--glass-highlight); }
+@utility glass-medium { background: var(--glass-medium); backdrop-filter: blur(18px) saturate(160%); border: 1px solid var(--glass-border); box-shadow: var(--glass-highlight); }
+@utility glass-ambient { background: var(--glass-ambient); backdrop-filter: blur(28px) saturate(160%); border: 1px solid var(--glass-border); box-shadow: var(--glass-highlight); }
+@utility bg-ambient { background-image: var(--grad-ambient); }
+@utility bg-brand-gradient { background-image: var(--grad-brand); }
+@utility bg-digital { background-image: var(--grad-digital); }
+@utility eyebrow { font-family: var(--font-mono); font-size: 11px; font-weight: 500; line-height: 1; letter-spacing: .06em; text-transform: uppercase; color: var(--text-muted); }
+
+/* Movimento ridotto: nessuna animazione/transizione non essenziale */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+/* Card interattiva: bagliore radiale che segue il cursore (solo puntatore preciso, mai con reduced-motion) */
+.spotlight { position: relative; isolation: isolate; transition: transform 260ms var(--ease-out), box-shadow 260ms var(--ease-out), border-color 200ms; }
+.spotlight::before {
+  content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; opacity: 0; pointer-events: none;
+  background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 50%), rgba(69,154,213,.16), transparent 60%);
+  transition: opacity 240ms;
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .spotlight:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--sky-200); }
+  .spotlight:hover::before { opacity: 1; }
+}
+
+/* Cedi Assist */
+@keyframes csa-ring { 0% { transform: scale(1); opacity: .55 } 70%, 100% { transform: scale(1.55); opacity: 0 } }
+@keyframes csa-dot { 0%, 80%, 100% { transform: translateY(0); opacity: .35 } 40% { transform: translateY(-4px); opacity: 1 } }
+
+/* Home: orb ambient lenti (26–36s) e bagliore hero */
+@keyframes cs-orb { from { transform: translate3d(0,0,0) scale(1) } to { transform: translate3d(40px,30px,0) scale(1.12) } }
+.cs-orb { position: absolute; border-radius: 50%; filter: blur(24px); will-change: transform; animation: cs-orb var(--d, 30s) ease-in-out var(--delay, 0s) infinite alternate; pointer-events: none; }
+.hero-glow { position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity 300ms;
+  background: radial-gradient(520px circle at var(--hx, 50%) var(--hy, 40%), rgba(69,154,213,.18), transparent 60%); }
+.hero:hover .hero-glow { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .cs-orb { animation: none } .hero-glow { display: none } }
+@keyframes ft-in { from { opacity: 0; transform: translateY(8px) } to { opacity: 1; transform: none } }

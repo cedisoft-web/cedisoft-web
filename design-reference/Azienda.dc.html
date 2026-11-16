@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Azienda e contatti — Cedi Soft</title>
+<link rel="icon" href="./assets/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script src="./cs-icons.js"></script>
+<script src="./cs-core.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#FFFFFF;color:#192C58;font-family:Geist,Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#274798;text-decoration:none}
+a:hover{color:#1F3A7E}
+::selection{background:#B6D5F0}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:1ms!important;transition-duration:1ms!important;scroll-behavior:auto!important}}
+</style>
+</helmet>
+<dc-import name="Header" active="{{ navActive }}" hint-size="100%,0px"></dc-import>
+<main id="main">
+<section data-screen-label="01 Hero azienda" style="position:relative;overflow:hidden;padding:clamp(130px,16vw,190px) 20px clamp(72px,9vw,112px);background:radial-gradient(900px 500px at 80% 0%,rgba(69,154,213,0.16),transparent 60%),linear-gradient(180deg,#FFFFFF 0%,#F7F9FD 100%)">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:28px">
+    <nav aria-label="Percorso" style="display:flex;align-items:center;gap:8px;font:500 13px/1 Geist;color:#66738C"><a href="Home.dc.html" style="color:#4B5770">Home</a><cs-icon name="chevron-right" size="14"></cs-icon><span aria-current="page" style="color:#192C58">Azienda</span></nav>
+    <h1 style="margin:0;max-width:1040px;font:600 clamp(44px,7.2vw,96px)/0.96 Geist;letter-spacing:-0.05em;color:#192C58;text-wrap:balance">Dal <span style="background:linear-gradient(100deg,#274798,#459AD5);-webkit-background-clip:text;background-clip:text;color:transparent">1989</span>, la tecnologia al servizio delle imprese.</h1>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:24px 56px;align-items:end">
+      <p style="margin:0;max-width:600px;font:400 clamp(17px,1.5vw,20px)/1.6 Geist;color:#4B5770;text-wrap:pretty">Cedi Soft è una software house di Scauri, in provincia di Latina. Da oltre trent’anni sviluppa software gestionali e applicazioni web per aziende e professionisti di settori diversi.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-start">
+        <a href="#storia" style="display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 22px;border-radius:999px;background:#274798;color:#FFFFFF;font:500 15px/1 Geist" style-hover="background:#1F3A7E;color:#FFFFFF">La nostra storia<cs-icon name="arrow-down" size="16"></cs-icon></a>
+        <a href="#contatti" style="display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 22px;border-radius:999px;border:1px solid rgba(25,44,88,0.12);background:#FFFFFF;color:#192C58;font:500 15px/1 Geist" style-hover="border-color:#459AD5;color:#192C58">Contatti</a>
+      </div>
+    </div>
+    <div data-reveal-img="" style="position:relative;margin-top:clamp(24px,4vw,48px);display:grid;grid-template-columns:{{ bandCols }};gap:14px;height:clamp(320px,38vw,480px)">
+      <div style="position:relative;border-radius:30px;overflow:hidden;background:#EEF4FC"><image-slot id="azienda-hero-1" shape="rect" placeholder="Foto: sede Cedi Soft a Scauri (da fornire)"></image-slot>
+        <div style="position:absolute;left:16px;bottom:16px;display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:18px;background:rgba(255,255,255,0.86);backdrop-filter:blur(18px) saturate(160%);border:1px solid rgba(255,255,255,0.9);pointer-events:none"><span style="width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,#274798,#459AD5);color:#FFFFFF;display:flex;align-items:center;justify-content:center"><cs-icon name="map-pin" size="17"></cs-icon></span><span style="display:flex;flex-direction:column;gap:3px"><span style="font:600 14px/1.2 Geist;color:#192C58">Scauri (LT)</span><span style="font:400 12px/1.2 Geist;color:#4B5770">Sede Cedi Soft</span></span></div>
+      </div>
+      <sc-if value="{{ wideBand }}" hint-placeholder-val="{{ true }}">
+        <div style="display:grid;grid-template-rows:1fr 1fr;gap:14px">
+          <div style="position:relative;border-radius:30px;overflow:hidden;background:#F1F8EF"><image-slot id="azienda-hero-2" shape="rect" placeholder="Foto: team al lavoro (da fornire)"></image-slot></div>
+          <div style="position:relative;border-radius:30px;overflow:hidden;padding:18px 0 0 18px;background:radial-gradient(260px 160px at 20% 0%,rgba(69,154,213,0.2),transparent 70%),#F4F8FD"><div style="position:absolute;left:18px;right:-18px;top:18px;bottom:-18px"><dc-import name="AppMock" kind="dash" compact="{{ true }}" badge="" radius="14px 0 0 0" hint-size="100%,100%" style="width:100%;height:100%"></dc-import></div></div>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<section id="storia" data-screen-label="02 Storia" style="padding:clamp(72px,9vw,112px) 20px">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:40px 64px">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:14px;position:sticky;top:120px;align-self:start">
+      <span style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;color:#2F7FBC">La nostra storia</span>
+      <h2 style="margin:0;font:600 clamp(30px,3.6vw,46px)/1.08 Geist;letter-spacing:-0.035em;color:#192C58;text-wrap:balance">Software nati dal lavoro quotidiano dei nostri clienti.</h2>
+    </div>
+    <div style="grid-column:span 2;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px">
+      <sc-for list="{{ story }}" as="s" hint-placeholder-count="6">
+        <div data-reveal="{{ s.d }}" style="display:flex;flex-direction:column;gap:12px;padding:24px;border-radius:20px;background:#F7F9FD;border:1px solid rgba(25,44,88,0.06)">
+          <span style="width:42px;height:42px;border-radius:12px;background:#FFFFFF;color:#274798;display:flex;align-items:center;justify-content:center;border:1px solid rgba(25,44,88,0.08)"><cs-icon name="{{ s.icon }}" size="19"></cs-icon></span>
+          <span style="font:600 17px/1.25 Geist;color:#192C58">{{ s.t }}</span>
+          <span style="font:400 14px/1.6 Geist;color:#4B5770">{{ s.b }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="03 Timeline" style="padding:clamp(72px,9vw,112px) 20px;background:#192C58;color:#FFFFFF;position:relative;overflow:hidden">
+  <div aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(700px 400px at 10% 0%,rgba(69,154,213,0.3),transparent 60%)"></div>
+  <div style="position:relative;max-width:1000px;margin:0 auto;display:flex;flex-direction:column;gap:48px">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:14px;max-width:640px">
+      <span style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;color:#9CC8EC">Percorso</span>
+      <h2 style="margin:0;font:600 clamp(30px,3.6vw,46px)/1.08 Geist;letter-spacing:-0.035em;text-wrap:balance">Le tappe dell’evoluzione.</h2>
+      <p style="margin:0;font:400 15px/1.6 Geist;color:#C9D6EC">Solo tappe documentate da fonti pubbliche. Le fasi senza data verificata sono indicate come tali.</p>
+    </div>
+    <ol style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column">
+      <sc-for list="{{ timeline }}" as="t" hint-placeholder-count="5">
+        <li data-reveal="{{ t.d }}" style="display:grid;grid-template-columns:clamp(84px,14vw,140px) 24px 1fr;gap:clamp(12px,2vw,24px)">
+          <span style="padding-top:2px;font:600 clamp(20px,2.4vw,28px)/1 Geist;letter-spacing:-0.03em;color:{{ t.yc }}">{{ t.y }}</span>
+          <span style="display:flex;flex-direction:column;align-items:center"><span style="width:14px;height:14px;margin-top:6px;border-radius:50%;background:{{ t.dot }};box-shadow:0 0 0 5px rgba(255,255,255,0.08)"></span><span style="flex:1;width:1px;background:rgba(255,255,255,0.18);margin-top:6px"></span></span>
+          <span style="display:flex;flex-direction:column;gap:8px;padding-bottom:40px"><span style="font:600 19px/1.3 Geist;letter-spacing:-0.015em">{{ t.t }}</span><span style="font:400 15px/1.6 Geist;color:#C9D6EC;max-width:560px">{{ t.b }}</span><span style="font:500 10px/1 'Geist Mono',monospace;letter-spacing:0.05em;text-transform:uppercase;color:#8FA6CC">{{ t.src }}</span></span>
+        </li>
+      </sc-for>
+    </ol>
+  </div>
+</section>
+
+<section data-screen-label="04 Valori" style="padding:clamp(72px,9vw,112px) 20px">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:36px">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:14px;max-width:720px">
+      <span style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;color:#2F7FBC">Valori</span>
+      <h2 style="margin:0;font:600 clamp(30px,3.6vw,46px)/1.08 Geist;letter-spacing:-0.035em;color:#192C58;text-wrap:balance">Ciò che guida il nostro lavoro.</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px">
+      <sc-for list="{{ values }}" as="v" hint-placeholder-count="5">
+        <div data-reveal="{{ v.d }}" style="grid-column:span {{ v.span }};display:flex;flex-direction:column;justify-content:space-between;gap:28px;min-height:220px;padding:28px;border-radius:24px;background:{{ v.bg }};color:{{ v.fg }};border:1px solid rgba(25,44,88,0.06);transition:transform 360ms cubic-bezier(0.22,1,0.36,1)" style-hover="transform:translateY(-4px)">
+          <span style="display:flex;align-items:center;justify-content:space-between"><cs-icon name="{{ v.icon }}" size="26"></cs-icon><span style="font:500 12px/1 'Geist Mono',monospace;opacity:0.6">{{ v.n }}</span></span>
+          <span style="display:flex;flex-direction:column;gap:10px"><span style="font:600 24px/1.15 Geist;letter-spacing:-0.025em">{{ v.t }}</span><span style="font:400 15px/1.55 Geist;opacity:0.85">{{ v.b }}</span></span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="metodo" data-screen-label="05 Approccio" style="padding:clamp(72px,9vw,112px) 20px;background:#F7F9FD">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:36px">
+    <div data-reveal="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:20px 48px;align-items:end">
+      <div style="display:flex;flex-direction:column;gap:14px"><span style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;color:#2F7FBC">Come lavoriamo</span><h2 style="margin:0;font:600 clamp(30px,3.6vw,46px)/1.08 Geist;letter-spacing:-0.035em;color:#192C58;text-wrap:balance">Dall’esigenza al software, e oltre.</h2></div>
+      <p style="margin:0;font:400 16px/1.65 Geist;color:#4B5770">Ogni progetto segue le fasi naturali dello sviluppo software: capire il lavoro da semplificare, realizzare lo strumento, metterlo in uso e continuare a farlo evolvere.</p>
+    </div>
+    <div role="tablist" aria-label="Fasi" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:8px">
+      <sc-for list="{{ phases }}" as="f" hint-placeholder-count="4">
+        <button role="tab" aria-selected="{{ f.on }}" onClick="{{ f.pick }}" style="display:flex;flex-direction:column;gap:12px;padding:20px;border-radius:20px;border:1px solid {{ f.bd }};background:{{ f.bg }};text-align:left;cursor:pointer;transition:all 300ms cubic-bezier(0.22,1,0.36,1)" style-hover="border-color:#9CC8EC" style-focus="outline:3px solid #9CC8EC;outline-offset:2px">
+          <span style="display:flex;align-items:center;justify-content:space-between;width:100%"><span style="font:500 12px/1 'Geist Mono',monospace;color:{{ f.nc }}">{{ f.n }}</span><span style="color:{{ f.nc }};display:flex"><cs-icon name="{{ f.icon }}" size="18"></cs-icon></span></span>
+          <span style="font:600 17px/1.25 Geist;color:#192C58">{{ f.t }}</span>
+          <span style="height:3px;border-radius:3px;background:#E3E8F0;overflow:hidden"><span style="display:block;height:100%;width:{{ f.bar }};background:linear-gradient(90deg,#274798,#459AD5);transition:width 500ms cubic-bezier(0.22,1,0.36,1)"></span></span>
+        </button>
+      </sc-for>
+    </div>
+    <div role="tabpanel" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:24px;padding:clamp(24px,4vw,40px);border-radius:24px;background:#FFFFFF;border:1px solid rgba(25,44,88,0.07)">
+      <div style="display:flex;flex-direction:column;gap:12px"><span style="font:600 26px/1.15 Geist;letter-spacing:-0.025em;color:#192C58">{{ phase.t }}</span><span style="font:400 16px/1.65 Geist;color:#4B5770">{{ phase.b }}</span></div>
+      <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px">
+        <sc-for list="{{ phase.items }}" as="i" hint-placeholder-count="3"><li style="display:flex;gap:10px;align-items:flex-start;padding:14px 16px;border-radius:14px;background:#F7F9FD;font:500 15px/1.45 Geist;color:#192C58"><span style="color:#34A63B;display:flex;margin-top:2px"><cs-icon name="check" size="16"></cs-icon></span>{{ i }}</li></sc-for>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contatti" data-screen-label="06 Contatti" style="padding:clamp(72px,9vw,112px) 20px clamp(80px,10vw,128px)">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:24px">
+    <div style="display:flex;flex-direction:column;gap:24px">
+      <div data-reveal="" style="display:flex;flex-direction:column;gap:14px"><span style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;color:#2F7FBC">Contatti</span><h2 style="margin:0;font:600 clamp(32px,4vw,52px)/1.04 Geist;letter-spacing:-0.035em;color:#192C58;text-wrap:balance">Parliamo del tuo lavoro.</h2><p style="margin:0;font:400 16px/1.6 Geist;color:#4B5770">Informazioni commerciali, demo, assistenza o collaborazioni: scrivici o chiamaci.</p></div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <a href="{{ tel1 }}" style="display:flex;gap:14px;align-items:center;padding:18px;border-radius:18px;background:#F7F9FD;border:1px solid rgba(25,44,88,0.06);color:#192C58;transition:border-color 200ms" style-hover="border-color:#9CC8EC;color:#192C58"><span style="width:42px;height:42px;flex:none;border-radius:12px;background:#FFFFFF;color:#274798;display:flex;align-items:center;justify-content:center"><cs-icon name="phone" size="19"></cs-icon></span><span style="display:flex;flex-direction:column;gap:4px"><span style="font:500 12px/1 Geist;color:#66738C">Telefono</span><span style="font:600 16px/1.3 Geist">{{ phones }}</span></span></a>
+        <a href="{{ mailto }}" style="display:flex;gap:14px;align-items:center;padding:18px;border-radius:18px;background:#F7F9FD;border:1px solid rgba(25,44,88,0.06);color:#192C58;transition:border-color 200ms" style-hover="border-color:#9CC8EC;color:#192C58"><span style="width:42px;height:42px;flex:none;border-radius:12px;background:#FFFFFF;color:#274798;display:flex;align-items:center;justify-content:center"><cs-icon name="mail" size="19"></cs-icon></span><span style="display:flex;flex-direction:column;gap:4px"><span style="font:500 12px/1 Geist;color:#66738C">Email</span><span style="font:600 16px/1.3 Geist">{{ c.email }}</span></span></a>
+        <div style="position:relative;display:flex;flex-direction:column;border-radius:20px;overflow:hidden;border:1px solid rgba(25,44,88,0.08);background:#FFFFFF">
+          <div aria-hidden="true" style="position:relative;height:150px;background:linear-gradient(160deg,#EEF4FC,#F4F8FD);overflow:hidden">
+            <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(39,71,152,0.08) 1px,transparent 1px),linear-gradient(90deg,rgba(39,71,152,0.08) 1px,transparent 1px);background-size:28px 28px"></div>
+            <div style="position:absolute;left:-10%;top:58%;width:130%;height:14px;background:#FFFFFF;transform:rotate(-8deg);box-shadow:0 0 0 1px rgba(25,44,88,0.06)"></div>
+            <div style="position:absolute;left:52%;top:-10%;width:10px;height:130%;background:#FFFFFF;transform:rotate(14deg);box-shadow:0 0 0 1px rgba(25,44,88,0.06)"></div>
+            <div style="position:absolute;right:0;bottom:0;width:38%;height:46%;background:linear-gradient(160deg,rgba(69,154,213,0.25),rgba(69,154,213,0.12))"></div>
+            <span style="position:absolute;left:50%;top:48%;transform:translate(-50%,-100%);display:flex;flex-direction:column;align-items:center"><span style="width:40px;height:40px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:linear-gradient(135deg,#274798,#459AD5);box-shadow:0 10px 24px -10px rgba(39,71,152,0.7);display:flex;align-items:center;justify-content:center"><span style="width:12px;height:12px;border-radius:50%;background:#FFFFFF"></span></span></span>
+            <span style="position:absolute;right:10px;top:10px;font:500 9px/1 'Geist Mono',monospace;letter-spacing:0.05em;text-transform:uppercase;color:#4B5770;background:rgba(255,255,255,0.85);padding:5px 7px;border-radius:6px">Mappa da integrare</span>
+          </div>
+          <div style="display:flex;gap:14px;align-items:center;padding:16px 18px"><span style="width:42px;height:42px;flex:none;border-radius:12px;background:#F7F9FD;color:#274798;display:flex;align-items:center;justify-content:center"><cs-icon name="map-pin" size="19"></cs-icon></span><span style="display:flex;flex-direction:column;gap:4px"><span style="font:500 12px/1 Geist;color:#66738C">Sede</span><span style="font:600 16px/1.35 Geist;color:#192C58">{{ c.address }}</span></span></div>
+        </div>
+        <button onClick="{{ openChat }}" style="display:flex;gap:14px;align-items:center;padding:18px;border-radius:18px;background:#F1F8EF;border:1px solid rgba(35,111,40,0.14);color:#192C58;text-align:left;cursor:pointer" style-hover="border-color:rgba(35,111,40,0.35)" style-focus="outline:3px solid #9CC8EC"><span style="width:42px;height:42px;flex:none;border-radius:12px;background:#FFFFFF;color:#236F28;display:flex;align-items:center;justify-content:center"><cs-icon name="message-circle" size="19"></cs-icon></span><span style="display:flex;flex-direction:column;gap:4px;flex:1"><span style="font:500 12px/1 Geist;color:#4B5770">Chat</span><span style="font:600 16px/1.3 Geist">Assistente e live chat</span></span><cs-icon name="arrow-right" size="16"></cs-icon></button>
+      </div>
+      <span style="font:400 12px/1.5 Geist;color:#66738C">{{ c.company }} · {{ c.vat }} · {{ c.source }}</span>
+    </div>
+
+    <div data-reveal="80" style="grid-column:span 2;padding:clamp(22px,3.5vw,36px);border-radius:28px;background:#FFFFFF;border:1px solid rgba(25,44,88,0.08);box-shadow:0 40px 80px -48px rgba(25,44,88,0.45)">
+      <sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
+        <form onSubmit="{{ submit }}" novalidate="" style="display:flex;flex-direction:column;gap:18px">
+          <sc-if value="{{ failed }}" hint-placeholder-val="{{ false }}"><div role="alert" style="display:flex;gap:10px;align-items:flex-start;padding:14px 16px;border-radius:14px;background:#FDEEEF;color:#A82A33;font:500 14px/1.45 Geist"><cs-icon name="circle-alert" size="17"></cs-icon><span>Invio non riuscito. Controlla la connessione e riprova. <span style="font-weight:400">(Stato simulato: si attiva scrivendo «errore» nel messaggio.)</span></span></div></sc-if>
+          <fieldset style="margin:0;padding:0;border:0;display:flex;flex-direction:column;gap:10px">
+            <legend style="padding:0;margin-bottom:10px;font:500 13px/1 Geist;color:#192C58">Oggetto</legend>
+            <div style="display:flex;flex-wrap:wrap;gap:8px">
+              <sc-for list="{{ subjects }}" as="s" hint-placeholder-count="5">
+                <button type="button" role="radio" aria-checked="{{ s.on }}" onClick="{{ s.pick }}" style="display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border-radius:999px;border:1px solid {{ s.bd }};background:{{ s.bg }};color:{{ s.fg }};font:500 14px/1 Geist;cursor:pointer;transition:all 200ms" style-hover="border-color:#459AD5" style-focus="outline:3px solid #9CC8EC"><cs-icon name="{{ s.icon }}" size="15"></cs-icon>{{ s.l }}</button>
+              </sc-for>
+            </div>
+          </fieldset>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:14px">
+            <sc-for list="{{ fields }}" as="f" hint-placeholder-count="4">
+              <label style="display:flex;flex-direction:column;gap:7px;font:500 13px/1 Geist;color:#192C58">{{ f.label }}
+                <input type="{{ f.type }}" value="{{ f.value }}" onChange="{{ f.onChange }}" autocomplete="{{ f.ac }}" aria-invalid="{{ f.invalid }}" placeholder="{{ f.ph }}" style="height:48px;padding:0 14px;border-radius:12px;border:1px solid {{ f.border }};background:#FFFFFF;color:#192C58;font:400 15px/1 Geist;transition:border-color 200ms" style-focus="outline:3px solid #9CC8EC;border-color:#459AD5">
+                <sc-if value="{{ f.err }}" hint-placeholder-val="{{ false }}"><span style="font:400 12px/1.3 Geist;color:#A82A33">{{ f.err }}</span></sc-if>
+              </label>
+            </sc-for>
+          </div>
+          <label style="display:flex;flex-direction:column;gap:7px;font:500 13px/1 Geist;color:#192C58">Software di interesse
+            <select value="{{ form.product }}" onChange="{{ onProduct }}" style="height:48px;padding:0 14px;border-radius:12px;border:1px solid rgba(25,44,88,0.14);background:#FFFFFF;color:#192C58;font:400 15px/1 Geist" style-focus="outline:3px solid #9CC8EC;border-color:#459AD5">
+              <sc-for list="{{ productOpts }}" as="o" hint-placeholder-count="4"><option value="{{ o.v }}">{{ o.l }}</option></sc-for>
+            </select>
+          </label>
+          <label style="display:flex;flex-direction:column;gap:7px;font:500 13px/1 Geist;color:#192C58">Messaggio
+            <textarea rows="5" value="{{ form.msg }}" onChange="{{ onMsg }}" aria-invalid="{{ msgInvalid }}" placeholder="Raccontaci di cosa hai bisogno" style="padding:12px 14px;border-radius:12px;border:1px solid {{ msgBorder }};background:#FFFFFF;color:#192C58;font:400 15px/1.55 Geist;resize:vertical" style-focus="outline:3px solid #9CC8EC;border-color:#459AD5"></textarea>
+            <sc-if value="{{ msgErr }}" hint-placeholder-val="{{ false }}"><span style="font:400 12px/1.3 Geist;color:#A82A33">{{ msgErr }}</span></sc-if>
+          </label>
+          <label style="display:flex;gap:12px;align-items:flex-start;font:400 14px/1.5 Geist;color:#35415A;cursor:pointer"><input type="checkbox" checked="{{ form.privacy }}" onChange="{{ onPrivacy }}" style="width:20px;height:20px;margin:1px 0 0;accent-color:#274798;flex:none"><span>Ho letto l’<a href="#" onClick="{{ legal }}">informativa privacy</a> e acconsento al trattamento dei dati per rispondere alla mia richiesta.<sc-if value="{{ privErr }}" hint-placeholder-val="{{ false }}"><span style="display:block;margin-top:4px;color:#A82A33;font-size:12px">{{ privErr }}</span></sc-if></span></label>
+          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:space-between">
+            <span style="font:400 12px/1.5 Geist;color:#66738C;max-width:340px">Prototipo: il modulo non invia dati.</span>
+            <button type="submit" disabled="{{ sending }}" style="display:inline-flex;align-items:center;gap:8px;height:52px;padding:0 28px;border-radius:999px;border:0;background:#274798;color:#FFFFFF;font:500 16px/1 Geist;cursor:pointer;opacity:{{ sendOp }};transition:background 220ms" style-hover="background:#1F3A7E" style-focus="outline:3px solid #9CC8EC;outline-offset:2px">{{ sendLabel }}<cs-icon name="send" size="16"></cs-icon></button>
+          </div>
+        </form>
+      </sc-if>
+      <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+        <div role="status" style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px;padding:48px 12px">
+          <span style="width:68px;height:68px;border-radius:50%;background:#EEF8EE;color:#236F28;display:flex;align-items:center;justify-content:center"><cs-icon name="circle-check" size="34"></cs-icon></span>
+          <span style="font:600 26px/1.2 Geist;letter-spacing:-0.025em;color:#192C58">Richiesta pronta, {{ firstName }}.</span>
+          <span style="max-width:440px;font:400 15px/1.6 Geist;color:#4B5770">Nel prototipo il modulo non invia dati. Con il servizio attivo, il team Cedi Soft risponderà a {{ form.email }} per «{{ subjectLabel }}».</span>
+          <button onClick="{{ again }}" style="display:inline-flex;align-items:center;gap:8px;height:46px;padding:0 20px;border-radius:999px;border:1px solid rgba(25,44,88,0.14);background:#FFFFFF;color:#192C58;font:500 15px/1 Geist;cursor:pointer">Nuova richiesta</button>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+</section>
+</main>
+<dc-import name="Footer" hint-size="100%,420px"></dc-import>
+<dc-import name="CediAssist" hint-size="0px,0px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const SUBJ = [['commerciale', 'Informazioni commerciali', 'briefcase-business'], ['demo', 'Richiesta demo', 'calendar-check'], ['assistenza', 'Assistenza', 'headset'], ['collaborazioni', 'Collaborazioni', 'handshake'], ['altro', 'Altro', 'message-square']];
+class Component extends DCLogic {
+  state = { phase: 0, form: { subject: 'commerciale', name: '', company: '', email: '', phone: '', product: '', msg: '', privacy: false }, tried: false, status: 'idle', hash: location.hash };
+  componentDidMount() {
+    const init = () => {
+      const CS = window.CS; const pp = CS.param('p'); const sj = CS.param('oggetto');
+      this.setState(s => ({ form: Object.assign({}, s.form, pp && CS.product(pp) ? { product: CS.product(pp).name } : {}, sj && SUBJ.some(x => x[0] === sj) ? { subject: sj } : {}) }));
+    };
+    if (window.CS) init(); else window.addEventListener('cs:ready', init, { once: true });
+    this.onHash = () => this.setState({ hash: location.hash }); window.addEventListener('hashchange', this.onHash);
+  }
+  componentWillUnmount() { window.removeEventListener('hashchange', this.onHash); }
+  setF(k, v) { this.setState(s => ({ form: Object.assign({}, s.form, { [k]: v }) })); }
+  errs(f) {
+    const e = {};
+    if (!f.name.trim()) e.name = 'Inserisci nome e cognome.';
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email.trim())) e.email = 'Inserisci un indirizzo email valido.';
+    if (f.msg.trim().length < 10) e.msg = 'Scrivi almeno qualche parola (10 caratteri).';
+    if (!f.privacy) e.privacy = 'Il consenso è necessario per inviare la richiesta.';
+    return e;
+  }
+  renderVals() {
+    const CS = window.CS; const s = this.state; const f = s.form;
+    const c = CS ? CS.config.contacts : { phones: [], phoneHrefs: [] };
+    const e = s.tried ? this.errs(f) : {};
+    const fld = (k, label, type, ac, ph) => ({ label, type, ac, ph, value: f[k], onChange: (ev) => this.setF(k, ev.target.value), err: e[k] || '', invalid: !!e[k], border: e[k] ? '#C4434D' : 'rgba(25,44,88,0.14)' });
+    const PH = [
+      { n: '01', icon: 'messages-square', t: 'Analisi delle esigenze', b: 'Ascoltiamo come lavori, quali attività vuoi semplificare e quali strumenti usi già.', items: ['Incontro con chi usa il software ogni giorno', 'Raccolta dei requisiti operativi', 'Definizione delle priorità'] },
+      { n: '02', icon: 'code-xml', t: 'Sviluppo', b: 'Realizziamo il software o adattiamo un nostro prodotto, mantenendo il confronto con te.', items: ['Applicazioni desktop e web', 'Integrazione con i sistemi esistenti', 'Verifiche durante lo sviluppo'] },
+      { n: '03', icon: 'rocket', t: 'Avvio', b: 'Accompagniamo l’installazione e l’avvio del software nella tua attività.', items: ['Installazione in locale o in cloud', 'Primo utilizzo guidato', 'Configurazione sui tuoi dati'] },
+      { n: '04', icon: 'refresh-cw', t: 'Assistenza ed evoluzione', b: 'Dopo il rilascio restiamo al tuo fianco con assistenza e aggiornamenti.', items: ['Assistenza tecnica sui prodotti', 'Aggiornamenti pubblicati nel software', 'Nuove funzioni nate dall’uso reale'] }
+    ];
+    const subj = SUBJ.find(x => x[0] === f.subject) || SUBJ[0];
+    return {
+      navActive: s.hash === '#contatti' ? 'contatti' : 'azienda',
+      wideBand: window.innerWidth >= 860, bandCols: window.innerWidth >= 860 ? 'minmax(0,1.6fr) minmax(0,1fr)' : '1fr',
+      story: [
+        { icon: 'calendar', t: 'Dal 1989', b: 'Oltre trent’anni di sviluppo software, con sede a Scauri (LT).', d: 0 },
+        { icon: 'code-xml', t: 'Sviluppo interno', b: 'Progettiamo e sviluppiamo direttamente i nostri software gestionali e le applicazioni web.', d: 50 },
+        { icon: 'layers', t: 'Multi-settore', b: 'Automotive, carrozzerie, periti, autonoleggio, contabilità e personalizzazione.', d: 100 },
+        { icon: 'workflow', t: 'Conoscenza dei processi', b: 'I nostri software nascono dalle esigenze pratiche di chi li usa ogni giorno.', d: 0 },
+        { icon: 'users', t: 'Attenzione al cliente', b: 'Soluzioni che rispondono a bisogni reali e aiutano a lavorare meglio.', d: 50 },
+        { icon: 'cloud', t: 'Evoluzione continua', b: 'Dal desktop al cloud, fino alle nuove applicazioni web come Gest Park Web.', d: 100 }
+      ],
+      timeline: [
+        { y: '1989', t: 'Nasce Cedi Soft', b: 'Inizia l’attività di sviluppo di software e applicazioni per le imprese.', src: 'Fonte: datgroup.com', yc: '#FFFFFF', dot: '#459AD5', d: 0 },
+        { y: 'Fase', t: 'I software verticali', b: 'Nascono i gestionali per autosaloni, carrozzerie, periti, noleggio e contabilità: Gest Park, Gest Crash, Gest Rent, GEST.', src: 'Data da verificare', yc: '#8FA6CC', dot: '#8FA6CC', d: 40 },
+        { y: '2017', t: 'Software in cloud e Stiltocco', b: 'I software diventano disponibili anche su piattaforma cloud. Al VisCom 2017 viene presentato in anteprima Stiltocco.', src: 'Fonte: cedisoft.it', yc: '#FFFFFF', dot: '#459AD5', d: 80 },
+        { y: '2020', t: 'Partnership con DAT Italia', b: 'Un accordo per integrare base dati e valutazione dell’usato nel gestionale Gest Park.', src: 'Fonte: datgroup.com', yc: '#FFFFFF', dot: '#459AD5', d: 120 },
+        { y: 'Oggi', t: 'Nuove applicazioni web', b: 'Gest Park Web è in fase di test: la nuova generazione dei software Cedi Soft.', src: 'In corso', yc: '#7FCB84', dot: '#34A63B', d: 160 }
+      ],
+      values: [
+        { n: '01', icon: 'shield-check', t: 'Affidabilità', b: 'Software stabili, su cui contare ogni giorno di lavoro.', span: 3, bg: '#192C58', fg: '#FFFFFF', d: 0 },
+        { n: '02', icon: 'lightbulb', t: 'Innovazione', b: 'Nuove tecnologie adottate quando portano un vantaggio concreto.', span: 3, bg: '#EEF4FC', fg: '#192C58', d: 60 },
+        { n: '03', icon: 'graduation-cap', t: 'Competenza', b: 'Conoscenza tecnica e dei settori in cui operano i clienti.', span: 2, bg: '#F7F9FD', fg: '#192C58', d: 0 },
+        { n: '04', icon: 'handshake', t: 'Vicinanza al cliente', b: 'Ascolto e supporto diretto, da chi sviluppa il software.', span: 2, bg: '#F1F8EF', fg: '#192C58', d: 60 },
+        { n: '05', icon: 'trending-up', t: 'Evoluzione tecnologica', b: 'Prodotti che crescono con il mercato e con chi li usa.', span: 2, bg: '#F7F9FD', fg: '#192C58', d: 120 }
+      ].map(v => Object.assign(v, { span: window.innerWidth < 760 ? 6 : v.span })),
+      phases: PH.map((p, i) => { const on = i === s.phase; return { n: p.n, icon: p.icon, t: p.t, on, pick: () => this.setState({ phase: i }), bg: on ? '#FFFFFF' : 'transparent', bd: on ? 'rgba(69,154,213,0.45)' : 'rgba(25,44,88,0.08)', nc: on ? '#274798' : '#8D99AF', bar: i <= s.phase ? '100%' : '0%' }; }),
+      phase: PH[s.phase],
+      c, phones: (c.phones || []).join(' · '), tel1: (c.phoneHrefs || [])[0] || '#', mailto: 'mailto:' + (c.email || ''),
+      openChat: () => CS && CS.assist.open('home'),
+      showForm: s.status !== 'sent', sent: s.status === 'sent', failed: s.status === 'error',
+      subjects: SUBJ.map(([id, l, icon]) => { const on = f.subject === id; return { l, icon, on, pick: () => this.setF('subject', id), bg: on ? '#192C58' : '#FFFFFF', fg: on ? '#FFFFFF' : '#35415A', bd: on ? '#192C58' : 'rgba(25,44,88,0.14)' }; }),
+      fields: [fld('name', 'Nome e cognome', 'text', 'name', ''), fld('company', 'Azienda', 'text', 'organization', 'Facoltativo'), fld('email', 'Email', 'email', 'email', ''), fld('phone', 'Telefono', 'tel', 'tel', 'Facoltativo')],
+      form: f,
+      productOpts: [{ v: '', l: 'Seleziona (facoltativo)' }].concat((CS ? CS.products : []).map(p => ({ v: p.name, l: p.name + (p.status ? ' · ' + p.status : '') }))).concat([{ v: 'Sviluppo su misura', l: 'Sviluppo su misura' }, { v: 'Servizi', l: 'Servizi' }]),
+      onProduct: (ev) => this.setF('product', ev.target.value),
+      onMsg: (ev) => this.setF('msg', ev.target.value),
+      msgErr: e.msg || '', msgInvalid: !!e.msg, msgBorder: e.msg ? '#C4434D' : 'rgba(25,44,88,0.14)',
+      onPrivacy: () => this.setF('privacy', !f.privacy), privErr: e.privacy || '',
+      legal: (ev) => { ev.preventDefault(); CS && CS.toast('Informativa privacy da fornire prima della pubblicazione.'); },
+      sending: s.status === 'sending', sendOp: s.status === 'sending' ? 0.7 : 1,
+      sendLabel: s.status === 'sending' ? 'Invio in corso…' : 'Invia richiesta',
+      submit: (ev) => {
+        ev.preventDefault();
+        this.setState({ tried: true });
+        if (Object.keys(this.errs(f)).length) return;
+        this.setState({ status: 'sending' });
+        setTimeout(() => this.setState({ status: /errore/i.test(f.msg) ? 'error' : 'sent' }), 1200);
+      },
+      firstName: (f.name.trim().split(' ')[0] || ''),
+      subjectLabel: subj[1],
+      again: () => this.setState({ status: 'idle', tried: false, form: Object.assign({}, f, { msg: '', privacy: false }) })
+    };
+  }
+}
+</script>
+</body>
+</html>

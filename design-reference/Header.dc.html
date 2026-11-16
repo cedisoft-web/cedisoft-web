@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script src="./cs-icons.js"></script>
+<script src="./cs-core.js"></script>
+</helmet>
+<a href="#main" style="position:fixed;left:16px;top:-60px;z-index:80;padding:10px 14px;border-radius:10px;background:#192C58;color:#FFFFFF;font:500 14px/1 Geist;transition:top 200ms" style-focus="top:12px">Vai al contenuto</a>
+<div ref="{{ rootRef }}" onMouseLeave="{{ closeMega }}" style="position:fixed;z-index:50;left:50%;top:{{ top }};transform:translateX(-50%);width:{{ width }};transition:top 420ms cubic-bezier(0.22,1,0.36,1),width 420ms cubic-bezier(0.22,1,0.36,1)">
+  <nav aria-label="Principale" style="height:{{ h }};display:flex;align-items:center;gap:8px;padding:0 8px 0 18px;border-radius:18px;background:{{ bg }};backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);border:1px solid rgba(255,255,255,0.8);box-shadow:inset 0 1px 0 rgba(255,255,255,0.9),0 0 0 1px rgba(25,44,88,0.07),{{ shadow }};transition:height 420ms cubic-bezier(0.22,1,0.36,1),background 300ms,box-shadow 300ms">
+    <a href="Home.dc.html" aria-label="Cedi Soft — Home" style="display:flex;align-items:center;flex:none;margin-right:8px"><img src="./assets/cedisoft-wordmark.png" alt="Cedi Soft" style="height:{{ logoH }};width:auto;display:block;transition:height 420ms cubic-bezier(0.22,1,0.36,1)"></a>
+    <sc-if value="{{ desktop }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;align-items:center;gap:2px;margin:0 auto">
+        <button onClick="{{ toggleMega }}" onMouseEnter="{{ openMega }}" aria-expanded="{{ mega }}" aria-controls="cs-mega" style="position:relative;display:inline-flex;align-items:center;gap:4px;height:38px;padding:0 12px;border:0;border-radius:10px;background:{{ solBg }};color:{{ solColor }};font:500 14px/1 Geist;cursor:pointer;transition:background 200ms,color 200ms" style-hover="background:rgba(39,71,152,0.06);color:#192C58">Software<span style="display:inline-flex;opacity:0.6;transform:{{ chev }};transition:transform 240ms cubic-bezier(0.22,1,0.36,1)"><cs-icon name="chevron-down" size="14"></cs-icon></span><sc-if value="{{ solActive }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:12px;right:12px;bottom:4px;height:2px;border-radius:2px;background:linear-gradient(90deg,#274798,#459AD5)"></span></sc-if></button>
+        <sc-for list="{{ links }}" as="l" hint-placeholder-count="4">
+          <a href="{{ l.href }}" onMouseEnter="{{ closeMega }}" aria-current="{{ l.current }}" style="position:relative;display:inline-flex;align-items:center;height:38px;padding:0 12px;border-radius:10px;color:{{ l.color }};font:{{ l.font }};transition:background 200ms,color 200ms" style-hover="background:rgba(39,71,152,0.06);color:#192C58">{{ l.label }}<sc-if value="{{ l.active }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:12px;right:12px;bottom:4px;height:2px;border-radius:2px;background:linear-gradient(90deg,#274798,#459AD5)"></span></sc-if></a>
+        </sc-for>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px">
+        <a href="#" onClick="{{ areaClienti }}" title="Non ancora disponibile nel prototipo" style="display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 14px 0 12px;border-radius:999px;border:1px solid rgba(25,44,88,0.12);background:rgba(255,255,255,0.8);color:#192C58;font:500 14px/1 Geist;transition:all 220ms cubic-bezier(0.22,1,0.36,1)" style-hover="border-color:#459AD5;color:#274798;background:#FFFFFF"><cs-icon name="circle-user-round" size="18"></cs-icon>Area Clienti</a>
+        <a href="Azienda.dc.html#contatti" style="display:inline-flex;align-items:center;gap:6px;height:40px;padding:0 16px;border-radius:999px;background:#274798;color:#FFFFFF;font:500 14px/1 Geist;transition:background 220ms,gap 220ms" style-hover="background:#1F3A7E;color:#FFFFFF;gap:10px">Richiedi una demo<cs-icon name="arrow-right" size="15"></cs-icon></a>
+      </div>
+    </sc-if>
+    <sc-if value="{{ mobile }}" hint-placeholder-val="{{ false }}">
+      <div style="margin-left:auto;display:flex;align-items:center;gap:6px">
+        <button onClick="{{ toggleMob }}" aria-label="{{ mobLabel }}" aria-expanded="{{ mob }}" style="width:44px;height:44px;border-radius:12px;border:0;background:#F1F4FA;color:#192C58;cursor:pointer;display:flex;align-items:center;justify-content:center"><cs-icon name="{{ mobIcon }}" size="20"></cs-icon></button>
+      </div>
+    </sc-if>
+  </nav>
+
+  <sc-if value="{{ desktop }}" hint-placeholder-val="{{ true }}">
+    <div id="cs-mega" onMouseEnter="{{ openMega }}" style="position:absolute;left:0;right:0;top:calc(100% + 10px);opacity:{{ megaOp }};transform:{{ megaTf }};pointer-events:{{ megaPe }};visibility:{{ megaVis }};transition:opacity 240ms ease,transform 320ms cubic-bezier(0.22,1,0.36,1),visibility 320ms">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr 0.9fr;gap:6px;padding:10px;border-radius:22px;background:rgba(255,255,255,0.96);backdrop-filter:blur(20px) saturate(160%);border:1px solid rgba(25,44,88,0.08);box-shadow:0 30px 60px -28px rgba(25,44,88,0.4)">
+        <sc-for list="{{ megaGroups }}" as="g" hint-placeholder-count="3">
+          <div style="display:flex;flex-direction:column;gap:2px;padding:12px 6px">
+            <span style="font:500 11px/1 'Geist Mono',monospace;letter-spacing:0.06em;text-transform:uppercase;color:#66738C;margin:0 10px 10px">{{ g.label }}</span>
+            <sc-for list="{{ g.items }}" as="p" hint-placeholder-count="3">
+              <a href="{{ p.href }}" style="display:flex;gap:12px;padding:9px 10px;border-radius:12px;color:#192C58;transition:background 180ms" style-hover="background:#F1F4FA;color:#192C58"><span style="width:34px;height:34px;flex:none;border-radius:10px;background:#EEF4FC;color:#274798;display:flex;align-items:center;justify-content:center"><cs-icon name="{{ p.icon }}" size="17"></cs-icon></span><span style="display:flex;flex-direction:column;gap:4px;min-width:0"><span style="display:flex;align-items:center;gap:6px;font:600 14px/1.2 Geist">{{ p.name }}<sc-if value="{{ p.status }}" hint-placeholder-val="{{ false }}"><span style="height:18px;padding:0 6px;border-radius:999px;background:#FFF6E5;color:#8A5200;font:600 10px/18px Geist">{{ p.status }}</span></sc-if></span><span style="font:400 12px/1.35 Geist;color:#66738C">{{ p.category }}</span></span></a>
+            </sc-for>
+          </div>
+        </sc-for>
+        <div style="display:flex;flex-direction:column;justify-content:space-between;gap:16px;padding:22px;border-radius:16px;background:linear-gradient(150deg,#EEF4FC 0%,#F1F8EF 100%)">
+          <div style="display:flex;flex-direction:column;gap:8px"><span style="font:500 11px/1 'Geist Mono',monospace;letter-spacing:0.06em;text-transform:uppercase;color:#2F7FBC">Su misura</span><span style="font:600 18px/1.25 Geist;letter-spacing:-0.015em;color:#192C58">Software progettato attorno ai tuoi processi</span><span style="font:400 13px/1.5 Geist;color:#4B5770">Sviluppo personalizzato e integrazione con i sistemi che usi già.</span></div>
+          <a href="Servizi.dc.html#sviluppo" style="display:inline-flex;align-items:center;gap:6px;font:600 14px/1 Geist;color:#274798;transition:gap 240ms" style-hover="gap:10px">Scopri i servizi<cs-icon name="arrow-right" size="15"></cs-icon></a>
+        </div>
+        <div style="grid-column:1 / -1;display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:6px;border-radius:14px;background:#F7F9FD">
+          <a href="Software.dc.html" style="display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 12px;border-radius:10px;font:600 13px/1 Geist;color:#274798" style-hover="background:#FFFFFF">Catalogo completo<cs-icon name="arrow-right" size="14"></cs-icon></a>
+          <span style="flex:1"></span>
+          <sc-for list="{{ soonLinks }}" as="s" hint-placeholder-count="2">
+            <a href="#" onClick="{{ s.onClick }}" style="display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 12px;border-radius:10px;font:500 13px/1 Geist;color:#4B5770" style-hover="background:#FFFFFF;color:#192C58"><cs-icon name="{{ s.icon }}" size="15"></cs-icon>{{ s.label }}<span style="height:18px;padding:0 6px;border-radius:999px;background:#EEF1F6;color:#4B5770;font:500 10px/18px 'Geist Mono',monospace;letter-spacing:0.04em">PRESTO</span></a>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ mobile }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;left:0;right:0;top:calc(100% + 8px);max-height:calc(100dvh - 96px);overflow-y:auto;border-radius:20px;background:rgba(255,255,255,0.98);border:1px solid rgba(25,44,88,0.08);box-shadow:0 30px 60px -30px rgba(25,44,88,0.45);padding:10px;display:flex;flex-direction:column;opacity:{{ mobOp }};transform:{{ mobTf }};pointer-events:{{ mobPe }};visibility:{{ mobVis }};transition:opacity 220ms ease,transform 300ms cubic-bezier(0.22,1,0.36,1),visibility 300ms">
+      <button onClick="{{ toggleMobSol }}" aria-expanded="{{ mobSol }}" style="display:flex;align-items:center;justify-content:space-between;min-height:52px;padding:0 12px;border:0;border-radius:12px;background:transparent;font:500 17px/1 Geist;color:#192C58;cursor:pointer">Software<span style="display:flex;color:#8D99AF;transform:{{ mobSolChev }};transition:transform 240ms"><cs-icon name="chevron-down" size="18"></cs-icon></span></button>
+      <sc-if value="{{ mobSol }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:2px;padding:0 4px 8px">
+          <sc-for list="{{ allProducts }}" as="p" hint-placeholder-count="4">
+            <a href="{{ p.href }}" style="display:flex;align-items:center;gap:12px;min-height:48px;padding:6px 10px;border-radius:12px;color:#192C58;font:500 15px/1.2 Geist" style-hover="background:#F1F4FA"><span style="width:32px;height:32px;flex:none;border-radius:9px;background:#EEF4FC;color:#274798;display:flex;align-items:center;justify-content:center"><cs-icon name="{{ p.icon }}" size="16"></cs-icon></span>{{ p.name }}<sc-if value="{{ p.status }}" hint-placeholder-val="{{ false }}"><span style="height:18px;padding:0 6px;border-radius:999px;background:#FFF6E5;color:#8A5200;font:600 10px/18px Geist">{{ p.status }}</span></sc-if></a>
+          </sc-for>
+          <a href="Software.dc.html" style="display:flex;align-items:center;gap:8px;min-height:44px;padding:0 10px;font:600 14px/1 Geist;color:#274798">Catalogo completo<cs-icon name="arrow-right" size="15"></cs-icon></a>
+        </div>
+      </sc-if>
+      <sc-for list="{{ links }}" as="l" hint-placeholder-count="4">
+        <a href="{{ l.href }}" onClick="{{ closeMob }}" style="display:flex;align-items:center;justify-content:space-between;min-height:52px;padding:0 12px;border-radius:12px;font:500 17px/1 Geist;color:#192C58;border-top:1px solid rgba(25,44,88,0.05)" style-hover="background:#F1F4FA">{{ l.label }}<span style="color:#8D99AF;display:flex"><cs-icon name="chevron-right" size="18"></cs-icon></span></a>
+      </sc-for>
+      <sc-for list="{{ soonLinks }}" as="s" hint-placeholder-count="2">
+        <a href="#" onClick="{{ s.onClick }}" style="display:flex;align-items:center;justify-content:space-between;min-height:48px;padding:0 12px;border-radius:12px;font:500 15px/1 Geist;color:#4B5770;border-top:1px solid rgba(25,44,88,0.05)">{{ s.label }}<span style="height:20px;padding:0 7px;border-radius:999px;background:#EEF1F6;color:#4B5770;font:500 10px/20px 'Geist Mono',monospace">PRESTO</span></a>
+      </sc-for>
+      <div style="display:flex;flex-direction:column;gap:8px;padding:12px 2px 2px;border-top:1px solid rgba(25,44,88,0.08);margin-top:6px">
+        <a href="Azienda.dc.html#contatti" onClick="{{ closeMob }}" style="height:52px;border-radius:14px;background:#274798;color:#FFFFFF;font:500 16px/1 Geist;display:flex;align-items:center;justify-content:center;gap:8px">Richiedi una demo<cs-icon name="arrow-right" size="17"></cs-icon></a>
+        <a href="#" onClick="{{ areaClienti }}" style="height:52px;border-radius:14px;border:1px solid rgba(25,44,88,0.12);color:#192C58;font:500 16px/1 Geist;display:flex;align-items:center;justify-content:center;gap:8px"><cs-icon name="circle-user-round" size="18"></cs-icon>Area Clienti<span style="height:20px;padding:0 7px;border-radius:999px;background:#EEF1F6;color:#4B5770;font:500 10px/20px 'Geist Mono',monospace">PRESTO</span></a>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;software&quot;,&quot;servizi&quot;,&quot;azienda&quot;,&quot;assistenza&quot;,&quot;contatti&quot;,&quot;&quot;],&quot;default&quot;:&quot;home&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  rootRef = React.createRef();
+  state = { compact: false, mega: false, mob: false, mobSol: false, w: typeof window !== 'undefined' ? window.innerWidth : 1280 };
+  componentDidMount() {
+    if (!window.CS) window.addEventListener('cs:ready', () => this.forceUpdate(), { once: true });
+    this.onScroll = () => { const c = window.scrollY > 24; if (c !== this.state.compact) this.setState({ compact: c }); };
+    this.onResize = () => this.setState({ w: window.innerWidth });
+    this.onKey = (e) => { if (e.key === 'Escape') this.setState({ mega: false, mob: false }); };
+    this.onDoc = (e) => { const r = this.rootRef.current; if (r && !r.contains(e.target)) this.setState({ mega: false, mob: false }); };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', this.onResize);
+    window.addEventListener('keydown', this.onKey);
+    document.addEventListener('mousedown', this.onDoc);
+    this.onScroll();
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('resize', this.onResize);
+    window.removeEventListener('keydown', this.onKey);
+    document.removeEventListener('mousedown', this.onDoc);
+  }
+  renderVals() {
+    const CS = window.CS;
+    const st = this.state;
+    const active = this.props.active || '';
+    const desktop = st.w >= 1080;
+    const prods = CS ? CS.products : [];
+    const pick = (ids) => ids.map(id => prods.find(p => p.id === id)).filter(Boolean);
+    const soon = (l) => (e) => { CS && CS.soon(l)(e); this.setState({ mega: false, mob: false }); };
+    const linkDefs = [['servizi', 'Servizi', 'Servizi.dc.html'], ['azienda', 'Azienda', 'Azienda.dc.html'], ['assistenza', 'Assistenza', 'Assistenza.dc.html'], ['contatti', 'Contatti', 'Azienda.dc.html#contatti']];
+    return {
+      rootRef: this.rootRef,
+      desktop, mobile: !desktop,
+      top: st.compact ? '10px' : '16px',
+      width: desktop ? (st.compact ? 'min(1160px, calc(100% - 32px))' : 'min(1260px, calc(100% - 32px))') : 'calc(100% - 20px)',
+      h: st.compact ? '58px' : '66px',
+      logoH: st.compact ? '22px' : '25px',
+      bg: st.compact ? 'rgba(255,255,255,0.86)' : 'rgba(255,255,255,0.7)',
+      shadow: st.compact ? '0 14px 34px -16px rgba(25,44,88,0.32)' : '0 8px 24px -18px rgba(25,44,88,0.2)',
+      mega: st.mega,
+      chev: st.mega ? 'rotate(180deg)' : 'none',
+      solActive: active === 'software',
+      solBg: st.mega ? 'rgba(39,71,152,0.06)' : 'transparent',
+      solColor: active === 'software' || st.mega ? '#192C58' : '#35415A',
+      openMega: () => { if (!this.state.mega) this.setState({ mega: true }); },
+      closeMega: () => { if (this.state.mega) this.setState({ mega: false }); },
+      toggleMega: () => this.setState(x => ({ mega: !x.mega })),
+      megaOp: st.mega ? 1 : 0, megaTf: st.mega ? 'translateY(0)' : 'translateY(-6px)', megaPe: st.mega ? 'auto' : 'none', megaVis: st.mega ? 'visible' : 'hidden',
+      megaGroups: [
+        { label: 'Automotive', items: pick(['gest-park', 'gest-park-web', 'eseboll', 'gest-rent']) },
+        { label: 'Carrozzerie e periti', items: pick(['gest-crash-carw', 'gest-crash-cpew', 'gest-crash-cpa', 'videoperizia']) },
+        { label: 'Aziende e attività', items: pick(['gest', 'stiltocco']) }
+      ],
+      soonLinks: [{ label: 'News', icon: 'newspaper', onClick: soon('News') }, { label: 'Changelog', icon: 'git-commit-horizontal', onClick: soon('Changelog') }],
+      areaClienti: soon('Area Clienti'),
+      links: linkDefs.map(([k, label, href]) => ({ label, href, active: active === k, current: active === k ? 'page' : undefined, color: active === k ? '#192C58' : '#35415A', font: active === k ? '600 14px/1 Geist' : '500 14px/1 Geist' })),
+      mob: st.mob,
+      toggleMob: () => this.setState(x => ({ mob: !x.mob })),
+      closeMob: () => this.setState({ mob: false }),
+      mobLabel: st.mob ? 'Chiudi menu' : 'Apri menu',
+      mobIcon: st.mob ? 'x' : 'menu',
+      mobOp: st.mob ? 1 : 0, mobTf: st.mob ? 'translateY(0)' : 'translateY(-8px)', mobPe: st.mob ? 'auto' : 'none', mobVis: st.mob ? 'visible' : 'hidden',
+      mobSol: st.mobSol,
+      toggleMobSol: () => this.setState(x => ({ mobSol: !x.mobSol })),
+      mobSolChev: st.mobSol ? 'rotate(180deg)' : 'none',
+      allProducts: prods
+    };
+  }
+}
+</script>
+</body>
+</html>

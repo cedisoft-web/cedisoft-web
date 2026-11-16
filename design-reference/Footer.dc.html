@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script src="./cs-icons.js"></script>
+<script src="./cs-core.js"></script>
+</helmet>
+<footer style="position:relative;background:#F7F9FD;border-top:1px solid rgba(25,44,88,0.08);padding:72px 24px 32px">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:56px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:40px 32px">
+      <div style="grid-column:span 2;display:flex;flex-direction:column;gap:18px;min-width:min(100%,260px);max-width:360px">
+        <img src="./assets/cedisoft-logo.png" alt="Cedi Soft" style="width:200px;height:auto;display:block">
+        <p style="margin:0;font:400 15px/1.6 Geist;color:#4B5770;text-wrap:pretty">Software house italiana dal 1989. Sviluppiamo soluzioni gestionali e piattaforme digitali per aziende e professionisti.</p>
+        <div style="display:flex;flex-direction:column;gap:8px;font:400 14px/1.4 Geist;color:#4B5770">
+          <span style="display:flex;gap:10px;align-items:center"><cs-icon name="map-pin" size="15"></cs-icon>{{ c.address }}</span>
+          <span style="display:flex;gap:10px;align-items:center"><cs-icon name="phone" size="15"></cs-icon>{{ phone }}</span>
+          <span style="display:flex;gap:10px;align-items:center"><cs-icon name="mail" size="15"></cs-icon>{{ c.email }}</span>
+        </div>
+      </div>
+      <nav aria-label="Soluzioni" style="display:flex;flex-direction:column;gap:12px">
+        <span style="font:500 11px/1 'Geist Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;color:#66738C;margin-bottom:4px">Software</span>
+        <sc-for list="{{ products }}" as="p" hint-placeholder-count="6"><a href="{{ p.href }}" style="font:400 14px/1.3 Geist;color:#35415A" style-hover="color:#274798">{{ p.name }}</a></sc-for>
+      </nav>
+      <nav aria-label="Servizi" style="display:flex;flex-direction:column;gap:12px">
+        <span style="font:500 11px/1 'Geist Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;color:#66738C;margin-bottom:4px">Servizi</span>
+        <sc-for list="{{ services }}" as="s" hint-placeholder-count="5"><a href="Servizi.dc.html#{{ s.id }}" style="font:400 14px/1.3 Geist;color:#35415A" style-hover="color:#274798">{{ s.name }}</a></sc-for>
+      </nav>
+      <nav aria-label="Azienda e assistenza" style="display:flex;flex-direction:column;gap:12px">
+        <span style="font:500 11px/1 'Geist Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;color:#66738C;margin-bottom:4px">Azienda</span>
+        <a href="Azienda.dc.html" style="font:400 14px/1.3 Geist;color:#35415A" style-hover="color:#274798">Chi siamo</a>
+        <a href="Azienda.dc.html#storia" style="font:400 14px/1.3 Geist;color:#35415A" style-hover="color:#274798">La nostra storia</a>
+        <a href="Azienda.dc.html#metodo" style="font:400 14px/1.3 Geist;color:#35415A" style-hover="color:#274798">Metodo di lavoro</a>
+        <a href="Azienda.dc.html#contatti" style="font:400 14px/1.3 Geist;color:#35415A" style-hover="color:#274798">Contatti</a>
+        <span style="font:500 11px/1 'Geist Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;color:#66738C;margin:14px 0 4px">Assistenza</span>
+        <a href="Assistenza.dc.html" style="font:400 14px/1.3 Geist;color:#35415A" style-hover="color:#274798">Support Center</a>
+        <a href="Assistenza.dc.html#download" style="font:400 14px/1.3 Geist;color:#35415A" style-hover="color:#274798">Download</a>
+        <a href="Assistenza.dc.html#faq" style="font:400 14px/1.3 Geist;color:#35415A" style-hover="color:#274798">Domande frequenti</a>
+      </nav>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font:500 11px/1 'Geist Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;color:#66738C;margin-bottom:4px">Risorse</span>
+        <a href="#" onClick="{{ soonClienti }}" style="display:inline-flex;align-items:center;gap:8px;font:500 14px/1.3 Geist;color:#192C58" style-hover="color:#274798"><cs-icon name="circle-user-round" size="15"></cs-icon>Area Clienti · presto</a><a href="#" onClick="{{ soonNews }}" style="display:inline-flex;align-items:center;gap:8px;font:400 14px/1.3 Geist;color:#35415A" style-hover="color:#274798"><cs-icon name="newspaper" size="15"></cs-icon>News · presto</a><a href="#" onClick="{{ soonLog }}" style="display:inline-flex;align-items:center;gap:8px;font:400 14px/1.3 Geist;color:#35415A" style-hover="color:#274798"><cs-icon name="git-commit-horizontal" size="15"></cs-icon>Changelog · presto</a>
+        
+        <span style="font:500 11px/1 'Geist Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;color:#66738C;margin:14px 0 4px">Progetto</span>
+        <a href="Cedi Soft UI Lab.dc.html" style="display:inline-flex;align-items:center;gap:8px;font:400 14px/1.3 Geist;color:#35415A" style-hover="color:#274798"><cs-icon name="swatch-book" size="15"></cs-icon>UI Kit / Design System</a>
+      </div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;justify-content:space-between;padding-top:24px;border-top:1px solid rgba(25,44,88,0.08);font:400 13px/1.5 Geist;color:#66738C">
+      <span>© 1989–2026 Cedi Soft srl · {{ c.vat }}</span>
+      <div style="display:flex;flex-wrap:wrap;gap:20px">
+        <a href="#" onClick="{{ legal }}" style="color:#4B5770" style-hover="color:#274798">Privacy policy</a>
+        <a href="#" onClick="{{ legal }}" style="color:#4B5770" style-hover="color:#274798">Cookie policy</a>
+        <a href="#" onClick="{{ legal }}" style="color:#4B5770" style-hover="color:#274798">Note legali</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() { if (!window.CS) window.addEventListener('cs:ready', () => this.forceUpdate(), { once: true }); }
+  renderVals() {
+    const CS = window.CS;
+    const toast = (m) => (e) => { e.preventDefault(); CS && CS.toast(m); };
+    return {
+      c: CS ? CS.config.contacts : {},
+      phone: CS ? CS.config.contacts.phones.join(' · ') : '',
+      soonClienti: CS ? CS.soon('Area Clienti') : null, soonNews: CS ? CS.soon('News') : null, soonLog: CS ? CS.soon('Changelog') : null,
+      products: CS ? CS.products.map(p => ({ name: p.name, href: p.href })) : [],
+      services: CS ? CS.services : [],
+      legal: toast('Documento legale da fornire prima della pubblicazione.')
+    };
+  }
+}
+</script>
+</body>
+</html>

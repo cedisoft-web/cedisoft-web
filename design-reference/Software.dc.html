@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Software — Cedi Soft</title>
+<link rel="icon" href="./assets/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script src="./cs-icons.js"></script>
+<script src="./cs-core.js"></script>
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#F7F9FD;color:#192C58;font-family:Geist,Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#274798;text-decoration:none}
+a:hover{color:#1F3A7E}
+::selection{background:#B6D5F0}
+input[type=search]::-webkit-search-cancel-button{display:none}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:1ms!important;transition-duration:1ms!important;scroll-behavior:auto!important}}
+</style>
+</helmet>
+<dc-import name="Header" active="software" hint-size="100%,0px"></dc-import>
+<main id="main">
+<section ref="{{ heroRef }}" data-screen-label="01 Hero catalogo" style="position:relative;overflow:hidden;padding:clamp(124px,14vw,160px) 20px 56px;background:radial-gradient(800px 420px at 12% 0%,rgba(69,154,213,0.18),transparent 60%),radial-gradient(640px 360px at 92% 30%,rgba(39,71,152,0.12),transparent 62%),linear-gradient(180deg,#FFFFFF 0%,#F7F9FD 100%)">
+  <div ref="{{ glowRef }}" aria-hidden="true" style="position:absolute;left:0;top:0;width:520px;height:520px;border-radius:50%;pointer-events:none;opacity:0;background:radial-gradient(circle,rgba(69,154,213,0.24),rgba(39,71,152,0.1) 40%,transparent 70%);filter:blur(28px)"></div>
+  <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(39,71,152,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(39,71,152,0.05) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse 60% 70% at 80% 40%,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse 60% 70% at 80% 40%,#000 20%,transparent 75%)"></div>
+  <div style="position:relative;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:40px;align-items:center">
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <nav aria-label="Percorso" style="display:flex;align-items:center;gap:8px;font:500 13px/1 Geist;color:#66738C"><a href="Home.dc.html" style="color:#4B5770">Home</a><cs-icon name="chevron-right" size="14"></cs-icon><span aria-current="page" style="color:#192C58">Software</span></nav>
+      <h1 style="margin:0;font:600 clamp(40px,5.6vw,72px)/1 Geist;letter-spacing:-0.045em;color:#192C58;text-wrap:balance">Soluzioni software per ogni esigenza professionale.</h1>
+      <p style="margin:0;max-width:560px;font:400 clamp(17px,1.5vw,19px)/1.6 Geist;color:#4B5770;text-wrap:pretty">Dagli autosaloni alle carrozzerie, dai periti alle attività commerciali: software verticali sviluppati da Cedi Soft per settori diversi, con la stessa attenzione ai processi di lavoro.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ heroSectors }}" as="h" hint-placeholder-count="6"><button onClick="{{ h.pick }}" style="display:inline-flex;align-items:center;gap:7px;height:34px;padding:0 12px;border-radius:999px;border:1px solid rgba(25,44,88,0.1);background:rgba(255,255,255,0.8);color:#35415A;font:500 13px/1 Geist;cursor:pointer;transition:all 220ms" style-hover="border-color:#459AD5;color:#192C58"><cs-icon name="{{ h.icon }}" size="14"></cs-icon>{{ h.label }}</button></sc-for>
+      </div>
+    </div>
+    <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+      <div style="position:relative;height:380px;perspective:1800px">
+        <div style="position:absolute;left:0;top:10px;width:62%;height:56%;transform:rotateY(14deg) rotateX(4deg) translateZ(-40px);opacity:0.92"><dc-import name="AppMock" kind="crash" compact="{{ true }}" badge="" hint-size="100%,100%" style="width:100%;height:100%"></dc-import></div>
+        <div style="position:absolute;right:0;top:0;width:58%;height:50%;transform:rotateY(-14deg) rotateX(4deg) translateZ(-60px);opacity:0.92"><dc-import name="AppMock" kind="video" compact="{{ true }}" badge="" hint-size="100%,100%" style="width:100%;height:100%"></dc-import></div>
+        <div style="position:absolute;left:12%;right:6%;bottom:0;height:62%;transform:rotateX(8deg)"><dc-import name="AppMock" kind="park" hint-size="100%,100%" style="width:100%;height:100%"></dc-import></div>
+      </div>
+    </sc-if>
+  </div>
+</section>
+
+<section id="catalogo" data-screen-label="02 Catalogo" style="padding:0 20px clamp(80px,10vw,120px)">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:24px">
+    <div style="position:sticky;top:88px;z-index:20;display:flex;flex-direction:column;gap:12px;padding:12px;border-radius:22px;background:rgba(255,255,255,0.82);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);border:1px solid rgba(255,255,255,0.8);box-shadow:0 0 0 1px rgba(25,44,88,0.07),0 16px 36px -24px rgba(25,44,88,0.35)">
+      <label style="display:flex;align-items:center;gap:10px;height:54px;padding:0 8px 0 18px;border-radius:16px;background:#FFFFFF;border:1px solid rgba(25,44,88,0.1);box-shadow:inset 0 1px 2px rgba(25,44,88,0.04);color:#274798">
+        <cs-icon name="search" size="18"></cs-icon>
+        <input type="search" value="{{ q }}" onChange="{{ onQ }}" placeholder="Cerca un software, un settore o una funzione…" aria-label="Cerca nel catalogo" style="flex:1;min-width:0;height:100%;border:0;background:transparent;color:#192C58;font:400 16px/1 Geist;outline:none">
+        <sc-if value="{{ hasQ }}" hint-placeholder-val="{{ false }}"><button onClick="{{ clearQ }}" aria-label="Cancella ricerca" style="width:34px;height:34px;border:0;border-radius:10px;background:#EEF1F6;color:#4B5770;cursor:pointer;display:flex;align-items:center;justify-content:center"><cs-icon name="x" size="15"></cs-icon></button></sc-if>
+      </label>
+      <div role="group" aria-label="Filtra per settore" style="display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px">
+        <sc-for list="{{ chips }}" as="c" hint-placeholder-count="7">
+          <button aria-pressed="{{ c.on }}" onClick="{{ c.pick }}" style="flex:none;display:inline-flex;align-items:center;gap:7px;height:38px;padding:0 14px;border-radius:999px;border:1px solid {{ c.bd }};background:{{ c.bg }};color:{{ c.fg }};font:500 13px/1 Geist;cursor:pointer;white-space:nowrap;transition:all 220ms cubic-bezier(0.22,1,0.36,1)" style-hover="border-color:#459AD5" style-focus="outline:3px solid #9CC8EC;outline-offset:1px">{{ c.label }}<span style="min-width:20px;height:20px;padding:0 6px;border-radius:999px;background:{{ c.nbg }};color:{{ c.nfg }};font:600 11px/20px Geist;text-align:center">{{ c.n }}</span></button>
+        </sc-for>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 4px" aria-live="polite"><span style="font:500 14px/1 Geist;color:#4B5770">{{ resultLabel }}</span><sc-if value="{{ filtered }}" hint-placeholder-val="{{ false }}"><button onClick="{{ resetAll }}" style="border:0;background:transparent;color:#274798;font:600 13px/1 Geist;cursor:pointer;display:inline-flex;align-items:center;gap:6px"><cs-icon name="rotate-ccw" size="14"></cs-icon>Azzera filtri</button></sc-if></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:16px;opacity:{{ gridOp }};transform:{{ gridTf }};transition:opacity 360ms cubic-bezier(0.22,1,0.36,1),transform 420ms cubic-bezier(0.22,1,0.36,1)">
+      <sc-for list="{{ list }}" as="p" hint-placeholder-count="6">
+        <dc-import name="ProductCard" product="{{ p }}" hint-size="100%,280px"></dc-import>
+      </sc-for>
+    </div>
+    <sc-if value="{{ empty }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;padding:64px 20px;border-radius:24px;background:#FFFFFF;border:1px dashed rgba(25,44,88,0.18)">
+        <span style="width:56px;height:56px;border-radius:16px;background:#EEF4FC;color:#274798;display:flex;align-items:center;justify-content:center"><cs-icon name="search-x" size="26"></cs-icon></span>
+        <span style="font:600 20px/1.3 Geist;color:#192C58">Nessun software trovato per «{{ q }}»</span>
+        <span style="max-width:440px;font:400 15px/1.55 Geist;color:#4B5770">Prova con un altro termine o un altro settore. Se cerchi una soluzione specifica, possiamo valutare uno sviluppo su misura.</span>
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:6px">
+          <button onClick="{{ resetAll }}" style="display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:999px;border:1px solid rgba(25,44,88,0.14);background:#FFFFFF;color:#192C58;font:500 14px/1 Geist;cursor:pointer">Azzera filtri</button>
+          <a href="Servizi.dc.html#sviluppo" style="display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:999px;background:#274798;color:#FFFFFF;font:500 14px/1 Geist" style-hover="background:#1F3A7E;color:#FFFFFF">Sviluppo su misura<cs-icon name="arrow-right" size="15"></cs-icon></a>
+        </div>
+      </div>
+    </sc-if>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:16px;margin-top:40px">
+      <div data-reveal="" style="display:flex;flex-direction:column;gap:14px;padding:32px;border-radius:24px;background:linear-gradient(150deg,#EEF4FC,#F1F8EF);border:1px solid rgba(25,44,88,0.06)">
+        <span style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;color:#2F7FBC">Su misura</span>
+        <span style="font:600 26px/1.15 Geist;letter-spacing:-0.025em;color:#192C58">Non trovi quello che ti serve?</span>
+        <span style="font:400 15px/1.6 Geist;color:#4B5770">Sviluppiamo software personalizzati e integrazioni attorno ai tuoi processi.</span>
+        <a href="Servizi.dc.html#sviluppo" style="align-self:flex-start;display:inline-flex;align-items:center;gap:6px;font:600 14px/1 Geist;color:#274798;transition:gap 220ms" style-hover="gap:10px">Scopri lo sviluppo su misura<cs-icon name="arrow-right" size="15"></cs-icon></a>
+      </div>
+      <div data-reveal="80" style="display:flex;flex-direction:column;gap:14px;padding:32px;border-radius:24px;background:#FFFFFF;border:1px solid rgba(25,44,88,0.08)">
+        <span style="font:500 12px/1 'Geist Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;color:#2F7FBC">Demo</span>
+        <span style="font:600 26px/1.15 Geist;letter-spacing:-0.025em;color:#192C58">Vuoi vedere un software in azione?</span>
+        <span style="font:400 15px/1.6 Geist;color:#4B5770">Richiedi una dimostrazione: ti mostreremo il software sui casi del tuo lavoro.</span>
+        <a href="Azienda.dc.html#contatti" style="align-self:flex-start;display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:999px;background:#274798;color:#FFFFFF;font:500 14px/1 Geist" style-hover="background:#1F3A7E;color:#FFFFFF">Richiedi una demo<cs-icon name="arrow-right" size="15"></cs-icon></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<dc-import name="Footer" hint-size="100%,420px"></dc-import>
+<dc-import name="CediAssist" hint-size="0px,0px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  heroRef = React.createRef(); glowRef = React.createRef();
+  state = { q: '', sector: 'all', anim: false, w: window.innerWidth };
+  componentWillUnmount() { this.unGlow && this.unGlow(); window.removeEventListener('resize', this.onR); }
+  componentDidMount() {
+    this.onR = () => this.setState({ w: window.innerWidth }); window.addEventListener('resize', this.onR);
+    const init = () => { this.unGlow = window.CS.glow(this.heroRef.current, this.glowRef.current); const s = window.CS.param('settore'); if (s && window.CS.sectors.some(x => x.id === s)) this.setState({ sector: s }); else this.forceUpdate(); };
+    if (window.CS) init(); else window.addEventListener('cs:ready', init, { once: true });
+  }
+  bump(p) { this.setState(Object.assign({ anim: true }, p)); clearTimeout(this.t); this.t = setTimeout(() => this.setState({ anim: false }), 30); }
+  renderVals() {
+    const CS = window.CS; const s = this.state;
+    const P = CS ? CS.products : [];
+    const norm = (t) => (t || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const q = norm(s.q.trim());
+    const matchQ = (p) => !q || norm([p.name, p.category, p.desc, p.sectorLabels.join(' '), p.status || ''].join(' ')).includes(q);
+    const list = P.filter(p => (s.sector === 'all' || p.sectors.includes(s.sector)) && matchQ(p));
+    const chips = (CS ? CS.sectors : []).map(x => {
+      const n = P.filter(p => (x.id === 'all' || p.sectors.includes(x.id)) && matchQ(p)).length;
+      const on = x.id === s.sector;
+      return { label: x.label, n, on, pick: () => this.bump({ sector: x.id }), bg: on ? '#192C58' : '#FFFFFF', fg: on ? '#FFFFFF' : '#35415A', bd: on ? '#192C58' : 'rgba(25,44,88,0.12)', nbg: on ? 'rgba(255,255,255,0.18)' : '#F1F4FA', nfg: on ? '#FFFFFF' : '#4B5770' };
+    });
+    return {
+      heroRef: this.heroRef, glowRef: this.glowRef, wide: s.w >= 960,
+      heroSectors: (CS ? CS.sectors.filter(x => x.id !== 'all') : []).map(x => ({ label: x.label, icon: x.icon, pick: () => { this.bump({ sector: x.id }); const el = document.getElementById('catalogo'); el && window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); } })),
+      q: s.q, hasQ: !!s.q,
+      onQ: (e) => this.bump({ q: e.target.value }),
+      clearQ: () => this.bump({ q: '' }),
+      chips, list,
+      empty: list.length === 0,
+      filtered: s.sector !== 'all' || !!s.q,
+      resetAll: () => this.bump({ q: '', sector: 'all' }),
+      resultLabel: list.length === 1 ? '1 software' : list.length + ' software',
+      gridOp: s.anim ? 0 : 1,
+      gridTf: s.anim ? 'translateY(8px)' : 'none'
+    };
+  }
+}
+</script>
+</body>
+</html>
