@@ -12,9 +12,9 @@ export const sectors: Sector[] = [
 // Descrizioni dal prototipo (parafrasi del sito attuale). `status` solo dove noto.
 export const products: Product[] = [
   { slug: 'gest-park', name: 'Gest Park', category: 'Autosaloni', sectors: ['automotive'], icon: 'car-front', featured: true, hasDetailPage: true,
-    description: 'Gestionale per autosaloni, per gestire in modo completo la vendita di veicoli nuovi e usati.' },
+    description: 'Il gestionale per autosaloni, in locale o in cloud, per gestire in modo completo la vendita di veicoli nuovi e usati.' },
   { slug: 'gest-park-web', name: 'Gest Park Web', category: 'Autosaloni', sectors: ['automotive'], icon: 'globe', status: { label: 'Beta', note: 'In fase di test' }, hasDetailPage: false,
-    description: 'La versione web di Gest Park, attualmente in fase di test.' },
+    description: 'La nuova piattaforma per CRM e creazione del sito web, nello stesso ambiente di Gest Park. Attualmente in fase di test.' },
   { slug: 'gest-crash-carw', name: 'Gest Crash CARW', category: 'Carrozzerie e officine', sectors: ['carrozzerie', 'automotive'], icon: 'wrench', featured: true, hasDetailPage: false,
     description: 'Software per carrozzerie e officine: dal calcolo dei preventivi alla gestione della contabilità.' },
   { slug: 'gest-crash-cpew', name: 'Gest Crash CPEW', category: 'Periti assicurativi', sectors: ['periti'], icon: 'clipboard-check', hasDetailPage: false,

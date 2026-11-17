@@ -3,14 +3,15 @@ import Link from 'next/link';
 import { Icon } from '@/components/ui/icon';
 import { cn } from '@/lib/cn';
 
-export function SectionHeading({ eyebrow, title, lead, align = 'left', className }: Readonly<{
-  eyebrow?: string; title: React.ReactNode; lead?: React.ReactNode; align?: 'left' | 'center'; className?: string;
+export function SectionHeading({ eyebrow, title, lead, align = 'left', tone = 'light', className }: Readonly<{
+  eyebrow?: string; title: React.ReactNode; lead?: React.ReactNode; align?: 'left' | 'center'; tone?: 'light' | 'dark'; className?: string;
 }>) {
+  const dark = tone === 'dark';
   return (
     <div className={cn('flex max-w-2xl flex-col gap-3', align === 'center' && 'mx-auto items-center text-center', className)}>
-      {eyebrow && <span className="eyebrow">{eyebrow}</span>}
-      <h2 className="text-[clamp(28px,3.6vw,44px)] font-semibold leading-[1.08] tracking-[-0.03em] text-ink [text-wrap:balance]">{title}</h2>
-      {lead && <p className="text-[17px] leading-relaxed text-ink-2 [text-wrap:pretty]">{lead}</p>}
+      {eyebrow && <span className={cn('eyebrow', dark && '!text-[#9CC8EC]')}>{eyebrow}</span>}
+      <h2 className={cn('text-[clamp(28px,3.6vw,44px)] font-semibold leading-[1.08] tracking-[-0.03em] [text-wrap:balance]', dark ? 'text-white' : 'text-ink')}>{title}</h2>
+      {lead && <p className={cn('text-[17px] leading-relaxed [text-wrap:pretty]', dark ? 'text-[#C9D6EC]' : 'text-ink-2')}>{lead}</p>}
     </div>
   );
 }
