@@ -27,11 +27,14 @@ export function SectorCards({ sectors, products }: Readonly<{ sectors: Sector[];
           <li key={s.id}>
             <Reveal delay={i * 0.05} className="h-full">
               <Link href={`/software?settore=${s.id}`} className="group relative isolate flex min-h-[280px] flex-col justify-end overflow-hidden rounded-[24px] p-6 text-white shadow-md outline-offset-4 transition-shadow duration-300 hover:shadow-lg">
-                <span aria-hidden className="absolute inset-0 -z-20 transition-transform duration-700 ease-out motion-safe:group-hover:scale-110" style={{ background: tones[s.id] ?? tones.altre }} />
-                {photo
-                  ? <Image src={photo} alt="" fill sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw" className="-z-10 object-cover transition-transform duration-700 ease-out motion-safe:group-hover:scale-110" />
-                  : <Icon name={s.icon} size={150} className="absolute -right-6 -top-6 -z-10 text-white/15 transition-transform duration-700 motion-safe:group-hover:rotate-6 motion-safe:group-hover:scale-110" />}
-                <span aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-blue-950/85 via-blue-950/25 to-transparent" />
+                {/* Duotone: fondo a tinta del settore + foto in luminosità sul colore (mix-blend-luminosity) */}
+                <span aria-hidden className="absolute inset-0 -z-20" style={{ background: tones[s.id] ?? tones.altre }} />
+                {photo && (
+                  <Image src={photo} alt="" fill sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw"
+                    className="-z-10 object-cover opacity-80 mix-blend-luminosity grayscale transition-transform duration-700 ease-out motion-safe:group-hover:scale-110" />
+                )}
+                <Icon name={s.icon} size={150} className="absolute -right-6 -top-6 -z-10 text-white/20 transition-transform duration-700 motion-safe:group-hover:rotate-6 motion-safe:group-hover:scale-110" />
+                <span aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-blue-950/80 via-transparent to-transparent" />
                 <span aria-hidden className="absolute inset-0 -z-10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'radial-gradient(420px circle at 80% 0%, rgba(255,255,255,.22), transparent 60%)' }} />
                 <span className="mb-auto flex size-11 items-center justify-center rounded-xl bg-white/15 ring-1 ring-white/30 backdrop-blur"><Icon name={s.icon} size={20} /></span>
                 <span className="mt-12 flex items-end justify-between gap-3">

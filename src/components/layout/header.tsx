@@ -33,6 +33,10 @@ export function Header({ links, soonLinks, megaGroups, products, loginUrl, accou
   const [mobile, setMobile] = useState(false);
   const [mobileSoftware, setMobileSoftware] = useState(false);
   const root = useRef<HTMLDivElement>(null);
+  const leaveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // Piccola tolleranza in uscita: attraversando il pannello in diagonale il menu non si chiude.
+  const cancelLeave = () => { if (leaveTimer.current) { clearTimeout(leaveTimer.current); leaveTimer.current = null; } };
+  const scheduleLeave = () => { cancelLeave(); leaveTimer.current = setTimeout(() => setMega(false), 220); };
 
   const closeAll = useCallback(() => { setMega(false); setMobile(false); }, []);
 
@@ -63,7 +67,8 @@ export function Header({ links, soonLinks, megaGroups, products, loginUrl, accou
   return (
     <div
       ref={root}
-      onMouseLeave={() => setMega(false)}
+      onMouseLeave={scheduleLeave}
+      onMouseEnter={cancelLeave}
       className={cn(
         'fixed left-1/2 z-50 -translate-x-1/2 transition-[top,width] duration-[420ms] ease-out',
         compact ? 'top-2.5' : 'top-4',
@@ -145,7 +150,7 @@ export function Header({ links, soonLinks, megaGroups, products, loginUrl, accou
 
       {/* Mega menu */}
       <div id="cs-mega" onMouseEnter={() => setMega(true)} inert={!mega}
-        className={cn('absolute inset-x-0 top-[calc(100%+10px)] hidden transition-[opacity,transform,visibility] duration-300 ease-out min-[1080px]:block',
+        className={cn('absolute inset-x-0 top-full hidden pt-2.5 transition-[opacity,transform,visibility] duration-300 ease-out min-[1080px]:block',
           mega ? 'visible translate-y-0 opacity-100' : 'invisible -translate-y-1.5 opacity-0')}>
         <div className="grid grid-cols-[1fr_1fr_1fr_.9fr] gap-1.5 rounded-[22px] border border-border-subtle bg-white/[.96] p-2.5 shadow-[0_30px_60px_-28px_rgba(25,44,88,.4)] backdrop-blur-[20px] backdrop-saturate-[1.6]">
           {megaGroups.map((g) => (
