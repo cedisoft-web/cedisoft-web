@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 
+import { MapEmbed } from '@/components/company/map-embed';
 import { WorkPhases } from '@/components/company/work-phases';
 import { ButtonLink } from '@/components/ui/button';
 import { ContactForm } from '@/components/ui/contact-form';
@@ -128,6 +129,10 @@ export default async function CompanyPage() {
             <ContactForm toEmail={contacts.email} />
           </div>
         </div>
+      </section>
+
+      <section aria-label="Dove siamo" className="px-6 pb-24">
+        <div className="mx-auto max-w-[1200px]"><MapEmbed address={contacts.address} /></div>
       </section>
     </>
   );
