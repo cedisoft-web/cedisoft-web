@@ -74,7 +74,10 @@ export interface Contacts {
 
 export interface FaqItem { question: string; answer: string; topic?: string }
 export interface NewsItem { slug: string; title: string; date: string; excerpt: string }
-export interface ChangelogEntry { product: string; version: string; date: string; changes: string[] }
+/** Dettaglio news: `bodyHtml` è già sanificato dalla Cedi Platform (il Markdown è reso sul server, solo tag e attributi ammessi). */
+export interface NewsDetail extends NewsItem { bodyHtml: string }
+/** `product` = nome da mostrare; `productId` = id nel catalogo della Platform (es. dealer-web). `date` = yyyy-MM-dd. */
+export interface ChangelogEntry { product: string; productId?: string; version: string; date: string; changes: string[] }
 
 export interface NavLink { label: string; href: string; icon?: IconName; soon?: boolean }
 export interface MegaGroup { label: string; productSlugs: string[] }
@@ -91,5 +94,6 @@ export interface ContentSource {
   getServices(): Promise<Service[]>;
   getFaq(): Promise<FaqItem[]>;
   getNews(): Promise<NewsItem[]>;
+  getNewsItem(slug: string): Promise<NewsDetail | null>;
   getChangelog(): Promise<ChangelogEntry[]>;
 }

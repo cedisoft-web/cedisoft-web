@@ -54,7 +54,7 @@ export default async function ProductPage({ params }: { params: Params }) {
       <PageHero eyebrow={p.category} title={p.name} lead={d.value}
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Software', href: '/software' }, { label: p.name }]}>
         <div className="flex flex-wrap items-center gap-3">
-          <ButtonLink href="/azienda#contatti" size="lg" arrow>Richiedi una demo</ButtonLink>
+          <ButtonLink href={`/demo?prodotto=${encodeURIComponent(p.name)}`} size="lg" arrow>Richiedi una demo</ButtonLink>
           <ButtonLink href="/azienda#contatti" size="lg" variant="secondary">Richiedi informazioni</ButtonLink>
           {p.status && <Badge tone="warning">{p.status.label}</Badge>}
         </div>
@@ -105,7 +105,7 @@ export default async function ProductPage({ params }: { params: Params }) {
               </span>
               <h2 className="text-[clamp(28px,3.6vw,44px)] font-semibold leading-[1.08] tracking-[-0.03em] [text-wrap:balance]">{p.name} è il gestionale. {e.name} è la nuova piattaforma.</h2>
               <p className="text-[17px] leading-relaxed text-[#D5EFE6]">{e.description} {p.name} resta il gestionale, in cloud o in locale: insieme formano un unico ambiente di lavoro, con CRM e sito web collegati ai dati dell’autosalone.</p>
-              <ButtonLink href="/azienda#contatti" arrow className="self-start !bg-white !text-[#0B3F34] hover:!bg-white/90">Richiedi una demo</ButtonLink>
+              <ButtonLink href={`/demo?prodotto=${encodeURIComponent(p.name)}`} arrow className="self-start !bg-white !text-[#0B3F34] hover:!bg-white/90">Richiedi una demo</ButtonLink>
             </Reveal>
             <Reveal delay={0.1}>
               <Image src="/gpw/gpw-web-panoramica.webp" alt={`${e.name}: pannello di controllo`} width={1800} height={1157} sizes="(min-width: 980px) 600px, 92vw" className="h-auto w-full drop-shadow-2xl" />
@@ -146,7 +146,7 @@ export default async function ProductPage({ params }: { params: Params }) {
             lead="Configurazione, numero di postazioni e modalità di utilizzo cambiano da azienda ad azienda: per questo il prezzo è definito su richiesta." />
           <div className="flex flex-wrap gap-3">
             <ButtonLink href="/azienda#contatti" arrow>Richiedi un preventivo</ButtonLink>
-            <ButtonLink href="/azienda#contatti" variant="secondary">Richiedi una demo</ButtonLink>
+            <ButtonLink href={`/demo?prodotto=${encodeURIComponent(p.name)}`} variant="secondary">Richiedi una demo</ButtonLink>
           </div>
         </div>
       </section>

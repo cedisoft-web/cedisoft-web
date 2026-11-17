@@ -148,3 +148,17 @@
 @keyframes cs-shimmer { from { background-position: 0% 50% } to { background-position: 100% 50% } }
 .cs-shimmer-text { background-size: 200% 100%; animation: cs-shimmer 4.5s ease-in-out infinite alternate; }
 @media (prefers-reduced-motion: reduce) { .cs-shimmer-text { animation: none } }
+
+/* Corpo di una news: HTML gia' sanificato dalla Cedi Platform (solo h2-h4, p, em, strong, code, a, liste, citazioni, hr) */
+.cs-prose { color: #3b4a66; font-size: 17px; line-height: 1.75; }
+.cs-prose > * + * { margin-top: 1.1em; }
+.cs-prose h2 { font-size: 1.6em; line-height: 1.2; font-weight: 600; letter-spacing: -0.02em; color: #0f1b33; margin-top: 1.8em; }
+.cs-prose h3 { font-size: 1.25em; line-height: 1.25; font-weight: 600; color: #0f1b33; margin-top: 1.6em; }
+.cs-prose h4 { font-weight: 600; color: #0f1b33; margin-top: 1.4em; }
+.cs-prose a { color: var(--cs-blue); text-decoration: underline; text-underline-offset: 3px; }
+.cs-prose ul { list-style: disc; padding-left: 1.4em; }
+.cs-prose ol { list-style: decimal; padding-left: 1.4em; }
+.cs-prose li + li { margin-top: .35em; }
+.cs-prose blockquote { border-left: 3px solid var(--cs-sky); padding-left: 1em; font-style: italic; }
+.cs-prose code { font-family: var(--font-geist-mono), monospace; font-size: .92em; background: #F1F5FA; border-radius: 6px; padding: .1em .4em; }
+.cs-prose hr { border: 0; border-top: 1px solid rgba(25,44,88,.12); margin: 2em 0; }

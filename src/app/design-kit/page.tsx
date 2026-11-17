@@ -33,7 +33,7 @@ export default function DesignKit() {
         <SectionHeading eyebrow="FAQ" title="Accordion" />
         <Accordion items={[{ question: 'Domanda di esempio?', answer: 'Risposta di esempio (contenuto dimostrativo).' }, { question: 'Seconda domanda?', answer: 'Altra risposta di esempio.' }]} />
         <SectionHeading eyebrow="Contatti" title="Modulo" />
-        <div className="max-w-xl"><ContactForm toEmail={contacts.email} /></div>
+        <div className="max-w-xl"><ContactForm toEmail={contacts.email} phones={contacts.phones} /></div>
       </section>
     </>
   );

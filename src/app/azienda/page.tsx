@@ -107,7 +107,7 @@ export default async function CompanyPage() {
             <SocialLinks />
           </div>
           <div className="rounded-[28px] border border-border-subtle bg-white p-8 shadow-sm">
-            <ContactForm toEmail={contacts.email} />
+            <ContactForm toEmail={contacts.email} phones={contacts.phones} />
           </div>
         </div>
       </section>

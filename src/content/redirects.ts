@@ -34,6 +34,7 @@ export const redirects: RedirectRule[] = [
   // Area riservata → login della Cedi Platform (nessuna autenticazione duplicata)
   { source: '/area-riservata', destination: `${platformUrl}/login`, permanent: true },
 
-  // Pagine non ancora presenti nel nuovo sito: temporanei, da trasformare quando esisteranno
-  { source: '/news', destination: '/', permanent: false },
+  // Pagine non ancora presenti nel nuovo sito: temporanei. /news esiste solo con l'API della Platform configurata
+  // (stessa condizione di `integrations.siteContentEnabled`: qui si legge la variabile direttamente, next.config non usa gli alias).
+  ...(process.env.NEXT_PUBLIC_PLATFORM_API_URL ? [] : [{ source: '/news', destination: '/', permanent: false }]),
 ];

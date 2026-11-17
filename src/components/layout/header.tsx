@@ -135,7 +135,7 @@ export function Header({ links, soonLinks, megaGroups, products, loginUrl, accou
               </div>
             </div>
           </div>
-          <Link href="/azienda#contatti"
+          <Link href="/demo"
             className="inline-flex h-10 items-center gap-1.5 rounded-full bg-blue-600 px-4 text-sm font-medium text-white transition-[background,gap] duration-[220ms] hover:gap-2.5 hover:bg-blue-700">
             Richiedi una demo<Icon name="arrow-right" size={15} />
           </Link>
@@ -185,12 +185,16 @@ export function Header({ links, soonLinks, megaGroups, products, loginUrl, accou
               Catalogo completo<Icon name="arrow-right" size={14} />
             </Link>
             <span className="flex-1" />
-            {soonLinks.map((s) => (
+            {soonLinks.map((s) => (s.soon ? (
               <span key={s.label} className="inline-flex h-[38px] items-center gap-2 rounded-[10px] px-3 text-[13px] font-medium text-ink-2">
                 {s.icon && <Icon name={s.icon} size={15} />}{s.label}
                 <span className="h-[18px] rounded-full bg-[#EEF1F6] px-1.5 font-mono text-[10px] leading-[18px] tracking-[.04em]">PRESTO</span>
               </span>
-            ))}
+            ) : (
+              <Link key={s.label} href={s.href} className="inline-flex h-[38px] items-center gap-2 rounded-[10px] px-3 text-[13px] font-medium text-ink-2 hover:bg-white hover:text-ink">
+                {s.icon && <Icon name={s.icon} size={15} />}{s.label}
+              </Link>
+            )))}
           </div>
         </div>
       </div>
@@ -220,13 +224,17 @@ export function Header({ links, soonLinks, megaGroups, products, loginUrl, accou
             {l.label}<Icon name="chevron-right" size={18} className="text-n-400" />
           </Link>
         ))}
-        {soonLinks.map((s) => (
+        {soonLinks.map((s) => (s.soon ? (
           <span key={s.label} className="flex min-h-12 items-center justify-between border-t border-blue-900/5 px-3 text-[15px] font-medium text-ink-2">
             {s.label}<span className="h-5 rounded-full bg-[#EEF1F6] px-[7px] font-mono text-[10px] leading-5">PRESTO</span>
           </span>
-        ))}
+        ) : (
+          <Link key={s.label} href={s.href} className="flex min-h-12 items-center justify-between border-t border-blue-900/5 px-3 text-[15px] font-medium text-ink hover:bg-n-50">
+            {s.label}<Icon name="chevron-right" size={18} className="text-n-400" />
+          </Link>
+        )))}
         <div className="mt-1.5 flex flex-col gap-2 border-t border-border-subtle px-0.5 pt-3">
-          <Link href="/azienda#contatti" className="flex h-[52px] items-center justify-center gap-2 rounded-[14px] bg-blue-600 text-base font-medium text-white">Richiedi una demo<Icon name="arrow-right" size={17} /></Link>
+          <Link href="/demo" className="flex h-[52px] items-center justify-center gap-2 rounded-[14px] bg-blue-600 text-base font-medium text-white">Richiedi una demo<Icon name="arrow-right" size={17} /></Link>
           <a href={loginUrl} className="flex h-[52px] items-center justify-center gap-2 rounded-[14px] border border-blue-900/[.12] text-base font-medium text-ink"><Icon name="circle-user-round" />Area Clienti</a>
           {accountLinks.slice(1).map((l) => (
             <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer" className="flex h-12 items-center justify-center gap-2 rounded-[14px] bg-n-50 text-[15px] font-medium text-ink">

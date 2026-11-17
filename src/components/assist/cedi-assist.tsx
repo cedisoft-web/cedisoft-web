@@ -7,9 +7,11 @@ import { useEffect } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Icon } from '@/components/ui/icon';
 import { cn } from '@/lib/cn';
+import { integrations } from '@/lib/env';
 import type { AssistFallbackChannels, OperatorAvailability } from '@/lib/assist/types';
 
 import { ChatThread } from './chat-thread';
+import { LiveChatFrame } from './live-chat-frame';
 import { useAssist } from './use-assist';
 
 const statusMeta: Record<OperatorAvailability, { dot: string; text: string }> = {
@@ -36,8 +38,8 @@ export function CediAssist({ channels }: Readonly<{ channels: AssistFallbackChan
     return () => window.removeEventListener('keydown', onKey);
   }, [setOpen]);
 
-  const title = a.view === 'ai' ? 'Assistente Cedi Soft' : a.view === 'live' ? 'Operatore' : 'Assistenza';
-  const subtitle = a.view === 'live' ? statusMeta[a.availability].text : a.view === 'ai' ? 'Risposte simulate (demo)' : 'Cedi Soft';
+  const title = a.view === 'ai' ? 'Assistente Cedi Soft' : a.view === 'live' || a.view === 'chat' ? 'Operatore' : 'Assistenza';
+  const subtitle = a.view === 'live' ? statusMeta[a.availability].text : a.view === 'ai' ? 'Risposte simulate (demo)' : a.view === 'chat' ? 'Chat con il team Cedi Soft' : 'Cedi Soft';
 
   return (
     <div className="pointer-events-none fixed inset-0 z-[60]">
@@ -107,6 +109,16 @@ export function CediAssist({ channels }: Readonly<{ channels: AssistFallbackChan
               </>
             )}
 
+            {integrations.chatEnabled && (
+              <button type="button" onClick={() => a.go('chat')} className={cn(choice, 'bg-white')}>
+                <span className="flex size-[42px] flex-none items-center justify-center rounded-xl border border-[rgba(35,111,40,.15)] bg-[#F1F8EF] text-green-700"><Icon name="headset" size={20} /></span>
+                <span className="flex flex-1 flex-col gap-1">
+                  <span className="text-[15px] font-semibold text-ink">Chatta con un operatore</span>
+                  <span className="text-[13px] leading-snug text-ink-2">Scrivi al team in tempo reale. Se nessuno è online ti proponiamo il modulo di richiesta.</span>
+                </span>
+              </button>
+            )}
+
             <Link href={channels.contactHref} onClick={() => a.setOpen(false)} className={cn(choice, 'bg-white')}>
               <span className="flex size-[42px] flex-none items-center justify-center rounded-xl bg-sky-50 text-blue-600"><Icon name="mail" size={20} /></span>
               <span className="flex flex-1 flex-col gap-1">
@@ -127,6 +139,8 @@ export function CediAssist({ channels }: Readonly<{ channels: AssistFallbackChan
           <ChatThread messages={a.aiMessages} pending={a.pending} placeholder="Scrivi una domanda…" onSend={a.sendAi}
             empty={<p className="rounded-xl bg-n-25 p-3 text-sm text-ink-2">Chiedimi di Gest Park, delle demo o dei servizi. Scrivi «simula errore» per vedere lo stato di errore.</p>} />
         )}
+
+        {a.view === 'chat' && integrations.chatEnabled && <LiveChatFrame onClose={() => a.setOpen(false)} />}
 
         {a.view === 'live' && (
           <>

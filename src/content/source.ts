@@ -2,11 +2,11 @@ import { companyProfile, contacts } from './data/company';
 import { services } from './data/services';
 import { productDetails } from './data/product-details';
 import { products, sectors } from './data/products';
+import { fetchChangelog, fetchNews, fetchNewsItem } from './platform-content';
 import type { ContentSource } from './types';
 
 /**
- * Adapter locale (v1.0). Per passare alle API Cedi Platform si implementa `ContentSource`
- * con fetch + revalidate e si cambia solo questa esportazione.
+ * Adapter: dati locali per prodotti, servizi e profilo aziendale; news e changelog da Cedi Platform (platform-content.ts).
  */
 export const content: ContentSource = {
   getContacts: async () => contacts,
@@ -17,6 +17,8 @@ export const content: ContentSource = {
   getSectors: async () => sectors,
   getServices: async () => services,
   getFaq: async () => [],
-  getNews: async () => [],
-  getChangelog: async () => [],
+  // News e changelog: API pubblica di Cedi Platform, lista vuota se spenta o non raggiungibile.
+  getNews: fetchNews,
+  getNewsItem: fetchNewsItem,
+  getChangelog: fetchChangelog,
 };

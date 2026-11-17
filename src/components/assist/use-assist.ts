@@ -5,7 +5,8 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { loadAssistProviders } from '@/lib/assist/load-providers';
 import type { AssistProviders, ChatMessage, LiveSession, OperatorAvailability } from '@/lib/assist/types';
 
-export type AssistView = 'home' | 'ai' | 'live';
+/** `live` = operatore simulato (solo demo); `chat` = Live Chat reale di Cedi Platform (widget in iframe). */
+export type AssistView = 'home' | 'ai' | 'live' | 'chat';
 
 const STORAGE_KEY = 'cedi-assist:v1';
 const uid = () => Math.random().toString(36).slice(2);

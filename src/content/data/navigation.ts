@@ -1,3 +1,5 @@
+import { integrations } from '@/lib/env';
+
 import type { FooterColumn, MegaGroup, NavLink } from '../types';
 
 export const mainLinks: NavLink[] = [
@@ -12,10 +14,10 @@ export const megaGroups: MegaGroup[] = [
   { label: 'Gestione e altro', productSlugs: ['gest', 'stiltocco'] },
 ];
 
-/** Voci non ancora pubblicabili: mostrate come "presto", senza link a pagine vuote. */
+/** News e changelog: link attivi solo se l'API della Platform e' configurata, altrimenti "presto" senza link a pagine vuote. */
 export const soonLinks: NavLink[] = [
-  { label: 'News', href: '/news', icon: 'newspaper', soon: true },
-  { label: 'Changelog', href: '/changelog', icon: 'git-commit-horizontal', soon: true },
+  { label: 'News', href: '/news', icon: 'newspaper', soon: !integrations.siteContentEnabled },
+  { label: 'Changelog', href: '/changelog', icon: 'git-commit-horizontal', soon: !integrations.siteContentEnabled },
 ];
 
 export const footerColumns: FooterColumn[] = [

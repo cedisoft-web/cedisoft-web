@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 export default async function SupportPage() {
-  const [contacts, services] = await Promise.all([content.getContacts(), content.getServices()]);
+  const [contacts, services, products] = await Promise.all([content.getContacts(), content.getServices(), content.getProducts()]);
   const support = services.find((s) => s.slug === 'assistenza');
   return (
     <>
@@ -68,7 +68,7 @@ export default async function SupportPage() {
           <SectionHeading eyebrow="Richiesta di assistenza" title="Scrivi al team di supporto."
             lead="Indica il software che usi e descrivi il problema: ti risponderemo il prima possibile." />
           <div className="rounded-[28px] border border-border-subtle bg-white p-8 shadow-sm">
-            <ContactForm toEmail={contacts.email} defaultSubject="Richiesta di assistenza" />
+            <ContactForm type="SUPPORT" toEmail={contacts.email} phones={contacts.phones} productOptions={products.map((p) => p.name)} />
           </div>
         </div>
       </section>

@@ -14,7 +14,7 @@ export function CtaBanner() {
             <h2 className="text-[clamp(28px,4vw,48px)] font-semibold leading-[1.08] tracking-[-0.035em] text-white [text-wrap:balance]">Raccontaci come lavori. Troveremo lo strumento giusto.</h2>
             <p className="text-[17px] leading-relaxed text-[#DCE4F6]">Richiedi una demo di un nostro software o parlaci di un progetto su misura.</p>
             <div className="flex flex-wrap gap-3">
-              <ButtonLink href="/azienda#contatti" size="lg" className="!bg-white !text-blue-700 hover:!bg-blue-50" arrow>Richiedi una demo</ButtonLink>
+              <ButtonLink href="/demo" size="lg" className="!bg-white !text-blue-700 hover:!bg-blue-50" arrow>Richiedi una demo</ButtonLink>
               <ButtonLink href="/software" size="lg" className="border border-white/40 text-white hover:bg-white/10">Scopri i software</ButtonLink>
             </div>
           </div>

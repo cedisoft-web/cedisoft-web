@@ -28,7 +28,7 @@ export default async function SoftwarePage() {
         <div className="mx-auto grid max-w-[1200px] gap-5 md:grid-cols-2">
           {[
             { eyebrow: 'Su misura', title: 'Non trovi quello che ti serve?', text: 'Sviluppiamo software personalizzati e integrazioni attorno ai tuoi processi.', href: '/servizi#sviluppo', cta: 'Scopri lo sviluppo su misura' },
-            { eyebrow: 'Demo', title: 'Vuoi vedere un software in azione?', text: 'Richiedi una dimostrazione: ti mostreremo il software sui casi del tuo lavoro.', href: '/azienda#contatti', cta: 'Richiedi una demo' },
+            { eyebrow: 'Demo', title: 'Vuoi vedere un software in azione?', text: 'Richiedi una dimostrazione: ti mostreremo il software sui casi del tuo lavoro.', href: '/demo', cta: 'Richiedi una demo' },
           ].map((c) => (
             <div key={c.title} className="flex flex-col items-start gap-4 rounded-[24px] border border-border-subtle bg-n-25 p-8">
               <span className="eyebrow !text-sky-600">{c.eyebrow}</span>
