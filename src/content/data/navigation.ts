@@ -4,7 +4,6 @@ export const mainLinks: NavLink[] = [
   { label: 'Servizi', href: '/servizi' },
   { label: 'Azienda', href: '/azienda' },
   { label: 'Assistenza', href: '/assistenza' },
-  { label: 'Contatti', href: '/azienda#contatti' },
 ];
 
 export const megaGroups: MegaGroup[] = [

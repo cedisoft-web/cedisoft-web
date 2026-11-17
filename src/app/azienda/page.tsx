@@ -7,13 +7,14 @@ import { ContactForm } from '@/components/ui/contact-form';
 import { Icon } from '@/components/ui/icon';
 import { Reveal } from '@/components/ui/reveal';
 import { PageHero, SectionHeading } from '@/components/ui/section';
+import { SocialLinks } from '@/components/ui/social-links';
 import { SpotlightCard } from '@/components/ui/spotlight-card';
 import { content } from '@/content/source';
 import { cn } from '@/lib/cn';
 
 export const metadata: Metadata = {
   title: 'Azienda e contatti',
-  description: 'Cedi Soft è una software house di Scauri (LT): dal 1989 sviluppa software gestionali e applicazioni web per aziende e professionisti.',
+  description: 'Cedi Soft è una software house italiana: dal 1989 progetta software gestionali e applicazioni web per aziende e professionisti di settori diversi.',
   alternates: { canonical: '/azienda' },
 };
 
@@ -26,7 +27,7 @@ export default async function CompanyPage() {
   return (
     <>
       <PageHero eyebrow="Azienda" title={<>Dal 1989, la tecnologia al servizio delle imprese.</>}
-        lead="Cedi Soft è una software house di Scauri, in provincia di Latina. Da oltre trent’anni sviluppa software gestionali e applicazioni web per aziende e professionisti di settori diversi."
+        lead="Cedi Soft è una software house italiana che dal 1989 progetta e sviluppa software gestionali e applicazioni web. Un’esperienza di oltre trent’anni, costruita accanto ai clienti, al servizio di aziende e professionisti di settori diversi."
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Azienda' }]}>
         <div className="flex flex-wrap gap-3">
           <ButtonLink href="#storia" size="lg" arrow>La nostra storia</ButtonLink>
@@ -48,26 +49,6 @@ export default async function CompanyPage() {
               </Reveal>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="bg-n-25 px-6 py-24">
-        <div className="mx-auto flex max-w-[1200px] flex-col gap-12">
-          <SectionHeading eyebrow="Percorso" title="Le tappe dell’evoluzione."
-            lead="Solo tappe documentate da fonti pubbliche. Le fasi senza data verificata sono indicate come tali." />
-          <ol className="relative flex flex-col gap-6 border-l border-border-default pl-8">
-            {profile.timeline.map((t) => (
-              <li key={t.title} className="relative">
-                <span aria-hidden className={cn('absolute -left-[39px] top-1.5 size-3 rounded-full ring-4 ring-n-25', t.verified ? 'bg-sky-500' : 'bg-n-300')} />
-                <Reveal className="flex flex-col gap-1.5">
-                  <span className="font-mono text-xs font-medium text-sky-600">{t.year}</span>
-                  <span className="text-lg font-semibold tracking-[-0.015em] text-ink">{t.title}</span>
-                  <span className="max-w-2xl text-[15px] leading-relaxed text-ink-2">{t.text}</span>
-                  <span className="font-mono text-[11px] text-ink-muted">{t.source}</span>
-                </Reveal>
-              </li>
-            ))}
-          </ol>
         </div>
       </section>
 
@@ -123,7 +104,7 @@ export default async function CompanyPage() {
                   <address className="text-[15px] font-medium not-italic text-ink">{contacts.address}</address></span>
               </li>
             </ul>
-            <p className="font-mono text-[11px] text-ink-muted">{contacts.company} · {contacts.vat} · Fonte: cedisoft.it · da riconfermare prima della pubblicazione</p>
+            <SocialLinks />
           </div>
           <div className="rounded-[28px] border border-border-subtle bg-white p-8 shadow-sm">
             <ContactForm toEmail={contacts.email} />

@@ -20,10 +20,10 @@ export default async function SupportPage() {
     <>
       <PageHero eyebrow="Assistenza" title="Supporto da chi sviluppa il tuo software."
         lead="Per un problema, una domanda o un aggiornamento puoi contattare direttamente il team Cedi Soft."
-        breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Assistenza' }]}>
+        tone="dark" breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Assistenza' }]}>
         <div className="flex flex-wrap gap-3">
-          <ButtonLink href="#richiesta" size="lg" arrow>Invia una richiesta</ButtonLink>
-          <ButtonLink href={platformLoginUrl()} size="lg" variant="secondary">Area Clienti</ButtonLink>
+          <ButtonLink href="#richiesta" size="lg" arrow className="!bg-white !text-blue-700 hover:!bg-blue-50">Invia una richiesta</ButtonLink>
+          <ButtonLink href={platformLoginUrl()} size="lg" className="!bg-transparent border border-white/50 text-white hover:!bg-white/10">Area Clienti</ButtonLink>
         </div>
       </PageHero>
 

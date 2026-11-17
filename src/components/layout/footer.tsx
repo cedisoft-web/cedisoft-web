@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { Icon } from '@/components/ui/icon';
+import { SocialLinks } from '@/components/ui/social-links';
 import type { Contacts, FooterColumn, Product } from '@/content/types';
 
 const heading = 'eyebrow mb-1 !tracking-[.08em]';
@@ -32,6 +33,7 @@ export function Footer({ contacts, tagline, products, columns, legalLabels, logi
               </span>
               <span className="flex items-center gap-2.5"><Icon name="mail" size={15} /><a href={`mailto:${contacts.email}`} className="hover:text-blue-600">{contacts.email}</a></span>
             </address>
+            <SocialLinks />
           </div>
 
           <nav aria-label="Software" className="flex flex-col gap-3">

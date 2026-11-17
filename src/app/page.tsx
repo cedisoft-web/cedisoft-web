@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 
+import { AnimatedStat } from '@/components/home/animated-stat';
 import { CtaBanner } from '@/components/home/cta-banner';
 import { Ecosystem } from '@/components/home/ecosystem';
 import { GpwSpotlight } from '@/components/home/gpw-spotlight';
@@ -43,9 +44,9 @@ export default async function HomePage() {
             <ButtonLink href="/azienda#storia" variant="ghost" arrow className="self-start">La nostra storia</ButtonLink>
           </Reveal>
           <Reveal delay={0.1} className="glass-medium grid grid-cols-2 gap-6 rounded-[24px] p-8 shadow-md">
-            {[['1989', 'Anno di fondazione'], ['+1000', 'Clienti soddisfatti']].map(([v, l]) => (
+            {[{ v: <AnimatedStat value={1989} from={1900} />, l: 'Anno di fondazione' }, { v: <AnimatedStat value={1000} prefix="+" />, l: 'Clienti soddisfatti' }].map(({ v, l }) => (
               <div key={l} className="flex flex-col gap-2">
-                <span className="bg-brand-gradient bg-clip-text text-[clamp(36px,5vw,56px)] font-semibold leading-none tracking-[-0.04em] text-transparent">{v}</span>
+                <span className="text-[clamp(36px,5vw,56px)] font-semibold leading-none tracking-[-0.04em]">{v}</span>
                 <span className="text-[14px] leading-snug text-ink-2">{l}</span>
               </div>
             ))}

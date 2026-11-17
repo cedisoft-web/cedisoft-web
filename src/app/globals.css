@@ -143,3 +143,8 @@
 .cs-marquee { animation: cs-marquee 38s linear infinite; width: max-content; }
 .cs-marquee-wrap:hover .cs-marquee { animation-play-state: paused; }
 @media (prefers-reduced-motion: reduce) { .cs-float, .cs-marquee { animation: none } }
+
+/* Testo con riflesso che scorre sul gradiente (numeri della home) */
+@keyframes cs-shimmer { from { background-position: 0% 50% } to { background-position: 100% 50% } }
+.cs-shimmer-text { background-size: 200% 100%; animation: cs-shimmer 4.5s ease-in-out infinite alternate; }
+@media (prefers-reduced-motion: reduce) { .cs-shimmer-text { animation: none } }
