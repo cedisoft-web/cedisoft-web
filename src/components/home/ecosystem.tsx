@@ -64,12 +64,12 @@ export function Ecosystem({ products }: Readonly<{ products: Product[] }>) {
       {/* Gest Park */}
       {park && (
         <Reveal delay={0.07} className="min-[980px]:col-span-2">
-          <SpotlightCard className="h-full overflow-hidden" style={tint('#34A63B')}>
+          <SpotlightCard className="h-full overflow-hidden" style={tint('#F5B400')}>
             <Link href={href(park)} className="group relative flex h-full min-h-[270px] flex-col justify-between gap-6 rounded-[inherit] p-7">
-              <Icon name="car-front" size={190} className="pointer-events-none absolute -bottom-10 -right-8 text-[#34A63B]/[.09] transition-transform duration-500 group-hover:-rotate-6 group-hover:scale-105" />
+              <Icon name="car-front" size={190} className="pointer-events-none absolute -bottom-10 -right-8 text-[#F5B400]/[.14] transition-transform duration-500 group-hover:-rotate-6 group-hover:scale-105" />
               <span className="relative flex items-start justify-between">
-                <SoftwareIcon slug="gest-park" size={64} className="shadow-[0_14px_30px_-10px_rgba(52,166,59,.7)]" />
-                <span className="rounded-full bg-green-100 px-3 py-1 font-mono text-[11px] uppercase tracking-[.06em] text-green-700">Cloud o locale</span>
+                <SoftwareIcon slug="gest-park" size={64} className="shadow-[0_14px_30px_-10px_rgba(245,180,0,.7)]" />
+                <span className="rounded-full bg-amber-100 px-3 py-1 font-mono text-[11px] uppercase tracking-[.06em] text-amber-800">Cloud o locale</span>
               </span>
               <span className="relative flex flex-col gap-3">
                 <span className="text-[26px] font-semibold tracking-[-0.03em] text-ink">Gest Park</span>

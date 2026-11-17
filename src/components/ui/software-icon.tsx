@@ -5,6 +5,7 @@ import { cn } from '@/lib/cn';
 
 /** Icone originali dei software (public/brand). Gli slug senza file usano una tessera colorata di ripiego. */
 const files: Record<string, string> = {
+  'gest-park': '/brand/software/gest-park.png',
   'gest-park-web': '/brand/gpw-icon.png',
   gest: '/brand/software/gest.png',
   'gest-rent': '/brand/software/gest-rent.png',
