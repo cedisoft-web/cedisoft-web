@@ -19,6 +19,8 @@ export interface Product {
   /** Stato noto solo dove verificato (es. Beta). */
   status?: { label: 'Beta'; note?: string };
   moduleOf?: string;
+  /** Slug del prodotto la cui pagina contiene anche questo (un'unica pagina per Gest Park e Gest Park Web). */
+  detailPage?: string;
   /** La pagina di dettaglio esiste solo se i contenuti sono approvati. */
   hasDetailPage: boolean;
 }

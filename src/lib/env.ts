@@ -8,7 +8,7 @@ const stripSlash = (v: string) => v.replace(/\/+$/, '');
 
 export const env = {
   siteUrl: stripSlash(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3010'),
-  platformUrl: stripSlash(process.env.NEXT_PUBLIC_PLATFORM_URL ?? 'http://localhost:3000'),
+  platformUrl: stripSlash(process.env.NEXT_PUBLIC_PLATFORM_URL ?? (process.env.NODE_ENV === 'production' ? 'https://platform.cedisoft.it' : 'http://localhost:3000')),
   /** Simulazioni di Cedi Assist (IA/operatori finti): solo sviluppo/anteprima, mai in produzione. */
   assistDemo: process.env.NEXT_PUBLIC_ASSIST_DEMO === '1',
 } as const;

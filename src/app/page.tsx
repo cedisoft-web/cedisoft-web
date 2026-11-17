@@ -28,7 +28,7 @@ const customSteps = [
 
 export default async function HomePage() {
   const [products, sectors] = await Promise.all([content.getProducts(), content.getSectors()]);
-  const showcase = ['gest-park', 'gest-crash-carw', 'gest'].flatMap((s) => products.find((p) => p.slug === s) ?? []);
+  const showcase = ['gest-park-web', 'gest-park', 'gest-crash-carw', 'gest'].flatMap((s) => products.find((p) => p.slug === s) ?? []);
 
   return (
     <>

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
 import { FeatureTabs } from '@/components/software/feature-tabs';
@@ -41,8 +42,9 @@ export default async function ProductPage({ params }: { params: Params }) {
   if (!data) notFound();
   const { product: p, detail: d } = data;
   const related = (await Promise.all(d.relatedSlugs.map((s) => content.getProduct(s)))).flatMap((x) => x ?? []);
+  const embedded = (await content.getProducts()).filter((x) => x.detailPage === p.slug);
   const anchors = [
-    ['panoramica', 'Panoramica'], ['funzionalita', 'Funzionalità'],
+    ['panoramica', 'Panoramica'], ...embedded.map((e) => [e.slug, e.name] as const), ['funzionalita', 'Funzionalità'],
     ...(d.integrations.length ? [['integrazioni', 'Integrazioni']] : []),
     ['prezzi', 'Prezzi'], ...(related.length ? [['correlati', 'Correlati']] : []), ['faq', 'FAQ'],
   ] as const;
@@ -90,6 +92,27 @@ export default async function ProductPage({ params }: { params: Params }) {
           </Reveal>
         </div>
       </section>
+
+      {/* Un'unica pagina per l'ambiente: i prodotti con detailPage === slug (es. Gest Park Web) sono descritti qui */}
+      {embedded.map((e) => (
+        <section key={e.slug} id={e.slug} className="bg-gpw-dark relative isolate scroll-mt-32 overflow-hidden px-6 py-24 text-white">
+          <span aria-hidden className="cs-orb -z-10" style={{ right: '-8%', top: '-10%', width: 520, height: 520, background: 'radial-gradient(circle, rgba(61,168,74,.4), transparent 68%)', ['--d' as string]: '30s' }} />
+          <div className="mx-auto grid max-w-[1200px] items-center gap-12 min-[980px]:grid-cols-[.9fr_1.1fr]">
+            <Reveal className="flex flex-col gap-5">
+              <Image src="/brand/gpw-wordmark-white.png" alt={e.name} width={260} height={46} />
+              <span className="inline-flex w-fit items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 font-mono text-[11px] uppercase tracking-[.06em] text-[#BFEFDD] ring-1 ring-white/20">
+                Nello stesso ambiente di {p.name}{e.status ? ` · ${e.status.label}` : ''}
+              </span>
+              <h2 className="text-[clamp(28px,3.6vw,44px)] font-semibold leading-[1.08] tracking-[-0.03em] [text-wrap:balance]">{p.name} è il gestionale. {e.name} è la nuova piattaforma.</h2>
+              <p className="text-[17px] leading-relaxed text-[#D5EFE6]">{e.description} {p.name} resta il gestionale, in cloud o in locale: insieme formano un unico ambiente di lavoro, con CRM e sito web collegati ai dati dell’autosalone.</p>
+              <ButtonLink href="/azienda#contatti" arrow className="self-start !bg-white !text-[#0B3F34] hover:!bg-white/90">Richiedi una demo</ButtonLink>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <Image src="/gpw/gpw-web-panoramica.webp" alt={`${e.name}: pannello di controllo`} width={1800} height={1157} sizes="(min-width: 980px) 600px, 92vw" className="h-auto w-full drop-shadow-2xl" />
+            </Reveal>
+          </div>
+        </section>
+      ))}
 
       <section id="funzionalita" className="scroll-mt-32 bg-n-25 px-6 py-24">
         <div className="mx-auto flex max-w-[1200px] flex-col gap-12">

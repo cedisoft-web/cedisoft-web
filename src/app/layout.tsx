@@ -8,7 +8,7 @@ import { contacts, tagline } from '@/content/data/company';
 import { footerColumns, legalLabels, megaGroups, mainLinks, soonLinks } from '@/content/data/navigation';
 import { products } from '@/content/data/products';
 import { env, isIndexable } from '@/lib/env';
-import { platformLoginUrl } from '@/lib/platform';
+import { clientAreaLinks, platformLoginUrl } from '@/lib/platform';
 
 import './globals.css';
 
@@ -48,7 +48,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <a href="#main" className="fixed left-4 top-[-60px] z-[80] rounded-[10px] bg-blue-900 px-3.5 py-2.5 text-sm font-medium text-white transition-[top] duration-200 focus:top-3">
           Vai al contenuto
         </a>
-        <Header links={mainLinks} soonLinks={soonLinks} megaGroups={megaGroups} products={products} loginUrl={loginUrl} />
+        <Header links={mainLinks} soonLinks={soonLinks} megaGroups={megaGroups} products={products} loginUrl={loginUrl} accountLinks={clientAreaLinks()} />
         <main id="main">{children}</main>
         <CediAssist channels={{ supportHref: '/assistenza', contactHref: '/azienda#contatti', phones: contacts.phones, email: contacts.email }} />
         <Footer contacts={contacts} tagline={tagline} products={products} columns={footerColumns} legalLabels={legalLabels} loginUrl={loginUrl} />

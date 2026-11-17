@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { Layer, ParallaxStage } from '@/components/home/parallax-stage';
+import { Layer, ParallaxStage, Tilt } from '@/components/home/parallax-stage';
 import { ButtonLink } from '@/components/ui/button';
 import { Icon } from '@/components/ui/icon';
 import { Reveal } from '@/components/ui/reveal';
@@ -37,25 +37,30 @@ export function GpwSpotlight() {
             <span className="flex items-center gap-3"><SoftwareIcon slug="gest-park-web" size={40} /><span className="flex flex-col"><span className="text-sm font-semibold text-ink">Gest Park Web</span><span className="text-xs text-ink-muted">CRM e sito web</span></span></span>
           </div>
           <div className="flex flex-wrap gap-3">
-            <ButtonLink href="/software#gest-park-web" arrow>Scopri Gest Park Web</ButtonLink>
+            <ButtonLink href="/software/gest-park#gest-park-web" arrow>Scopri Gest Park Web</ButtonLink>
             <ButtonLink href="/software/gest-park" variant="secondary">Gest Park, il gestionale</ButtonLink>
           </div>
         </Reveal>
 
         <Reveal delay={0.1}>
-          <ParallaxStage className="relative mx-auto aspect-[4/3] w-full max-w-[640px]">
-            <Layer depth={-10} className="absolute inset-0">
-              <Image src="/gpw/gpw-crm-trattative-inclinato.webp" alt="Gest Park Web: trattative del CRM" fill sizes="(min-width: 980px) 560px, 90vw" className="object-contain drop-shadow-2xl" />
-            </Layer>
-            <Layer depth={26} className="cs-float absolute -left-3 top-[8%] w-[44%] max-w-[260px]" style={{ ['--delay' as string]: '-1s' }}>
-              <Image src="/gpw/widget-lead-caldo.webp" alt="Notifica: lead caldo" width={900} height={527} className="h-auto w-full drop-shadow-xl" />
-            </Layer>
-            <Layer depth={34} className="cs-float absolute -right-2 top-[34%] w-[34%] max-w-[210px]" style={{ ['--delay' as string]: '-3s' }}>
-              <Image src="/gpw/widget-sito-online.webp" alt="Widget: sito online" width={900} height={434} className="h-auto w-full drop-shadow-xl" />
-            </Layer>
-            <Layer depth={20} className="cs-float absolute -bottom-2 left-[12%] w-[34%] max-w-[210px]" style={{ ['--delay' as string]: '-4s' }}>
-              <Image src="/gpw/widget-kpi-veicoli.webp" alt="Widget: veicoli online" width={900} height={505} className="h-auto w-full drop-shadow-xl" />
-            </Layer>
+          <ParallaxStage className="relative mx-auto w-full max-w-[680px] py-10">
+            <Tilt max={9} className="relative">
+              <Layer depth={-8} z={0} className="relative">
+                <Image src="/gpw/gpw-web-panoramica.webp" alt="Gest Park Web: pannello di controllo" width={1800} height={1157} sizes="(min-width: 980px) 640px, 92vw" className="h-auto w-full drop-shadow-2xl" />
+              </Layer>
+              <Layer depth={30} z={90} className="cs-float absolute -left-4 top-[4%] w-[52%] max-w-[340px] sm:-left-10" style={{ ['--delay' as string]: '-1s' }}>
+                <Image src="/gpw/widget-lead-caldo.webp" alt="Notifica: lead caldo" width={900} height={527} className="h-auto w-full drop-shadow-2xl" />
+              </Layer>
+              <Layer depth={40} z={130} className="cs-float absolute -right-3 top-[30%] w-[46%] max-w-[300px] sm:-right-10" style={{ ['--delay' as string]: '-3s' }}>
+                <Image src="/gpw/widget-nuova-richiesta.webp" alt="Notifica: nuova richiesta" width={900} height={408} className="h-auto w-full drop-shadow-2xl" />
+              </Layer>
+              <Layer depth={24} z={70} className="cs-float absolute -bottom-6 left-[6%] w-[42%] max-w-[270px]" style={{ ['--delay' as string]: '-4s' }}>
+                <Image src="/gpw/widget-kpi-veicoli.webp" alt="Widget: veicoli online" width={900} height={505} className="h-auto w-full drop-shadow-2xl" />
+              </Layer>
+              <Layer depth={36} z={110} className="cs-float absolute -bottom-8 right-[2%] w-[40%] max-w-[260px] max-sm:hidden" style={{ ['--delay' as string]: '-2s' }}>
+                <Image src="/gpw/widget-sito-online.webp" alt="Widget: sito online" width={900} height={434} className="h-auto w-full drop-shadow-2xl" />
+              </Layer>
+            </Tilt>
           </ParallaxStage>
         </Reveal>
       </div>

@@ -8,6 +8,8 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { Icon } from '@/components/ui/icon';
 import { cn } from '@/lib/cn';
 import type { MegaGroup, NavLink, Product } from '@/content/types';
+import type { ClientAreaLink } from '@/lib/platform';
+import { productHref } from '@/content/links';
 
 interface HeaderProps {
   links: NavLink[];
@@ -16,13 +18,15 @@ interface HeaderProps {
   products: Product[];
   /** URL del login Cedi Platform (variabile d'ambiente). */
   loginUrl: string;
+  /** Voci del pannello che si apre in hover su "Area Clienti". */
+  accountLinks: ClientAreaLink[];
 }
 
 const pill =
   'inline-flex items-center rounded-[10px] px-3 h-[38px] text-sm font-medium text-n-700 transition-colors hover:bg-blue-600/[.06] hover:text-ink';
 
 /** Navbar flottante in vetro: si compatta oltre 24px di scroll. Mega menu Software, menu mobile < 1080px. */
-export function Header({ links, soonLinks, megaGroups, products, loginUrl }: Readonly<HeaderProps>) {
+export function Header({ links, soonLinks, megaGroups, products, loginUrl, accountLinks }: Readonly<HeaderProps>) {
   const pathname = usePathname();
   const [compact, setCompact] = useState(false);
   const [mega, setMega] = useState(false);
@@ -50,7 +54,7 @@ export function Header({ links, soonLinks, megaGroups, products, loginUrl }: Rea
   useEffect(() => { closeAll(); }, [pathname, closeAll]);
 
   const bySlug = (slug: string) => products.find((p) => p.slug === slug);
-  const productHref = (p: Product) => (p.hasDetailPage ? `/software/${p.slug}` : `/software#${p.slug}`);
+  
   const active = (href: string) => !href.includes('#') && (pathname === href || pathname.startsWith(`${href}/`));
   const softwareActive = pathname === '/software' || pathname.startsWith('/software/');
 
@@ -103,10 +107,29 @@ export function Header({ links, soonLinks, megaGroups, products, loginUrl }: Rea
         </div>
 
         <div className="hidden items-center gap-1.5 min-[1080px]:flex">
-          <a href={loginUrl}
-            className="inline-flex h-10 items-center gap-2 rounded-full border border-blue-900/[.12] bg-white/80 pl-3 pr-3.5 text-sm font-medium text-ink transition-all duration-[220ms] ease-out hover:border-sky-500 hover:bg-white hover:text-blue-600">
-            <Icon name="circle-user-round" />Area Clienti
-          </a>
+          {/* Area Clienti: il click porta al login Platform; in hover/focus si apre il pannello con gli altri accessi */}
+          <div className="group relative" onMouseEnter={() => setMega(false)}>
+            <a href={loginUrl} aria-haspopup="true"
+              className="inline-flex h-10 items-center gap-2 rounded-full border border-blue-900/[.12] bg-white/80 pl-3 pr-3 text-sm font-medium text-ink transition-all duration-[220ms] ease-out hover:border-sky-500 hover:bg-white hover:text-blue-600 group-focus-within:border-sky-500 group-focus-within:bg-white">
+              <Icon name="circle-user-round" />Area Clienti
+              <Icon name="chevron-down" size={14} className="opacity-60 transition-transform duration-[240ms] group-hover:rotate-180 group-focus-within:rotate-180" />
+            </a>
+            <div className="invisible absolute right-0 top-full z-10 w-[320px] translate-y-1 pt-2.5 opacity-0 transition-[opacity,transform,visibility] duration-200 ease-out group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+              <div className="flex flex-col gap-0.5 rounded-[20px] border border-border-subtle bg-white/[.97] p-2 shadow-[0_30px_60px_-28px_rgba(25,44,88,.4)] backdrop-blur-[20px]">
+                {accountLinks.map((l) => (
+                  <a key={l.href} href={l.href} {...(l.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                    className="flex items-center gap-3 rounded-xl px-2.5 py-2.5 text-ink transition-colors hover:bg-n-50">
+                    <span className="flex size-[36px] flex-none items-center justify-center rounded-[10px] bg-sky-50 text-blue-600"><Icon name={l.icon} size={18} /></span>
+                    <span className="flex min-w-0 flex-1 flex-col gap-0.5">
+                      <span className="text-sm font-semibold leading-tight">{l.label}</span>
+                      <span className="text-xs leading-snug text-ink-muted">{l.description}</span>
+                    </span>
+                    {l.external && <Icon name="arrow-up-right" size={14} className="flex-none text-n-400" />}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
           <Link href="/azienda#contatti"
             className="inline-flex h-10 items-center gap-1.5 rounded-full bg-blue-600 px-4 text-sm font-medium text-white transition-[background,gap] duration-[220ms] hover:gap-2.5 hover:bg-blue-700">
             Richiedi una demo<Icon name="arrow-right" size={15} />
@@ -200,6 +223,11 @@ export function Header({ links, soonLinks, megaGroups, products, loginUrl }: Rea
         <div className="mt-1.5 flex flex-col gap-2 border-t border-border-subtle px-0.5 pt-3">
           <Link href="/azienda#contatti" className="flex h-[52px] items-center justify-center gap-2 rounded-[14px] bg-blue-600 text-base font-medium text-white">Richiedi una demo<Icon name="arrow-right" size={17} /></Link>
           <a href={loginUrl} className="flex h-[52px] items-center justify-center gap-2 rounded-[14px] border border-blue-900/[.12] text-base font-medium text-ink"><Icon name="circle-user-round" />Area Clienti</a>
+          {accountLinks.slice(1).map((l) => (
+            <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer" className="flex h-12 items-center justify-center gap-2 rounded-[14px] bg-n-50 text-[15px] font-medium text-ink">
+              <Icon name={l.icon} size={17} />{l.label}<Icon name="arrow-up-right" size={14} className="text-n-400" />
+            </a>
+          ))}
         </div>
       </div>
     </div>

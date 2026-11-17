@@ -1,3 +1,4 @@
+import { productHref } from '@/content/links';
 import Link from 'next/link';
 
 import { Badge } from '@/components/ui/badge';
@@ -7,7 +8,7 @@ import type { Product } from '@/content/types';
 
 /** Card prodotto. L'anteprima UI arriverà con gli screenshot approvati: niente mock finti in produzione. */
 export function ProductCard({ product }: Readonly<{ product: Product }>) {
-  const href = product.hasDetailPage ? `/software/${product.slug}` : null;
+  const href = product.hasDetailPage || product.detailPage ? productHref(product) : null;
   const body = (
     <>
       <span className="flex items-start justify-between gap-3">

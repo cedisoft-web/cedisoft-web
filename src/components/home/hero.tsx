@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 
 import { Icon } from '@/components/ui/icon';
+import { SoftwareIcon } from '@/components/ui/software-icon';
 import { ButtonLink } from '@/components/ui/button';
 import type { Product } from '@/content/types';
 
@@ -68,7 +69,7 @@ export function Hero({ showcase }: Readonly<{ showcase: Product[] }>) {
             {showcase.map((p, i) => (
               <div key={p.slug} className="glass-medium flex items-center gap-4 rounded-[22px] p-4 shadow-md"
                 style={{ marginLeft: `${i % 2 === 0 ? 0 : 36}px`, marginRight: `${i % 2 === 0 ? 36 : 0}px`, transform: `translate3d(calc(var(--mx) * ${(i + 1) * 8}px), calc(var(--my) * ${(i + 1) * 5}px), ${(2 - i) * 20}px)` }}>
-                <span className="flex size-12 flex-none items-center justify-center rounded-[14px] bg-digital text-white"><Icon name={p.icon} size={22} /></span>
+                <SoftwareIcon slug={p.slug} size={52} />
                 <span className="flex min-w-0 flex-col gap-1">
                   <span className="text-[17px] font-semibold tracking-[-0.015em] text-ink">{p.name}</span>
                   <span className="truncate text-[13px] text-ink-2">{p.category}</span>
@@ -76,11 +77,20 @@ export function Hero({ showcase }: Readonly<{ showcase: Product[] }>) {
               </div>
             ))}
           </div>
-          <span className="glass-light absolute -top-2 right-2 inline-flex items-center gap-2 rounded-full px-3.5 py-2 text-[13px] font-medium text-ink shadow-sm">
-            <Icon name="receipt-text" size={15} className="text-blue-600" />Fatture trasmesse al SdI
-          </span>
-          <span className="glass-light absolute -bottom-2 left-0 inline-flex items-center gap-2 rounded-full px-3.5 py-2 text-[13px] font-medium text-ink shadow-sm">
-            <Icon name="cloud" size={15} className="text-sky-600" />Cloud e desktop
+          {/* Loghi dei software: fluttuano e seguono il cursore */}
+          {[
+            { slug: 'gest-park-web', cls: '-right-4 -top-8 min-[900px]:-right-10', size: 84, depth: 26, rot: 8, delay: -1 },
+            { slug: 'gest-rent', cls: '-left-6 top-[38%] min-[900px]:-left-12', size: 64, depth: -20, rot: -9, delay: -3 },
+            { slug: 'gest-crash-cpew', cls: '-right-2 bottom-[18%] min-[900px]:-right-8', size: 60, depth: 34, rot: 7, delay: -2 },
+          ].map((l) => (
+            <span key={l.slug} aria-hidden className={'pointer-events-none absolute ' + l.cls} style={{ transform: `translate3d(calc(var(--mx) * ${l.depth}px), calc(var(--my) * ${l.depth * 0.6}px), 0)`, transition: 'transform 200ms ease-out' }}>
+              <span className="cs-float block" style={{ ['--delay' as string]: `${l.delay}s`, rotate: `${l.rot}deg` }}><SoftwareIcon slug={l.slug} size={l.size} className="drop-shadow-xl" /></span>
+            </span>
+          ))}
+          <span className="absolute -bottom-3 left-0" style={{ transform: 'translate3d(calc(var(--mx) * 18px), calc(var(--my) * 10px), 0)', transition: 'transform 200ms ease-out' }}>
+            <span className="cs-float glass-light inline-flex items-center gap-2 rounded-full px-3.5 py-2 text-[13px] font-medium text-ink shadow-sm" style={{ ['--delay' as string]: '-2s' }}>
+              <Icon name="cloud" size={15} className="text-sky-600" />Cloud e desktop
+            </span>
           </span>
         </div>
       </div>

@@ -1,3 +1,4 @@
+import { productHref } from '@/content/links';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -36,7 +37,7 @@ export function Footer({ contacts, tagline, products, columns, legalLabels, logi
           <nav aria-label="Software" className="flex flex-col gap-3">
             <span className={heading}>Software</span>
             {products.map((p) => (
-              <Link key={p.slug} href={p.hasDetailPage ? `/software/${p.slug}` : `/software#${p.slug}`} className={link}>{p.name}</Link>
+              <Link key={p.slug} href={productHref(p)} className={link}>{p.name}</Link>
             ))}
           </nav>
 
