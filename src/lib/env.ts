@@ -11,6 +11,12 @@ export const env = {
   platformUrl: stripSlash(process.env.NEXT_PUBLIC_PLATFORM_URL ?? (process.env.NODE_ENV === 'production' ? 'https://platform.cedisoft.it' : 'http://localhost:3000')),
   /** Simulazioni di Cedi Assist (IA/operatori finti): solo sviluppo/anteprima, mai in produzione. */
   assistDemo: process.env.NEXT_PUBLIC_ASSIST_DEMO === '1',
+  /**
+   * Login dell'area aggiornamenti software: è il `login.php` del vecchio sito, che continua a verificare le
+   * credenziali e a servire i download. ATTENZIONE: se `cedisoft.it` viene puntato a questo sito, va impostato
+   * l'host reale del vecchio server (es. https://vecchio.cedisoft.it/areariservata/login.php).
+   */
+  updatesLoginUrl: process.env.NEXT_PUBLIC_UPDATES_LOGIN_URL ?? 'https://cedisoft.it/areariservata/login.php',
 } as const;
 
 /**

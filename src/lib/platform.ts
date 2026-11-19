@@ -17,7 +17,7 @@ export interface ClientAreaLink { label: string; description: string; href: stri
 export function clientAreaLinks(): ClientAreaLink[] {
   return [
     { label: 'Area Clienti', description: 'Accedi con il tuo account Cedi Soft', href: platformLoginUrl(), icon: 'circle-user-round' },
-    { label: 'Aggiornamenti software', description: 'Area riservata: download e aggiornamenti', href: 'https://www.cedisoft.it/area-riservata/', icon: 'refresh-cw', external: true },
+    { label: 'Aggiornamenti software', description: 'Area riservata: download e aggiornamenti', href: '/aggiornamenti', icon: 'refresh-cw' },
     { label: 'Software in cloud', description: 'Accesso ai software in cloud', href: 'https://cloud.cedisoft.it/', icon: 'cloud', external: true },
   ];
 }
