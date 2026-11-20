@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
 import { FeatureTabs } from '@/components/software/feature-tabs';
+import { GestParkBlocks, GestParkCta, GestParkGallery, GestParkHero, GestParkHighlights } from '@/components/software/gest-park-showcase';
 import { Accordion } from '@/components/ui/accordion';
 import { Badge } from '@/components/ui/badge';
 import { ButtonLink } from '@/components/ui/button';
@@ -43,15 +44,17 @@ export default async function ProductPage({ params }: { params: Params }) {
   const { product: p, detail: d } = data;
   const related = (await Promise.all(d.relatedSlugs.map((s) => content.getProduct(s)))).flatMap((x) => x ?? []);
   const embedded = (await content.getProducts()).filter((x) => x.detailPage === p.slug);
+  const isPark = p.slug === 'gest-park';
+  const demoHref = `/demo?prodotto=${encodeURIComponent(p.name)}`;
   const anchors = [
-    ['panoramica', 'Panoramica'], ...embedded.map((e) => [e.slug, e.name] as const), ['funzionalita', 'Funzionalità'],
+    ['panoramica', 'Panoramica'], ...(isPark ? [['dentro', 'Schermate']] : []), ...embedded.map((e) => [e.slug, e.name] as const), ['funzionalita', 'Funzionalità'],
     ...(d.integrations.length ? [['integrazioni', 'Integrazioni']] : []),
     ['prezzi', 'Prezzi'], ...(related.length ? [['correlati', 'Correlati']] : []), ['faq', 'FAQ'],
   ] as const;
 
   return (
     <>
-      <PageHero eyebrow={p.category} title={p.name} lead={d.value}
+      {isPark ? <GestParkHero value={d.value} /> : <PageHero eyebrow={p.category} title={p.name} lead={d.value}
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Software', href: '/software' }, { label: p.name }]}>
         <div className="flex flex-wrap items-center gap-3">
           <ButtonLink href={`/demo?prodotto=${encodeURIComponent(p.name)}`} size="lg" arrow>Richiedi una demo</ButtonLink>
@@ -66,7 +69,7 @@ export default async function ProductPage({ params }: { params: Params }) {
             </span>
           ))}
         </div>
-      </PageHero>
+      </PageHero>}
 
       <nav aria-label="In questa pagina" className="sticky top-[84px] z-30 hidden px-6 pt-4 md:block">
         <ul className="mx-auto flex w-fit gap-1 rounded-full border border-border-subtle bg-white/90 p-1.5 shadow-sm backdrop-blur-[14px]">
@@ -76,6 +79,7 @@ export default async function ProductPage({ params }: { params: Params }) {
         </ul>
       </nav>
 
+      {isPark ? (<><GestParkHighlights /><GestParkBlocks /><GestParkGallery /></>) : (
       <section id="panoramica" className="scroll-mt-32 px-6 py-24">
         <div className="mx-auto grid max-w-[1200px] gap-12 md:grid-cols-[1.2fr_1fr]">
           <Reveal className="flex flex-col gap-5">
@@ -92,6 +96,7 @@ export default async function ProductPage({ params }: { params: Params }) {
           </Reveal>
         </div>
       </section>
+      )}
 
       {/* Un'unica pagina per l'ambiente: i prodotti con detailPage === slug (es. Gest Park Web) sono descritti qui */}
       {embedded.map((e) => (
@@ -118,7 +123,6 @@ export default async function ProductPage({ params }: { params: Params }) {
         <div className="mx-auto flex max-w-[1200px] flex-col gap-12">
           <SectionHeading eyebrow="Funzionalità" title="Tutto quello che serve, organizzato per attività." />
           <FeatureTabs groups={d.features} />
-          <p className="font-mono text-[11px] text-ink-muted">Fonte: scheda prodotto su cedisoft.it · da riconfermare</p>
         </div>
       </section>
 
@@ -140,6 +144,7 @@ export default async function ProductPage({ params }: { params: Params }) {
         </section>
       )}
 
+      {isPark ? <GestParkCta demoHref={demoHref} /> : (
       <section id="prezzi" className="scroll-mt-32 bg-ambient px-6 py-24">
         <div className="mx-auto flex max-w-[1200px] flex-col items-start gap-6">
           <SectionHeading eyebrow="Prezzi" title="Una proposta costruita sulla tua attività."
@@ -150,6 +155,7 @@ export default async function ProductPage({ params }: { params: Params }) {
           </div>
         </div>
       </section>
+      )}
 
       {related.length > 0 && (
         <section id="correlati" className="scroll-mt-32 px-6 py-24">

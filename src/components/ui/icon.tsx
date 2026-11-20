@@ -5,7 +5,7 @@ import {
   ArrowLeft, Check, FlaskConical, Headset, LifeBuoy, Minus, RotateCcw, Send, Sparkles,
   ArrowRight, Calculator, CarFront, ChevronDown, ChevronRight, CircleUserRound, ClipboardCheck,
   FileCheck2, GitCommitHorizontal, Globe, KeyRound, Mail, MapPin, Menu, Newspaper, Phone, Scale,
-  Shapes, Shirt, Video, Wrench, X, type LucideIcon,
+  Shapes, Shirt, Video, Wrench, X, ChartColumn, HardDrive, Wallet, FileText, Landmark, Link2, type LucideIcon,
 } from 'lucide-react';
 
 /** Registro esplicito (tree-shaking): ogni icona usata dai contenuti va aggiunta qui. Stroke 1.75 come da design. */
@@ -20,6 +20,7 @@ const icons: Record<string, LucideIcon> = {
   'file-check-2': FileCheck2, 'git-commit-horizontal': GitCommitHorizontal, globe: Globe, 'key-round': KeyRound,
   mail: Mail, 'map-pin': MapPin, menu: Menu, newspaper: Newspaper, phone: Phone, scale: Scale, shapes: Shapes,
   shirt: Shirt, video: Video, wrench: Wrench, x: X,
+  'chart-column': ChartColumn, 'hard-drive': HardDrive, wallet: Wallet, 'file-text': FileText, landmark: Landmark, 'link-2': Link2,
 };
 
 export function Icon({ name, size = 18, className }: Readonly<{ name: string; size?: number; className?: string }>) {
