@@ -3,16 +3,19 @@ import Link from 'next/link';
 
 import { Badge } from '@/components/ui/badge';
 import { Icon } from '@/components/ui/icon';
+import { SoftwareIcon } from '@/components/ui/software-icon';
 import { SpotlightCard } from '@/components/ui/spotlight-card';
 import type { Product } from '@/content/types';
 
 /** Card prodotto. L'anteprima UI arriverà con gli screenshot approvati: niente mock finti in produzione. */
-export function ProductCard({ product }: Readonly<{ product: Product }>) {
+export function ProductCard({ product, logo }: Readonly<{ product: Product; logo?: boolean }>) {
   const href = product.hasDetailPage || product.detailPage ? productHref(product) : null;
   const body = (
     <>
       <span className="flex items-start justify-between gap-3">
-        <span className="flex size-11 items-center justify-center rounded-xl bg-digital text-white"><Icon name={product.icon} size={20} /></span>
+        {logo
+          ? <SoftwareIcon slug={product.slug} size={56} />
+          : <span className="flex size-11 items-center justify-center rounded-xl bg-digital text-white"><Icon name={product.icon} size={20} /></span>}
         {product.status && <Badge tone="warning">{product.status.label}</Badge>}
       </span>
       <span className="flex flex-col gap-1.5">

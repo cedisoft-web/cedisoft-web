@@ -4,11 +4,13 @@ import { Layer, ParallaxStage, Tilt } from '@/components/home/parallax-stage';
 import { ScreenGallery, type Screen } from '@/components/software/screen-gallery';
 import { ButtonLink } from '@/components/ui/button';
 import { Icon } from '@/components/ui/icon';
+import { PartnerMarquee } from '@/components/home/partner-marquee';
 import { Reveal } from '@/components/ui/reveal';
 import { Breadcrumb, SectionHeading } from '@/components/ui/section';
 import { SoftwareIcon } from '@/components/ui/software-icon';
 import { SpotlightCard } from '@/components/ui/spotlight-card';
 import { cn } from '@/lib/cn';
+import type { Product } from '@/content/types';
 
 const SHOT = '/gestpark/screens/';
 const PHOTO = '/gestpark/photos/';
@@ -41,7 +43,6 @@ export function GestParkHero({ value }: Readonly<{ value: string }>) {
           <Breadcrumb tone="dark" items={[{ label: 'Home', href: '/' }, { label: 'Software', href: '/software' }, { label: 'Gest Park' }]} />
           <span className="flex items-center gap-4">
             <SoftwareIcon slug="gest-park" size={64} className="shadow-[0_18px_40px_-14px_rgba(0,0,0,.55)]" />
-            <span className="eyebrow !text-[#9CC8EC]">Gestionale per autosaloni</span>
           </span>
           <h1 className="text-[clamp(36px,5vw,62px)] font-semibold leading-[1.04] tracking-[-0.045em] [text-wrap:balance]">Gest Park, il gestionale pensato per l’autosalone.</h1>
           <p className="max-w-xl text-lg leading-relaxed text-[#DCE4F6] [text-wrap:pretty]">{value}</p>
@@ -65,12 +66,6 @@ export function GestParkHero({ value }: Readonly<{ value: string }>) {
             </Layer>
             <Layer depth={28} z={90} className="cs-float absolute -bottom-10 -right-2 w-[50%] sm:-right-8" style={{ ['--delay' as string]: '-2s' }}>
               <ScreenFrame name="veicolo-costi-utile" w={1014} h={761} alt="Gest Park: costi e utile del veicolo" sizes="(min-width: 980px) 320px, 46vw" />
-            </Layer>
-            <Layer depth={36} z={120} className="cs-float absolute -left-3 top-[10%] sm:-left-9" style={{ ['--delay' as string]: '-1s' }}>
-              <span className="glass-light inline-flex items-center gap-2.5 rounded-2xl px-4 py-3 text-[13px] font-semibold text-ink shadow-lg">
-                <span className="flex size-8 items-center justify-center rounded-lg bg-[var(--success-bg)] text-[var(--success-fg)]"><Icon name="trending-up" size={16} /></span>
-                Costi e utile in tempo reale
-              </span>
             </Layer>
           </Tilt>
         </ParallaxStage>
@@ -214,10 +209,10 @@ const screens: Screen[] = [
 
 export function GestParkGallery() {
   return (
-    <section id="dentro" className="bg-ambient scroll-mt-32 px-6 py-24">
-      <div className="mx-auto flex max-w-[1200px] flex-col gap-12">
-        <SectionHeading eyebrow="Dentro Gest Park" title="Le schermate del software, come le vedrai al lavoro."
-          lead="Una selezione delle schermate principali, con dati dimostrativi." />
+    <section id="dentro" className="bg-ambient scroll-mt-32 px-6 py-16">
+      <div className="mx-auto flex max-w-[1100px] flex-col gap-8">
+        <SectionHeading eyebrow="Dentro Gest Park" title="Le schermate del software, al lavoro."
+          lead="Le schermate principali, con dati dimostrativi." />
         <ScreenGallery screens={screens} />
       </div>
     </section>
@@ -239,6 +234,76 @@ export function GestParkCta({ demoHref }: Readonly<{ demoHref: string }>) {
             <ButtonLink href={demoHref} size="lg" arrow className="!bg-white !text-blue-700 hover:!bg-white/90">Richiedi una demo</ButtonLink>
             <ButtonLink href="/azienda#contatti" size="lg" className="!bg-transparent border border-white/50 !text-white hover:!bg-white/10">Richiedi un preventivo</ButtonLink>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const integrations = [
+  { id: 'infocar', name: 'Infocar' },
+  { id: 'eurotax', name: 'Eurotax' },
+  { id: 'dat', name: 'DAT Italia' },
+  { id: 'tosnet', name: 'Tosnet' },
+  { id: 'seasoft', name: 'Seasoft' },
+  { id: 'zucchetti', name: 'Zucchetti' },
+];
+
+/** Banda scura con i loghi a scorrimento, come in home. */
+export function GestParkIntegrations() {
+  return (
+    <section id="integrazioni" className="scroll-mt-32 bg-blue-950 px-6 py-20">
+      <div className="mx-auto flex max-w-[1200px] flex-col gap-10">
+        <SectionHeading eyebrow="Integrazioni" tone="dark" title="Collegato ai servizi che usi già." />
+        <PartnerMarquee partners={integrations} />
+      </div>
+    </section>
+  );
+}
+
+const webPillars = [
+  { icon: 'users', title: 'CRM completo e integrato', img: 'gpw-crm-trattative', alt: 'Gest Park Web: trattative nel CRM', w: 1800, h: 1157,
+    text: 'Contatti, richieste e trattative in un unico posto, con la prossima azione sempre chiara. Segui ogni cliente e aumenta le vendite chiuse.' },
+  { icon: 'globe', title: 'Website builder', img: 'gpw-web-editor', alt: 'Gest Park Web: editor del sito', w: 1800, h: 1157,
+    text: 'Crea in modo rapido il sito della tua concessionaria, con il parco auto sempre aggiornato e senza competenze tecniche.' },
+  { icon: 'send', title: 'Multipubblicazione', img: 'widget-multipubblicazione', alt: 'Gest Park Web: pubblicazione sui portali', w: 900, h: 762,
+    text: 'Pubblica i veicoli del parco auto sulle piattaforme di vendita online in un solo passaggio, senza reinserire i dati.' },
+];
+
+/** Gest Park Web: la piattaforma web di Gest Park, presentata nei suoi tre strumenti. */
+export function GestParkWeb({ product, demoHref }: Readonly<{ product: Product; demoHref: string }>) {
+  return (
+    <section id={product.slug} className="bg-gpw-dark relative isolate scroll-mt-32 overflow-hidden px-6 py-24 text-white">
+      <span aria-hidden className="cs-orb -z-10" style={{ right: '-8%', top: '-10%', width: 520, height: 520, background: 'radial-gradient(circle, rgba(61,168,74,.4), transparent 68%)', ['--d' as string]: '30s' }} />
+      <div className="mx-auto flex max-w-[1200px] flex-col gap-14">
+        <Reveal className="mx-auto flex max-w-3xl flex-col items-center gap-5 text-center">
+          <Image src="/brand/gpw-wordmark-white.png" alt={product.name} width={260} height={46} />
+          <span className="inline-flex w-fit items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 font-mono text-[11px] uppercase tracking-[.06em] text-[#BFEFDD] ring-1 ring-white/20">
+            La piattaforma web di Gest Park{product.status ? ` · ${product.status.label}` : ''}
+          </span>
+          <h2 className="text-[clamp(28px,3.6vw,44px)] font-semibold leading-[1.08] tracking-[-0.03em] [text-wrap:balance]">CRM, sito web e vendita online, nello stesso ambiente del tuo gestionale.</h2>
+          <p className="text-[17px] leading-relaxed text-[#D5EFE6]">Gest Park Web usa i dati del parco auto di Gest Park: li trasforma in contatti seguiti, in un sito sempre aggiornato e in annunci sulle piattaforme di vendita.</p>
+        </Reveal>
+
+        <div className="grid gap-5 min-[980px]:grid-cols-3">
+          {webPillars.map((p, i) => (
+            <Reveal key={p.title} delay={i * 0.08} className="h-full">
+              <article className="flex h-full flex-col overflow-hidden rounded-[24px] bg-white/[.07] ring-1 ring-white/15 backdrop-blur-sm">
+                <div className="flex aspect-[16/10] items-center justify-center overflow-hidden bg-white/[.05] p-4">
+                  <Image src={`/gpw/${p.img}.webp`} alt={p.alt} width={p.w} height={p.h} sizes="(min-width: 980px) 380px, 92vw" className="h-full w-auto max-w-full rounded-lg object-contain object-top shadow-2xl" />
+                </div>
+                <div className="flex flex-1 flex-col gap-3 p-6">
+                  <span className="flex size-10 items-center justify-center rounded-xl bg-[#3DA84A]/25 text-[#BFEFDD]"><Icon name={p.icon} size={20} /></span>
+                  <h3 className="text-xl font-semibold tracking-[-0.02em]">{p.title}</h3>
+                  <p className="text-[15px] leading-relaxed text-[#D5EFE6]">{p.text}</p>
+                </div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+
+        <div className="flex justify-center">
+          <ButtonLink href={demoHref} arrow size="lg" className="!bg-white !text-[#0B3F34] hover:!bg-white/90">Richiedi una demo</ButtonLink>
         </div>
       </div>
     </section>

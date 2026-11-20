@@ -2,7 +2,9 @@ import Image from 'next/image';
 
 import { publicAsset } from '@/lib/public-asset';
 
-const partners = [
+export interface Partner { id: string; name: string }
+
+const defaultPartners: Partner[] = [
   { id: 'infocar', name: 'Infocar' },
   { id: 'quattroruote', name: 'Quattroruote' },
   { id: 'dat', name: 'DAT' },
@@ -12,7 +14,7 @@ const partners = [
 ];
 
 /** Loghi partner monocolore chiari che scorrono. Se esiste public/partners/<id>.svg|png viene usato (reso bianco), altrimenti il nome in forma di marchio. */
-export function PartnerMarquee() {
+export function PartnerMarquee({ partners = defaultPartners }: Readonly<{ partners?: Partner[] }>) {
   const items = partners.map((p) => ({ ...p, src: publicAsset(`partners/${p.id}.svg`) ?? publicAsset(`partners/${p.id}.png`) }));
   const row = (hidden: boolean) => (
     <ul aria-hidden={hidden || undefined} className="flex flex-none items-center gap-16 pr-16">

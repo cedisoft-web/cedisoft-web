@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
 import { FeatureTabs } from '@/components/software/feature-tabs';
-import { GestParkBlocks, GestParkCta, GestParkGallery, GestParkHero, GestParkHighlights } from '@/components/software/gest-park-showcase';
+import { GestParkBlocks, GestParkCta, GestParkGallery, GestParkHero, GestParkHighlights, GestParkIntegrations, GestParkWeb } from '@/components/software/gest-park-showcase';
 import { Accordion } from '@/components/ui/accordion';
 import { Badge } from '@/components/ui/badge';
 import { ButtonLink } from '@/components/ui/button';
@@ -71,13 +71,13 @@ export default async function ProductPage({ params }: { params: Params }) {
         </div>
       </PageHero>}
 
-      <nav aria-label="In questa pagina" className="sticky top-[84px] z-30 hidden px-6 pt-4 md:block">
+      {!isPark && <nav aria-label="In questa pagina" className="sticky top-[84px] z-30 hidden px-6 pt-4 md:block">
         <ul className="mx-auto flex w-fit gap-1 rounded-full border border-border-subtle bg-white/90 p-1.5 shadow-sm backdrop-blur-[14px]">
           {anchors.map(([id, label]) => (
             <li key={id}><a href={`#${id}`} className="inline-flex h-9 items-center rounded-full px-4 text-[13px] font-medium text-ink-2 transition-colors hover:bg-blue-600/[.06] hover:text-ink">{label}</a></li>
           ))}
         </ul>
-      </nav>
+      </nav>}
 
       {isPark ? (<><GestParkHighlights /><GestParkBlocks /><GestParkGallery /></>) : (
       <section id="panoramica" className="scroll-mt-32 px-6 py-24">
@@ -99,7 +99,7 @@ export default async function ProductPage({ params }: { params: Params }) {
       )}
 
       {/* Un'unica pagina per l'ambiente: i prodotti con detailPage === slug (es. Gest Park Web) sono descritti qui */}
-      {embedded.map((e) => (
+      {embedded.map((e) => isPark ? <GestParkWeb key={e.slug} product={e} demoHref={demoHref} /> : (
         <section key={e.slug} id={e.slug} className="bg-gpw-dark relative isolate scroll-mt-32 overflow-hidden px-6 py-24 text-white">
           <span aria-hidden className="cs-orb -z-10" style={{ right: '-8%', top: '-10%', width: 520, height: 520, background: 'radial-gradient(circle, rgba(61,168,74,.4), transparent 68%)', ['--d' as string]: '30s' }} />
           <div className="mx-auto grid max-w-[1200px] items-center gap-12 min-[980px]:grid-cols-[.9fr_1.1fr]">
@@ -126,7 +126,9 @@ export default async function ProductPage({ params }: { params: Params }) {
         </div>
       </section>
 
-      {d.integrations.length > 0 && (
+      {isPark && <GestParkIntegrations />}
+
+      {!isPark && d.integrations.length > 0 && (
         <section id="integrazioni" className="scroll-mt-32 px-6 py-24">
           <div className="mx-auto flex max-w-[1200px] flex-col gap-12">
             <SectionHeading eyebrow="Integrazioni" title="Collegato ai servizi che usi già." />
@@ -162,7 +164,7 @@ export default async function ProductPage({ params }: { params: Params }) {
           <div className="mx-auto flex max-w-[1200px] flex-col gap-12">
             <SectionHeading eyebrow="Software correlati" title="Completa il tuo ecosistema" />
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {related.map((r) => <ProductCard key={r.slug} product={r} />)}
+              {related.map((r) => <ProductCard key={r.slug} product={r} logo />)}
             </div>
           </div>
         </section>
